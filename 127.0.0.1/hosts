@@ -1,5 +1,7 @@
 # This is a custom hosts file with all the porn sites I could find.
 # It contains over 4,400 domains with no duplicates.
+# An updated version is always available at https://github.com/Clefspeare13/pornhosts
+
 
 # localhost
 127.0.0.1 local
@@ -2314,7 +2316,6 @@ fe80::1%lo0 localhost
 127.0.0.1 gonorar.com
 127.0.0.1 goobenz.tumblr.com
 127.0.0.1 goodcleansex.tumblr.com
-127.0.0.1 google.com
 127.0.0.1 gotowebcams.com
 127.0.0.1 gotporn.com
 127.0.0.1 gotwhatideserved.tumblr.com
