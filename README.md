@@ -10,4 +10,6 @@ Windows: %SystemRoot%\system32\drivers\etc\hosts folder.
 
 There are two ```hosts``` files in this repo, one which uses ```0.0.0.0``` and one which uses ```127.0.0.1```. If you are not sure which is right, use ```0.0.0.0``` as it is faster and will run on essentially all machines. However, if you know what you're doing and need a ```127.0.0.1``` version, it is available [here](https://raw.githubusercontent.com/Clefspeare13/pornhosts/master/127.0.0.1/hosts)
 
+Additionally, there is a new hosts file which will force Safe Search in Bing and Google, however it has not been tested yet. It can be found [here](https://raw.githubusercontent.com/Clefspeare13/pornhosts/master/0.0.0.0%20%2B%20SafeSearch%20(beta)/hosts)
+
 Any helpful additions are appreciated
