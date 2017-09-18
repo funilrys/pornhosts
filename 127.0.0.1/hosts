@@ -5824,3 +5824,9 @@ fe80::1%lo0 localhost
 127.0.0.1 zuzandra.com
 127.0.0.1 zzcartoon.com
 127.0.0.1 zzgays.com
+
+# Snuff domains
+
+127.0.0.1 bitcheese.net
+127.0.0.1 horriblevideos.com
+127.0.0.1 deathaddict.com
