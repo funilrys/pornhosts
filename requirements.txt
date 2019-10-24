@@ -1,3 +1,11 @@
 PyFunceble-dev
 ultimate-hosts-blacklist-whitelist
+python>=3.7
+colorama
+domain2idna
+dnspython
+PyYAML
+requests
+setuptools
+urllib3
 
