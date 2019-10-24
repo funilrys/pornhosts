@@ -10,7 +10,7 @@ cache:
 
 env:
   global:
-    - secure: QKiP1Rt+ir3uLyt/adSIL4402rsHgorvG7u6z1NjXXVCTK+V1oP5sFoFOzcZh4RVZA3varsQ2Cp7LFdylccSqxMRPwZZ8VUHMufzrGqGwj1e/cQPXWl5Epzcph2XLPxGfvDO/ZFXKL1ZSJClA4/RhRWGWmESO5rHwXpZ2pMXJRa79o1WDbjXNEwYbD1L3dJ2pGPs5YVjaC/RPXRRiFsP1QL5kLoVrWB3Q50emDVxWsZ1HuqMOQ4gORuvJA3kjgnwF+4v+cdJB+rWBwq3k+Q98Q90VfvvnuqhfFdD4g+Ix1X4VSh5RM1D3y2jOuugnY42/pO4kRdYiIf7TYRV0XAnUP2mmy1cZryjG1dluExzuhD4/WWw8jM1gg+8fOO1BQ83a0D3ngTVmNylRW/FdH4faeCpSc/HNPXKjA9ylit/fD3iaDhfX8yh0BB33im3RpNNcexjQaOBjvNS5+vp9WDr0kTIAfSazY1Y/NWEnjxoIhvss/Dmz9m94esKVSuq1q7JxCv9pqpjguMun4/yenVR+w+B77KoBSQAHefe2jOQYcwPpCwCu3NmU4O9vZu7ecc9TDk5a2jE1+jVmaW8zdRRLjByIMCq/6/4Rn0chf9RkBsz9BQxvIQRhBRVsPknK+Vj9SqtTGxM4XskogAMczGBQ5N0YMW+LlhMpSTH3eo9YO0=
+    - secure: "QKiP1Rt+ir3uLyt/adSIL4402rsHgorvG7u6z1NjXXVCTK+V1oP5sFoFOzcZh4RVZA3varsQ2Cp7LFdylccSqxMRPwZZ8VUHMufzrGqGwj1e/cQPXWl5Epzcph2XLPxGfvDO/ZFXKL1ZSJClA4/RhRWGWmESO5rHwXpZ2pMXJRa79o1WDbjXNEwYbD1L3dJ2pGPs5YVjaC/RPXRRiFsP1QL5kLoVrWB3Q50emDVxWsZ1HuqMOQ4gORuvJA3kjgnwF+4v+cdJB+rWBwq3k+Q98Q90VfvvnuqhfFdD4g+Ix1X4VSh5RM1D3y2jOuugnY42/pO4kRdYiIf7TYRV0XAnUP2mmy1cZryjG1dluExzuhD4/WWw8jM1gg+8fOO1BQ83a0D3ngTVmNylRW/FdH4faeCpSc/HNPXKjA9ylit/fD3iaDhfX8yh0BB33im3RpNNcexjQaOBjvNS5+vp9WDr0kTIAfSazY1Y/NWEnjxoIhvss/Dmz9m94esKVSuq1q7JxCv9pqpjguMun4/yenVR+w+B77KoBSQAHefe2jOQYcwPpCwCu3NmU4O9vZu7ecc9TDk5a2jE1+jVmaW8zdRRLjByIMCq/6/4Rn0chf9RkBsz9BQxvIQRhBRVsPknK+Vj9SqtTGxM4XskogAMczGBQ5N0YMW+LlhMpSTH3eo9YO0="
     - GIT_NAME: "Spirillen"
     - GIT_EMAIL: "44526987+spirillen@users.noreply.github.com"
     - TRAVIS_REPO_SLUG: Import-External-Sources/pornhosts
@@ -35,7 +35,7 @@ addons:
 
 install:
   - pip3 install --upgrade pip
-  - pip3 install PyFunceble-dev
+  - pip3 install PyFunceble
   - pip3 install ultimate-hosts-blacklist-whitelist
 
 git:
