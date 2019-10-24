@@ -1,3 +1,5 @@
+# Temponary fork for getting this project back up to date
+
 # pornhosts -- a consolidated anti porn hosts file
 
 This is an endeavour to find all porn domains and compile them into a single hosts to allow for easy blocking of porn on your local machine or on a network.
