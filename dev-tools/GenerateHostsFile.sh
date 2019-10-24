@@ -21,8 +21,8 @@ my_git_tag=V.${TRAVIS_BUILD_NUMBER}
 bad_referrers=$(wc -l < ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt)
 hosts=${TRAVIS_BUILD_DIR}/0.0.0.0/hosts
 hosts127=${TRAVIS_BUILD_DIR}/127.0.0.1/hosts
-mobile="${TRAVIS_BUILD_DIR}/Mobile 0.0.0.0/hosts"
-safesearch="${TRAVIS_BUILD_DIR}/0.0.0.0 + SafeSearch (beta)/hosts"
+mobile=$"{TRAVIS_BUILD_DIR}/Mobile 0.0.0.0/hosts"
+safesearch=$"{TRAVIS_BUILD_DIR}/0.0.0.0 + SafeSearch (beta)/hosts"
 
 hostsTemplate=${TRAVIS_BUILD_DIR}/dev-tools/hosts.template
 MobileTemplate=${TRAVIS_BUILD_DIR}/dev-tools/mobile.template
