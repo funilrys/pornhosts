@@ -21,6 +21,7 @@ monthtag=$(date +%m)
 # Set our Input File
 # ******************
 input=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
+testfile=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
 pyfuncebleConfigurationFileLocation=${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble.yaml
 pyfuncebleProductionConfigurationFileLocation=${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble_production.yaml
 
@@ -43,7 +44,7 @@ RunFunceble () {
 	"bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" --plain --autosave-minutes 20 \
 	--commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER}  [Auto Saved]" \
 	--commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER}" \
-	-f ${input}
+	-f ${testfile}
 
 }
 
