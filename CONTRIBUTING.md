@@ -4,7 +4,8 @@ If you feel like contributing there are a couple of ways to do this
 
 1. You can add new super high speed bash code, optimising existing, rewrite for 
     broader support of bash environments across OS's
-1. You can add domains to either the hosts.list in the source folder.
+1. You can add domains to either the hosts.txt in the source folder. or for snuff in 
+    snuff.txt
 1. You don't have to locate the right line/order to add you contribution, the 
     CI/CD will do the sorting.
 
