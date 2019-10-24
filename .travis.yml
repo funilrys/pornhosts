@@ -26,6 +26,12 @@ addons:
     - msttcorefonts
     - unbound
 
+services:
+  - mysql
+
+before_install:
+  - mysql -e 'CREATE DATABASE PyFunceble;'
+
 install:
   - pip3 install --upgrade pip
   - pip3 install PyFunceble-dev
