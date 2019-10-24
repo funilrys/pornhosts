@@ -25,7 +25,7 @@ addons:
     - dos2unix
     - msttcorefonts
     - unbound
-  mariadb: '10.0'
+  mariadb: '10.4'
 
 install:
   - pip3 install --upgrade pip
