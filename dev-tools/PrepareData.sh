@@ -24,6 +24,8 @@
 SOURCE=""
 input1=${TRAVIS_BUILD_DIR}/source/hosts.txt
 snuff=${TRAVIS_BUILD_DIR}/source/snuff.txt
+testfile=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
+
 whitelist="$(wget -qO ${TRAVIS_BUILD_DIR}/whitelist 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/domain.list' && wget -qO- 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/wildcard.list' >> ${TRAVIS_BUILD_DIR}/whitelist )"
 # *********************************************
 # Get Travis CI Prepared for Committing to Repo
@@ -46,9 +48,15 @@ PrepareTravis
 
 PrepareLists () {
 
-    cat ${snuff} >> ${input1}
+    mkdir ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/
 
+    cat ${snuff} >> ${testfile}
+    cat ${input1} >> ${testfile}
+
+    sort -u -f ${testfile} -o ${testfile}
+    sort -u -f ${snuff} -o ${snuff}
     sort -u -f ${input1} -o ${input1}
+
     dos2unix ${input1}
  }
 PrepareLists
