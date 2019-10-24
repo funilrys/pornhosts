@@ -42,7 +42,7 @@ inputdbA=/tmp/lastupdated.db
 inputdb1=/tmp/hosts.db
 
 # **********************************
-# Setup input bots and referer lists
+echo Setup input bots and referer lists
 # **********************************
 
 input1=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
@@ -85,7 +85,7 @@ cat ${input1} | sed '/\./!d' > ${input2} && mv ${input2} ${input1}
 dos2unix ${input1}
 
 # *******************************
-# Generate hosts 0.0.0.0
+echo Generate hosts 0.0.0.0
 # *******************************
 
 cat ${hostsTemplate} > ${tmphostsA}
@@ -94,7 +94,7 @@ cat "${input1}" | awk '/^#/{ next }; {  printf("0.0.0.0\t%s\n",tolower($1)) }' >
 mv ${tmphostsA} ${hosts}
 
 # *******************************
-# Generate hosts 127.0.0.1
+echo Generate hosts 127.0.0.1
 # *******************************
 
 cat ${hostsTemplate} > ${tmphostsA}
@@ -130,7 +130,7 @@ cat "${input1}" | awk '/^#/{ next }; {  printf("address=/%s/\n",tolower($1)) }' 
 mv ${tmphostsB} ${dnsmasq}
 
 # ************************************
-# Make RPZ always_nxdomain
+echo Make Bind format RPZ 
 # ************************************
 RPZ="$(mktemp)"
 
@@ -139,7 +139,7 @@ cat "${input1}" | awk '/^#/{ next }; {  printf("%s\tCNAME\t.\n*.%s\tCNAME\t.\n",
 mv "${RPZ}" "${TRAVIS_BUILD_DIR}/mypdns.cloud.rpz"
 
 # ***********************************
-# Generate unbound zone file
+echo Unbound zone file always_nxdomain
 # ***********************************
 UNBOUND="$(mktemp)"
 

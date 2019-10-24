@@ -17,14 +17,14 @@
 # https://gitlab.com/my-privacy-dns/support/issues
 
 # ***********************************************************
-# Remove our inactive and invalid domains from PULL_REQUESTS
+echo Remove our inactive and invalid domains from PULL_REQUESTS
 # ***********************************************************
 
 cat ${TRAVIS_BUILD_DIR}/dev-tools/output/domains/ACTIVE/list | grep -v "^$" | grep -v "^#" > tempdomains.txt
 mv tempdomains.txt ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
 
 # ***************************************************************************
-# Generate our host file and update README with build and version information
+echo Generate our host file and update README with build and version information
 # ***************************************************************************
 
 #bash ${TRAVIS_BUILD_DIR}/dev-tools/UpdateReadme.sh
