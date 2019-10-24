@@ -53,11 +53,11 @@ PrepareLists () {
     cat ${snuff} >> ${testfile}
     cat ${input1} >> ${testfile}
 
-    sort -u -f ${testfile} -o ${testfile}
-    sort -u -f ${snuff} -o ${snuff}
     sort -u -f ${input1} -o ${input1}
+    sort -u -f ${snuff} -o ${snuff}
+    sort -u -f ${testfile} -o ${testfile}
 
-    dos2unix ${input1}
+    dos2unix ${testfile}
  }
 PrepareLists
 

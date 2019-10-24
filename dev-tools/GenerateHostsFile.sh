@@ -21,8 +21,8 @@ my_git_tag=V.${TRAVIS_BUILD_NUMBER}
 bad_referrers=$(wc -l < ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt)
 hosts=${TRAVIS_BUILD_DIR}/0.0.0.0/hosts
 hosts127=${TRAVIS_BUILD_DIR}/127.0.0.1/hosts
-mobile=$"{TRAVIS_BUILD_DIR}/Mobile 0.0.0.0/hosts"
-safesearch=$"{TRAVIS_BUILD_DIR}/0.0.0.0 + SafeSearch (beta)/hosts"
+#mobile=$"{TRAVIS_BUILD_DIR}/Mobile 0.0.0.0/hosts"
+#safesearch=$"{TRAVIS_BUILD_DIR}/0.0.0.0 + SafeSearch (beta)/hosts"
 
 hostsTemplate=${TRAVIS_BUILD_DIR}/dev-tools/hosts.template
 MobileTemplate=${TRAVIS_BUILD_DIR}/dev-tools/mobile.template
@@ -42,7 +42,7 @@ inputdbA=/tmp/lastupdated.db
 inputdb1=/tmp/hosts.db
 
 # **********************************
-# Setup input bots and referer lists
+echo Setup input bots and referer lists
 # **********************************
 
 input1=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
@@ -85,7 +85,7 @@ cat ${input1} | sed '/\./!d' > ${input2} && mv ${input2} ${input1}
 dos2unix ${input1}
 
 # *******************************
-# Generate hosts 0.0.0.0
+echo Generate hosts 0.0.0.0
 # *******************************
 
 cat ${hostsTemplate} > ${tmphostsA}
@@ -94,7 +94,7 @@ cat "${input1}" | awk '/^#/{ next }; {  printf("0.0.0.0\t%s\n",tolower($1)) }' >
 mv ${tmphostsA} ${hosts}
 
 # *******************************
-# Generate hosts 127.0.0.1
+echo Generate hosts 127.0.0.1
 # *******************************
 
 cat ${hostsTemplate} > ${tmphostsA}
@@ -106,19 +106,19 @@ mv ${tmphostsA} ${hosts127}
 # Generate Mobile hosts
 # *******************************
 
-cat ${MobileTemplate} > ${tmphostsA}
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" >> ${tmphostsA}
-cat "${input1}" | awk '/^#/{ next }; {  printf("127.0.0.1\t%s\n",tolower($1)) }' >> ${tmphostsA}
-cp ${tmphostsA} ${mobile}
+#cat ${MobileTemplate} > ${tmphostsA}
+#printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" >> ${tmphostsA}
+#cat "${input1}" | awk '/^#/{ next }; {  printf("0.0.0.0\t%s\n",tolower($1)) }' >> ${tmphostsA}
+#cp ${tmphostsA} ${mobile}
 
 # *******************************
 # Generate hosts + SafeSearch
 # *******************************
 
-cat ${SafeSearchTemplate} > ${tmphostsA}
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" >> ${tmphostsA}
-cat "${input1}" | awk '/^#/{ next }; {  printf("127.0.0.1\t%s\n",tolower($1)) }' >> ${tmphostsA}
-cp ${tmphostsA} ${safesearch}
+#cat ${SafeSearchTemplate} > ${tmphostsA}
+#printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" >> ${tmphostsA}
+#cat "${input1}" | awk '/^#/{ next }; {  printf("0.0.0.0\t%s\n",tolower($1)) }' >> ${tmphostsA}
+#cp ${tmphostsA} ${safesearch}
 
 # ********************************************************
 # PRINT DATE AND TIME OF LAST UPDATE INTO DNSMASQ TEMPLATE
@@ -130,7 +130,7 @@ cat "${input1}" | awk '/^#/{ next }; {  printf("address=/%s/\n",tolower($1)) }' 
 mv ${tmphostsB} ${dnsmasq}
 
 # ************************************
-# Make RPZ always_nxdomain
+echo Make Bind format RPZ 
 # ************************************
 RPZ="$(mktemp)"
 
@@ -139,7 +139,7 @@ cat "${input1}" | awk '/^#/{ next }; {  printf("%s\tCNAME\t.\n*.%s\tCNAME\t.\n",
 mv "${RPZ}" "${TRAVIS_BUILD_DIR}/mypdns.cloud.rpz"
 
 # ***********************************
-# Generate unbound zone file
+echo Unbound zone file always_nxdomain
 # ***********************************
 UNBOUND="$(mktemp)"
 
