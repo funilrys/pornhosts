@@ -27,7 +27,7 @@ mv tempdomains.txt ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
 # Generate our host file and update README with build and version information
 # ***************************************************************************
 
-bash ${TRAVIS_BUILD_DIR}/dev-tools/UpdateReadme.sh
+#bash ${TRAVIS_BUILD_DIR}/dev-tools/UpdateReadme.sh
 bash ${TRAVIS_BUILD_DIR}/dev-tools/GenerateHostsFile.sh
 
 # *************************************************************
