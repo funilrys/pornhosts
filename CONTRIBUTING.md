@@ -11,15 +11,8 @@ If you feel like contributing there are a couple of ways to do this
 # Workflow
 
 The workflow is a bit clumsy, but the most reliable and simple.
-    1. You add an issue, describing your submission
-    1. You then open a MR (Merge Request) where you'll add you contribution
-
-## Why first issue then MR
-The simplest idea is often the most safe, and this is the very reason to this 
-workflow. It is also giving the project a searchable database for added domains
-for comment, by which we can't add in other ways, as all the lists needs to be 
-raw data; from which other scripts easily can work with, without first have to 
-run several cleanup processes.
+    1. You add an issue with you question, feature request or ? 
+    1. You open a MR (Merge Request) where you'll add your contribution
 
 # GPG signed
 We require all submissions to be signed with a valid GPG key.
@@ -39,6 +32,6 @@ to figure out the current way.
 # Writing files/lines
 - All files most end with a newline (\n)(LF) UTF-8.
 - All files have to be in universal UTF-8 style without BOM
-- Files containing `_windows_` in it's files most be encoded in `ISO-8859-1`
-  Latin1 and newlines shall end in (CRLF)
+- ANy fFiles or file location containing `_windows_` in it's files most be 
+  encoded in `ISO-8859-1` Latin1 and newlines *most* end in (CRLF)
 - Line length should not be more than 80 chars for terminals support
