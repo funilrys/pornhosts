@@ -40,7 +40,7 @@ RunFunceble () {
         rm "${pyfuncebleProductionConfigurationFileLocation}"
     fi
 
-    PyFunceble --travis -h -db --database-type mariadb -m -p 4 -ex --dns 127.0.0.1 --cmd-before-end \
+    PyFunceble --travis -h -db -m -p 4 -ex --dns 127.0.0.1 --cmd-before-end \
 	"bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" --plain --autosave-minutes 20 \
 	--commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER}  [Auto Saved]" \
 	--commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER}" \
