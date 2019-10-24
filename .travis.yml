@@ -1,12 +1,12 @@
 # This script requires setting up your 'Personal access tokens' from github
 # in your travis build setting as 'GH_TOKEN' and running travis encrypt
 # API authentication from travis
-#dist: bionic
+dist: bionic
 
 language: python
 
 python:
-  - "3.8"
+  - "3.7"
 
 cache:
   - pip
