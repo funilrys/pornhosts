@@ -51,7 +51,7 @@ sudo: required
 script:
   - sudo lsof -i :53
   - cat /etc/resolv.conf
-  - systemd-resolve --set-dns="127.0.0.1" ens4
+  - systemd-resolve --set-dns="127.0.0.1" --interface=ens4
   - systemd-resolve --status
   #- sudo apt install -yqq unbound
   #- sudo systemctl disable systemd-resolved.service
