@@ -47,4 +47,5 @@ matrix:
 sudo: required
 
 script:
+  - ls -lh ${TRAVIS_BUILD_DIR}/dev-tools/
   - bash dev-tools/PrepareData.sh && bash dev-tools/DataTesting.sh
