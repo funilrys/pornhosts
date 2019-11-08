@@ -29,7 +29,8 @@ addons:
 #services:
 #  - mysql
 
-#before_install:
+before_install:
+  - unbound-control restart
 #  - mysql -e 'CREATE DATABASE PyFunceble;'
 #  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 
