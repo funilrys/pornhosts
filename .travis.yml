@@ -29,8 +29,7 @@ addons:
 #services:
 #  - mysql
 
-before_install:
-  - unbound-control restart
+#before_install:
 #  - mysql -e 'CREATE DATABASE PyFunceble;'
 #  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 
@@ -48,5 +47,6 @@ matrix:
 sudo: required
 
 script:
+  - unbound-control restart && dig www.mypdns.org @127.0.0.1
   - ls -lh ${TRAVIS_BUILD_DIR}/dev-tools/
   - bash dev-tools/PrepareData.sh && bash dev-tools/DataTesting.sh
