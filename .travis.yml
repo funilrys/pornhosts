@@ -51,6 +51,10 @@ sudo: required
 script:
   - sudo lsof -i :53
   #- sudo apt install -yqq unbound
-  - unbound-control restart && dig www.mypdns.org @127.0.0.1
+  - sudo systemctl disable systemd-resolved.service
+  - sudo service systemd-resolved stop
+  - sudo service restart pdns-recursor
+  - dig www.mypdns.org @127.0.0.1
+  - sudo lsof -i :53
   - ls -lh ${TRAVIS_BUILD_DIR}/dev-tools/
   - bash dev-tools/PrepareData.sh && bash dev-tools/DataTesting.sh
