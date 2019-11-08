@@ -52,7 +52,7 @@ script:
   - sudo lsof -i :53
   - cat /etc/resolv.conf
   - printf "nameserver 127.0.0.1\n" >> ../run/systemd/resolve/stub-resolv.conf
-  - printf "nameserver 127.0.0.1\n" >> ../etc/resolv.conf
+  - printf "nameserver 127.0.0.1\n" >> /etc/resolv.conf
   - printf "local-address=0.0.0.0\nlocal-port=\n" >> /etc/powerdns/recursor.conf
   - systemd-resolve --status
   #- sudo apt install -yqq unbound
@@ -62,4 +62,4 @@ script:
   - dig www.mypdns.org @127.0.0.1
   - sudo lsof -i :53
   - ls -lh ${TRAVIS_BUILD_DIR}/dev-tools/
-  - bash dev-tools/PrepareData.sh && bash dev-tools/DataTesting.sh
+  - bash ${TRAVIS_BUILD_DIR}/dev-tools/PrepareData.sh && bash ${TRAVIS_BUILD_DIR}/dev-tools/DataTesting.sh
