@@ -25,16 +25,8 @@ addons:
     packages:
     - dos2unix
     - msttcorefonts
-    #- unbound
     - lsof
     - pdns-recursor
-
-#services:
-#  - mysql
-
-#before_install:
-#  - mysql -e 'CREATE DATABASE PyFunceble;'
-#  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 
 install:
   - pip3 install --upgrade pip
@@ -50,5 +42,4 @@ matrix:
 sudo: required
 
 script:
-  - ls -lh ${TRAVIS_BUILD_DIR}/dev-tools/
-  - bash ${TRAVIS_BUILD_DIR}/dev-tools/PrepareData.sh && bash ${TRAVIS_BUILD_DIR}/dev-tools/DataTesting.sh
+  - bash dev-tools/PrepareData.sh && bash dev-tools/DataTesting.sh
