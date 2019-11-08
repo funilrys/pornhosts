@@ -48,7 +48,7 @@ PrepareTravis
 
 PrepareLists () {
 
-    mkdir ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/
+    mkdir -p ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/
 
     cat ${snuff} >> ${testfile}
     cat ${input1} >> ${testfile}
