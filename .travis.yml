@@ -24,7 +24,8 @@ addons:
     packages:
     - dos2unix
     - msttcorefonts
-    - unbound
+    #- unbound
+    - lsof
 
 #services:
 #  - mysql
@@ -47,6 +48,8 @@ matrix:
 sudo: required
 
 script:
+  - lsof -i :53
+  - sudo apt install -yqq unbound
   - unbound-control restart && dig www.mypdns.org @127.0.0.1
   - ls -lh ${TRAVIS_BUILD_DIR}/dev-tools/
   - bash dev-tools/PrepareData.sh && bash dev-tools/DataTesting.sh
