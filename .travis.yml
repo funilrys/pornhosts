@@ -15,6 +15,7 @@ env:
     - GIT_EMAIL: "44526987+spirillen@users.noreply.github.com"
     - TRAVIS_REPO_SLUG: Import-External-Sources/pornhosts
     #- GIT_BRANCH: master
+    - GIT_BRANCH: "${GIT_BRANCH}"
     - TZ: UTC
     - PYFUNCEBLE_CONFIG_DIR: "${TRAVIS_BUILD_DIR}/dev-tools/"
     - PYFUNCEBLE_AUTO_CONFIGURATION: PyFunceble
