@@ -53,7 +53,7 @@ script:
   #- sudo apt install -yqq unbound
   - sudo systemctl disable systemd-resolved.service
   - sudo service systemd-resolved stop
-  - sudo service restart pdns-recursor
+  - sudo systemctl restart pdns-recursor.service
   - dig www.mypdns.org @127.0.0.1
   - sudo lsof -i :53
   - ls -lh ${TRAVIS_BUILD_DIR}/dev-tools/
