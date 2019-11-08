@@ -51,10 +51,10 @@ sudo: required
 script:
   - sudo lsof -i :53
   - cat /etc/resolv.conf
-  - printf "DNS=127.0.0.1\n" >> /etc/systemd/resolved.conf
-  - systemctl daemon-reload && systemctl restart systemd-networkd && systemctl restart systemd-resolved
-  - printf "nameserver 127.0.0.1\n" >> /etc/resolv.conf
-  - printf "local-address=0.0.0.0\nlocal-port=\n" >> /etc/powerdns/recursor.conf
+  - sudo printf "DNS=127.0.0.1\n" >> /etc/systemd/resolved.conf
+  - sudo systemctl daemon-reload && sudo systemctl restart systemd-networkd && sudo systemctl restart systemd-resolved
+  - sudo printf "nameserver 127.0.0.1\n" >> /etc/resolv.conf
+  - sudo printf "local-address=0.0.0.0\nlocal-port=\n" >> /etc/powerdns/recursor.conf
   - systemd-resolve --status
   #- sudo apt install -yqq unbound
   - sudo systemctl disable systemd-resolved.service
