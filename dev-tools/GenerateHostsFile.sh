@@ -20,11 +20,13 @@ now=$(date '+%F %T %z (%Z)')
 my_git_tag=V.${TRAVIS_BUILD_NUMBER}
 bad_referrers=$(wc -l < ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt)
 hosts=${TRAVIS_BUILD_DIR}/0.0.0.0/hosts
+sshosts=${TRAVIS_BUILD_DIR}/0.0.0.0 + SafeSearch (beta)/hosts
 hosts127=${TRAVIS_BUILD_DIR}/127.0.0.1/hosts
-#mobile=$"{TRAVIS_BUILD_DIR}/Mobile 0.0.0.0/hosts"
+mobile=${TRAVIS_BUILD_DIR}/Mobile 0.0.0.0/hosts
 #safesearch=$"{TRAVIS_BUILD_DIR}/0.0.0.0 + SafeSearch (beta)/hosts"
 
 hostsTemplate=${TRAVIS_BUILD_DIR}/dev-tools/hosts.template
+sshostsTemplate=${TRAVIS_BUILD_DIR}/dev-tools/sshosts.template
 MobileTemplate=${TRAVIS_BUILD_DIR}/dev-tools/mobile.template
 SafeSearchTemplate=${TRAVIS_BUILD_DIR}/dev-tools/safesearchhosts.template
 
@@ -94,6 +96,15 @@ cat "${input1}" | awk '/^#/{ next }; {  printf("0.0.0.0\t%s\n",tolower($1)) }' >
 mv ${tmphostsA} ${hosts}
 
 # *******************************
+echo Generate hosts 0.0.0.0
+# *******************************
+
+cat ${sshostsTemplate} > ${tmphostsA}
+printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" >> ${tmphostsA}
+cat "${input1}" | awk '/^#/{ next }; {  printf("0.0.0.0\t%s\n",tolower($1)) }' >> ${tmphostsA}
+mv ${tmphostsA} ${sshosts}
+
+# *******************************
 echo Generate hosts 127.0.0.1
 # *******************************
 
@@ -106,10 +117,10 @@ mv ${tmphostsA} ${hosts127}
 # Generate Mobile hosts
 # *******************************
 
-#cat ${MobileTemplate} > ${tmphostsA}
-#printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" >> ${tmphostsA}
-#cat "${input1}" | awk '/^#/{ next }; {  printf("0.0.0.0\t%s\n",tolower($1)) }' >> ${tmphostsA}
-#cp ${tmphostsA} ${mobile}
+cat ${MobileTemplate} > ${tmphostsA}
+printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" >> ${tmphostsA}
+cat "${input1}" | awk '/^#/{ next }; {  printf("0.0.0.0\t%s\n",tolower($1)) }' >> ${tmphostsA}
+mv ${tmphostsA} ${mobile}
 
 # *******************************
 # Generate hosts + SafeSearch
