@@ -7824,6 +7824,11 @@
         "expiration_date": "01-nov-2019",
         "state": "future"
     },
+    "18pussy.fun": {
+        "epoch": 1606867200.0,
+        "expiration_date": "02-dec-2020",
+        "state": "future"
+    },
     "18qt.com": {
         "epoch": 1743897600.0,
         "expiration_date": "06-apr-2025",
@@ -10017,6 +10022,11 @@
     "adult-targeted-traffic.com": {
         "epoch": 1586563200.0,
         "expiration_date": "11-apr-2020",
+        "state": "future"
+    },
+    "adult.xyz": {
+        "epoch": 1592697600.0,
+        "expiration_date": "21-jun-2020",
         "state": "future"
     },
     "adultadworld.com": {
@@ -24788,6 +24798,11 @@
         "epoch": "1548540000",
         "expiration_date": "27-jan-2019",
         "state": "past"
+    },
+    "facebook.bi": {
+        "epoch": 1584662400.0,
+        "expiration_date": "20-mar-2020",
+        "state": "future"
     },
     "facebookaccounthack.net": {
         "epoch": "1576447200",
