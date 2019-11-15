@@ -21,6 +21,7 @@ env:
     - PYFUNCEBLE_AUTO_CONFIGURATION: PyFunceble
 
 addons:
+  mariadb: '10.4'
   apt:
     packages:
     - dos2unix
@@ -46,4 +47,9 @@ matrix:
 sudo: required
 
 script:
+  - sudo systemctl restart mysql.service
+  - sudo mysql -u root -h localhost -e "CREATE DATABASE pyfunceble DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+  - sudo mysql -u root -h localhost -e "CREATE USER 'root'@'%' IDENTIFIED BY ''"
+  - sudo mysql -u root -h localhost -e "CREATE USER 'pyfunceble'@'localhost' IDENTIFIED BY 'pyfunceble';"
+  - sudo mysql -u root -h localhost -e "GRANT ALL PRIVILEGES ON pyfunceble.* TO 'pyfunceble'@'localhost';"
   - bash dev-tools/PrepareData.sh && bash dev-tools/DataTesting.sh
