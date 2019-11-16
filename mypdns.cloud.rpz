@@ -1,4 +1,4 @@
-localhost.	3600	IN	SOA	need.to.know.only. hostmaster.mypdns.org. 1573868278 3600 60 604800 60;
+localhost.	3600	IN	SOA	need.to.know.only. hostmaster.mypdns.org. 1573875528 3600 60 604800 60;
 localhost.	3600	IN	NS	localhost
 00webcams.com	CNAME	.
 *.00webcams.com	CNAME	.
@@ -3828,10 +3828,8 @@ fakecabxxx.com	CNAME	.
 *.fakecabxxx.com	CNAME	.
 fakeplastictits.tumblr.com	CNAME	.
 *.fakeplastictits.tumblr.com	CNAME	.
-falconstudios.com	CNAME	.
-*.falconstudios.com	CNAME	.
-fallenangelproductions.com	CNAME	.
-*.fallenangelproductions.com	CNAME	.
+falconstudios.comfallenangelproductions.com	CNAME	.
+*.falconstudios.comfallenangelproductions.com	CNAME	.
 fallen-angels-production.de	CNAME	.
 *.fallen-angels-production.de	CNAME	.
 fallenangelvideo.com	CNAME	.
@@ -4016,12 +4014,16 @@ fhg.bukkakenow.com	CNAME	.
 *.fhg.bukkakenow.com	CNAME	.
 fhg.digitaldesire.com	CNAME	.
 *.fhg.digitaldesire.com	CNAME	.
+fhg.dirty101.com	CNAME	.
+*.fhg.dirty101.com	CNAME	.
 fhg.dirty101.comfhg.fattygame.com	CNAME	.
 *.fhg.dirty101.comfhg.fattygame.com	CNAME	.
 fhg.eroticbeauty.com	CNAME	.
 *.fhg.eroticbeauty.com	CNAME	.
 fhg.euroteenerotica.com	CNAME	.
 *.fhg.euroteenerotica.com	CNAME	.
+fhg.fattygame.com	CNAME	.
+*.fhg.fattygame.com	CNAME	.
 fhg.fattypub.com	CNAME	.
 *.fhg.fattypub.com	CNAME	.
 fhg.ferame.com	CNAME	.
@@ -7560,12 +7562,10 @@ tlehunter.com	CNAME	.
 *.tlehunter.com	CNAME	.
 tnprn.com	CNAME	.
 *.tnprn.com	CNAME	.
-tokyoandsex.com	CNAME	.
-*.tokyoandsex.com	CNAME	.
+tokyoandsex.comtokyopussycinema.com	CNAME	.
+*.tokyoandsex.comtokyopussycinema.com	CNAME	.
 tokyofacefuck.com	CNAME	.
 *.tokyofacefuck.com	CNAME	.
-tokyopussycinema.com	CNAME	.
-*.tokyopussycinema.com	CNAME	.
 tonightsts.com	CNAME	.
 *.tonightsts.com	CNAME	.
 tools.zbuckz.com	CNAME	.
@@ -7786,8 +7786,12 @@ vipissy.com	CNAME	.
 *.vipissy.com	CNAME	.
 virtualpornfan.com	CNAME	.
 *.virtualpornfan.com	CNAME	.
+vivacuties.com	CNAME	.
+*.vivacuties.com	CNAME	.
 vivacuties.comvoyeurjapantv.com	CNAME	.
 *.vivacuties.comvoyeurjapantv.com	CNAME	.
+voyeurjapantv.com	CNAME	.
+*.voyeurjapantv.com	CNAME	.
 voyeurporntube.me	CNAME	.
 *.voyeurporntube.me	CNAME	.
 voyeurseason.com	CNAME	.
@@ -11096,14 +11100,12 @@ www.homemadevids.net	CNAME	.
 *.www.homemadevids.net	CNAME	.
 www.homemoviestube.com	CNAME	.
 *.www.homemoviestube.com	CNAME	.
-www.hometownnudes.com	CNAME	.
-*.www.hometownnudes.com	CNAME	.
+www.hometownnudes.comwww.homo6.com	CNAME	.
+*.www.hometownnudes.comwww.homo6.com	CNAME	.
 www.homevideoplace.com	CNAME	.
 *.www.homevideoplace.com	CNAME	.
 www.homexfiles.com	CNAME	.
 *.www.homexfiles.com	CNAME	.
-www.homo6.com	CNAME	.
-*.www.homo6.com	CNAME	.
 www.honeyvirgins.com	CNAME	.
 *.www.honeyvirgins.com	CNAME	.
 www.hoodamateurs.com	CNAME	.
@@ -11296,10 +11298,14 @@ www.ifwcash.com	CNAME	.
 *.www.ifwcash.com	CNAME	.
 www.ihookup.com	CNAME	.
 *.www.ihookup.com	CNAME	.
+www.ilike6996.tumblr.com	CNAME	.
+*.www.ilike6996.tumblr.com	CNAME	.
 www.ilike6996.tumblr.comwww.i-likeitrough-ok.tumblr.com	CNAME	.
 *.www.ilike6996.tumblr.comwww.i-likeitrough-ok.tumblr.com	CNAME	.
 www.ilikeandloveallporn.tumblr.com	CNAME	.
 *.www.ilikeandloveallporn.tumblr.com	CNAME	.
+www.i-likeitrough-ok.tumblr.com	CNAME	.
+*.www.i-likeitrough-ok.tumblr.com	CNAME	.
 www.iliy-mineevyp8x.tumblr.com	CNAME	.
 *.www.iliy-mineevyp8x.tumblr.com	CNAME	.
 www.ilovebdsm.net	CNAME	.
@@ -14708,14 +14714,12 @@ www.tgirlp.tumblr.com	CNAME	.
 *.www.tgirlp.tumblr.com	CNAME	.
 www.tgptraffic.biz	CNAME	.
 *.www.tgptraffic.biz	CNAME	.
-www.thatsfucked.org	CNAME	.
-*.www.thatsfucked.org	CNAME	.
+www.thatsfucked.orgwww.theavaaddams.com	CNAME	.
+*.www.thatsfucked.orgwww.theavaaddams.com	CNAME	.
 www.the-adult-company.com	CNAME	.
 *.www.the-adult-company.com	CNAME	.
 www.theater.aebn.net	CNAME	.
 *.www.theater.aebn.net	CNAME	.
-www.theavaaddams.com	CNAME	.
-*.www.theavaaddams.com	CNAME	.
 www.thebeautyoflust.tumblr.com	CNAME	.
 *.www.thebeautyoflust.tumblr.com	CNAME	.
 www.the-bikini.com	CNAME	.
@@ -14826,8 +14830,12 @@ www.theyfuckwewatch.com	CNAME	.
 *.www.theyfuckwewatch.com	CNAME	.
 www.theync.com	CNAME	.
 *.www.theync.com	CNAME	.
+www.the-you-i-never-knew.tumblr.com	CNAME	.
+*.www.the-you-i-never-knew.tumblr.com	CNAME	.
 www.the-you-i-never-knew.tumblr.comwww.theyxxx.com	CNAME	.
 *.www.the-you-i-never-knew.tumblr.comwww.theyxxx.com	CNAME	.
+www.theyxxx.com	CNAME	.
+*.www.theyxxx.com	CNAME	.
 www.thickdickricannyc.tumblr.com	CNAME	.
 *.www.thickdickricannyc.tumblr.com	CNAME	.
 www.thicknessdelux.tumblr.com	CNAME	.
