@@ -14,26 +14,26 @@ If you feel like contributing there are a couple of ways to do this
 ## Gitlab
 ### Add new hosts
 The workflow is a bit clumsy, but the most reliable and simple.
-    1. You add an issue with you question, feature request or ? 
-        (This is the _why_ to block forum)
-    1. You open a MR (Merge Request) where you'll add your contribution
-        (This is the _when_ we did the block)
-    1. Add your new hosts to either `source/hosts.txt` or `source/snuff.txt`
-    1. You add the new hosts entry in the top of the list, then it is easier to
-        find. The code will make it appear in alphanumeric order
-    1. Follow the [New commit](#new-commit) guide
+1. You add an issue with you question, feature request or ? 
+    (This is the _why_ to block forum)
+1. You open a MR (Merge Request) where you'll add your contribution 
+    (This is the _when_ we did the block)
+1. Add your new hosts to either `source/hosts.txt` or `source/snuff.txt`
+1. You add the new hosts entry in the top of the list, then it is easier to find. 
+    The code will make it appear in alphanumeric order
+1. Follow the [New commit](#new-commit) guide
 
 ## Github
 ### Add new hosts
 The workflow is a bit clumsy, but the most reliable and simple.
-    1. You add an issue with you question, feature request or ? 
-        (This is the _why_ to block forum)
-    1. You open a MR (Merge Request) where you'll add your contribution 
-        (This is the _when_ we did the block)
-    1. Add your new hosts to either `source/hosts.txt` or `source/snuff.txt`
-    1. You add the new hosts entry in the top of the list, then it is easier to
-        find. The code will make it appear in alphanumeric order
-    1. Follow the [New commit](#new-commit) guide
+1. You add an issue with you question, feature request or ? 
+    (This is the _why_ to block forum)
+1. You open a MR (Merge Request) where you'll add your contribution 
+    (This is the _when_ we did the block)
+1. Add your new hosts to either `source/hosts.txt` or `source/snuff.txt`
+1. You add the new hosts entry in the top of the list, then it is easier to find. 
+    The code will make it appear in alphanumeric order
+1. Follow the [New commit](#new-commit) guide
 
 ### New code
 If you like to add new code or modify existing code to make it run beter 
