@@ -42,9 +42,13 @@ be redirected to a fork of the main repo, from where you add and/or modify the c
 
 #### New commit
 When you are done with your contribution, you will save the the file in a new branch
-![New Branch](assets/new_commit.png)
+
+![new commit](https://user-images.githubusercontent.com/44526987/68994730-a380f980-0886-11ea-84a6-7a921902de98.png)
+
 Next you'll be taken to the `Open a pull request` 
-![Open a pull request](assets/open_pull_request.png)
+
+![Open a pull request](https://user-images.githubusercontent.com/44526987/68994731-a4199000-0886-11ea-8158-1cd2b0a4a271.png)
+
 And if everything is filled out, you just hit the `Create pull request` and you are done.
 
 
