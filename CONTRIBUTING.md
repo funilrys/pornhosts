@@ -21,7 +21,7 @@ The workflow is a bit clumsy, but the most reliable and simple.
     1. Add your new hosts to either `source/hosts.txt` or `source/snuff.txt`
     1. You add the new hosts entry in the top of the list, then it is easier to
         find. The code will make it appear in alphanumeric order
-    1. Follow the [New commit]() guide
+    1. Follow the [New commit](#new-commit) guide
 
 ## Github
 ### Add new hosts
@@ -33,7 +33,7 @@ The workflow is a bit clumsy, but the most reliable and simple.
     1. Add your new hosts to either `source/hosts.txt` or `source/snuff.txt`
     1. You add the new hosts entry in the top of the list, then it is easier to
         find. The code will make it appear in alphanumeric order
-    1. Follow the [New commit]() guide
+    1. Follow the [New commit](#new-commit) guide
 
 ### New code
 If you like to add new code or modify existing code to make it run beter 
