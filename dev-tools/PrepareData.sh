@@ -1,15 +1,11 @@
 #!/bin/bash
-# This hosts file for DD-WRT Routers with DNSMasq is brought to you by
 # https://www.mypdns.org/
 # Copyright: Content: https://gitlab.com/spirillen
 # Source:Content:
 #
 # Original attributes and credit
-# This hosts file for DD-WRT Routers with DNSMasq is brought to you by Mitchell Krog
-# Copyright:Code: https://github.com/mitchellkrogza
-# Source:Code: https://github.com/mitchellkrogza/Badd-Boyz-Hosts
 # The credit for the original bash scripts goes to Mitchell Krogza
-
+# Source:Code: https://github.com/mitchellkrogza/Badd-Boyz-Hosts
 # You are free to copy and distribute this file for non-commercial uses,
 # as long the original URL and attribution is included.
 

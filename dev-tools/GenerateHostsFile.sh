@@ -9,8 +9,8 @@
 # You are free to copy and distribute this file for non-commercial uses,
 # as long the original URL and attribution is included.
 
-# Please forward any additions, corrections or comments by logging an issue at
-# https://gitlab.com/my-privacy-dns/support/issues
+# Please forward any additions, corrections or comments by logging an 
+# issue at https://gitlab.com/my-privacy-dns/support/issues
 
 # ******************
 # Set Some Variables
@@ -19,16 +19,27 @@
 now=$(date '+%F %T %z (%Z)')
 my_git_tag=V.${TRAVIS_BUILD_NUMBER}
 bad_referrers=$(wc -l < ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt)
-hosts="${TRAVIS_BUILD_DIR}/0.0.0.0/hosts"
-sshosts="${TRAVIS_BUILD_DIR}/SafeSearch/hosts"
-hosts127="${TRAVIS_BUILD_DIR}/127.0.0.1/hosts"
-mobile="${TRAVIS_BUILD_DIR}/Mobile/hosts"
-#safesearch=$"{TRAVIS_BUILD_DIR}/0.0.0.0 + SafeSearch (beta)/hosts"
 
-hostsTemplate=${TRAVIS_BUILD_DIR}/dev-tools/hosts.template
-sshostsTemplate=${TRAVIS_BUILD_DIR}/dev-tools/sshosts.template
-MobileTemplate=${TRAVIS_BUILD_DIR}/dev-tools/mobile.template
-SafeSearchTemplate=${TRAVIS_BUILD_DIR}/dev-tools/safesearchhosts.template
+outdir="${TRAVIS_BUILD_DIR}/download_here"
+
+hosts="${outdir}/0.0.0.0/hosts"
+hosts127="${outdir}/127.0.0.1/hosts"
+mobile="${outdir}/mobile/hosts"
+
+sshosts="${outdir}/safesearch/hosts"
+safesearch=$"{outdir}/safesearch/hosts"
+
+# ******************
+# Set templates path
+# ******************
+templpath="${TRAVIS_BUILD_DIR}/dev-tools/templates"
+
+hostsTemplate=${templpath}/hosts.template
+MobileTemplate=${templpath}/dev-tools/mobile.template
+
+# Safe Search is in subpath
+SafeSearchTempl=${templpath}/safesearch/hosts.template
+SafeSearchTemplm=${templpath}/safesearch/mobile.template
 
 dnsmasq=${TRAVIS_BUILD_DIR}/dnsmasq
 dnsmasqTemplate=${TRAVIS_BUILD_DIR}/dev-tools/ddwrt-dnsmasq.template
