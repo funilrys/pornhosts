@@ -3,14 +3,12 @@
 # Copyright: Content: https://gitlab.com/spirillen
 # Source:Content:
 #
-# Original attributes and credit
-# The credit for the original bash scripts goes to Mitchell Krogza
-
 # You are free to copy and distribute this file for non-commercial uses,
 # as long the original URL and attribution is included.
-
+#
 # Please forward any additions, corrections or comments by logging an 
 # issue at https://gitlab.com/my-privacy-dns/support/issues
+
 
 # ******************
 # Set Some Variables
@@ -20,29 +18,47 @@ now=$(date '+%F %T %z (%Z)')
 my_git_tag=V.${TRAVIS_BUILD_NUMBER}
 bad_referrers=$(wc -l < ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt)
 
-outdir="${TRAVIS_BUILD_DIR}/download_here"
+# ********************
+# Set the output files
+# ********************
 
+outdir="${TRAVIS_BUILD_DIR}/download_here" # no trailing / as it would make a double //
+
+# ordinary without safe search records
 hosts="${outdir}/0.0.0.0/hosts"
 hosts127="${outdir}/127.0.0.1/hosts"
 mobile="${outdir}/mobile/hosts"
+dnsmasq="${outdir}/dnsmasq/dnsmasq.conf"
+rpz="${outdir}/rpz/pornhosts.rpz"
 
-sshosts="${outdir}/safesearch/hosts"
-safesearch=$"{outdir}/safesearch/hosts"
+# Safe Search enabled output
+ssoutdir="${outdir}/safesearch" # no trailing / as it would make a double //
+
+sshosts="${ssoutdir}/0.0.0.0/hosts"
+sshosts127="${ssoutdir}/127.0.0.1/hosts"
+mobile="${ssoutdir}/mobile/hosts"
+dnsmasq="${ssoutdir}/dnsmasq/dnsmasq.conf"
+rpz="${ssoutdir}/rpz/pornhosts.rpz"
 
 # ******************
 # Set templates path
 # ******************
 templpath="${TRAVIS_BUILD_DIR}/dev-tools/templates"
 
-hostsTemplate=${templpath}/hosts.template
-MobileTemplate=${templpath}/dev-tools/mobile.template
-
+hostsTempl=${templpath}/hosts.template
+mobileTempl=${templpath}/dev-tools/mobile.template
+dnsmasqTempl=${templpath}/ddwrt-dnsmasq.template
+rpzTempl="${templpath}/safesearch/safesearch.rpz"
 # Safe Search is in subpath
-SafeSearchTempl=${templpath}/safesearch/hosts.template
-SafeSearchTemplm=${templpath}/safesearch/mobile.template
 
-dnsmasq=${TRAVIS_BUILD_DIR}/dnsmasq
-dnsmasqTemplate=${TRAVIS_BUILD_DIR}/dev-tools/ddwrt-dnsmasq.template
+# TODO Get templates from the master source at 
+# https://gitlab.com/my-privacy-dns/matrix/matrix/tree/master/safesearch
+shostsTempl="${templpath}/safesearch/hosts.template"
+smobileTempl="${templpath}/safesearch/mobile.template"
+sdnsmasqTempl="${templpath}/safesearch/ddwrt-dnsmasq.template"
+srpzTempl="${templpath}/safesearch/safesearch.rpz"
+
+
 tmphostsA=tmphostsA
 tmphostsB=tmphostsB
 tmphostsC=tmphostsC
