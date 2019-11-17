@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # https://www.mypdns.org/
 # Copyright: Content: https://gitlab.com/spirillen
 # Source:Content:
@@ -58,60 +58,20 @@ smobileTempl="${templpath}/safesearch/mobile.template"
 sdnsmasqTempl="${templpath}/safesearch/ddwrt-dnsmasq.template"
 srpzTempl="${templpath}/safesearch/safesearch.rpz"
 
+# First let us clean out old data in output folders
 
-tmphostsA=tmphostsA
-tmphostsB=tmphostsB
-tmphostsC=tmphostsC
+find "${outdir}" -type f -delete
+find "${ssoutdir}" -type f -delete
 
-# **********************************
-# Temporary database files we create
-# **********************************
+# Next ensure all output folders is there
 
-inputdbA=/tmp/lastupdated.db
-inputdb1=/tmp/hosts.db
-
-# **********************************
-echo Setup input bots and referer lists
-# **********************************
-
-input1=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
-input2=${TRAVIS_BUILD_DIR}/dev-tools/domains_tmp.txt
-
-# **************************************************************************
-# Sort lists alphabetically and remove duplicates before cleaning Dead Hosts
-# **************************************************************************
-
-sort -u ${input1} -o ${input1}
-
-# *****************
-# Activate Dos2Unix
-# *****************
-
-dos2unix ${input1}
-
-# ******************************************
-# Trim Empty Line at Beginning of Input File
-# ******************************************
-
-grep '[^[:blank:]]' < ${input1} > ${input2}
-sudo mv ${input2} ${input1}
-
-# ********************************************************
-# Clean the list of any lines not containing a . character
-# ********************************************************
-
-cat ${input1} | sed '/\./!d' > ${input2} && mv ${input2} ${input1}
+bash "${TRAVIS_BUILD_DIR}/dev-tools/make_output_dirs.dh (`grep -vE '^$' ${TRAVIS_BUILD_DIR}/dev-tools/output_dirs.txt`)"
 
 # **************************************************************************************
 # Strip out our Dead Domains / Whitelisted Domains and False Positives from CENTRAL REPO
 # **************************************************************************************
 
 
-# *******************************
-# Activate Dos2Unix One Last Time
-# *******************************
-
-dos2unix ${input1}
 
 # *******************************
 echo Generate hosts 0.0.0.0
