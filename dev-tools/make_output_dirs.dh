@@ -39,3 +39,5 @@ do
     stack=("${stack[@]}" "$dirName") # push on stack
 done < "$file"
 mkDirs "${stack[@]}"
+
+exit ${?}
