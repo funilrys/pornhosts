@@ -1,7 +1,7 @@
 ---
-name: adult
-about: I would like to add the following domain to the hosts file
-title: 'Type domain here'
+name: Adult Porno NSFW
+about: I would like to contribute with the following domain to the hosts file
+title: 'Type only domain here'
 labels: NSFW Adult Material
 assignees: Spirillen
 
@@ -19,13 +19,13 @@ be blocked as..
 - [ ] [Single domain blocking](source/porno-sites/domains.list)
 
 ```python
-example.org   CNAME . ; Adult
-*.example.org   CNAME . ; Adult
+example.net   CNAME . ; Adult
+*.example.net   CNAME . ; Adult
 ```
 
 ### additional for hosts
 ```shell
-
+static.example.net
 ```
 
 ## Screenshots
