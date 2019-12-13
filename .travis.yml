@@ -7,7 +7,8 @@ python:
 
 cache:
   - pip
-  - ${TRAVIS_BUILD_DIR}/db/
+  directories:
+  - db/
 
 env:
   global:

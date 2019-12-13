@@ -54,9 +54,9 @@ RunFunceble () {
 RunFunceble
 
 
-#mkdir -p ${TRAVIS_BUILD_DIR}/db/
-#mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${TRAVIS_BUILD_DIR}/db/pyfunceble.sql
-#mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${TRAVIS_BUILD_DIR}/dev-tools/pyfunceble.sql
+mkdir -p ${TRAVIS_BUILD_DIR}/db/
+mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${TRAVIS_BUILD_DIR}/db/pyfunceble.sql
+mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${TRAVIS_BUILD_DIR}/dev-tools/pyfunceble.sql
 
 
 ls -lh ${TRAVIS_BUILD_DIR}/db/
