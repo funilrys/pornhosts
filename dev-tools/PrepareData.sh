@@ -18,14 +18,20 @@
 
 # Type the url of source here
 SOURCE=""
-input1=${TRAVIS_BUILD_DIR}/source/hosts.txt
-snuff=${TRAVIS_BUILD_DIR}/source/snuff.txt
+input1=${TRAVIS_BUILD_DIR}/submit_here/hosts.txt
+snuff=${TRAVIS_BUILD_DIR}/submit_here/snuff.txt
 testfile=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
 
-whitelist="$(wget -qO ${TRAVIS_BUILD_DIR}/whitelist 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/domain.list' && wget -qO- 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/wildcard.list' >> ${TRAVIS_BUILD_DIR}/whitelist )"
+# This should be replaced by a local whitelist
+
+whitelist="$(wget -qO ${TRAVIS_BUILD_DIR}/whitelist 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/domain.list' > ${TRAVIS_BUILD_DIR}/whitelist && wget -qO- 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/wildcard.list' >> ${TRAVIS_BUILD_DIR}/whitelist )"
+
 # *********************************************
 # Get Travis CI Prepared for Committing to Repo
+# with the new --travis-commmit &
+# 
 # *********************************************
+
 
 PrepareTravis () {
     git remote rm origin

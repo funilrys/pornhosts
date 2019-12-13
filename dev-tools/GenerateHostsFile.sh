@@ -16,7 +16,9 @@
 
 now=$(date '+%F %T %z (%Z)')
 my_git_tag=V.${TRAVIS_BUILD_NUMBER}
-bad_referrers=$(wc -l < ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt)
+activelist="${TRAVIS_BUILD_DIR}/dev-tools/output/domains/ACTIVE/list"
+rawlist=${outdir}/raw.txt
+bad_referrers=$(wc -l < ${rawlist})
 
 # ********************
 # Set the output files
@@ -28,17 +30,19 @@ outdir="${TRAVIS_BUILD_DIR}/download_here" # no trailing / as it would make a do
 hosts="${outdir}/0.0.0.0/hosts"
 hosts127="${outdir}/127.0.0.1/hosts"
 mobile="${outdir}/mobile/hosts"
-dnsmasq="${outdir}/dnsmasq/dnsmasq.conf"
+dnsmasq="${outdir}/dnsmasq/pornhosts.conf"
 rpz="${outdir}/rpz/pornhosts.rpz"
+unbound="${outdir}/unbound/pornhosts.con"
 
 # Safe Search enabled output
 ssoutdir="${outdir}/safesearch" # no trailing / as it would make a double //
 
 sshosts="${ssoutdir}/0.0.0.0/hosts"
 sshosts127="${ssoutdir}/127.0.0.1/hosts"
-mobile="${ssoutdir}/mobile/hosts"
-dnsmasq="${ssoutdir}/dnsmasq/dnsmasq.conf"
-rpz="${ssoutdir}/rpz/pornhosts.rpz"
+ssmobile="${ssoutdir}/mobile/hosts"
+ssdnsmasq="${ssoutdir}/dnsmasq/dnsmasq.conf"
+ssrpz="${ssoutdir}/rpz/pornhosts.rpz"
+ssunbound="${ssoutdir}/unbound/pornhosts.conf"
 
 # ******************
 # Set templates path
@@ -48,103 +52,151 @@ templpath="${TRAVIS_BUILD_DIR}/dev-tools/templates"
 hostsTempl=${templpath}/hosts.template
 mobileTempl=${templpath}/dev-tools/mobile.template
 dnsmasqTempl=${templpath}/ddwrt-dnsmasq.template
-rpzTempl="${templpath}/safesearch/safesearch.rpz"
+#unboundTempl # None as we print the header directly
+
 # Safe Search is in subpath
 
 # TODO Get templates from the master source at 
 # https://gitlab.com/my-privacy-dns/matrix/matrix/tree/master/safesearch
-shostsTempl="${templpath}/safesearch/hosts.template"
-smobileTempl="${templpath}/safesearch/mobile.template"
-sdnsmasqTempl="${templpath}/safesearch/ddwrt-dnsmasq.template"
-srpzTempl="${templpath}/safesearch/safesearch.rpz"
+# Template file for 0.0.0.0 and 127.0.0.1 are the same
+
+sstemplpath="${templpath}/safesearch"
+
+sshostsTempl="${sstemplpath}/hosts.template" # same for mobile
+ssdnsmasqTempl="${sstemplpath}/ddwrt-dnsmasq.template"
+ssrpzTempl="${sstemplpath}/safesearch.rpz"
+ssunboundTempl="${sstemplpath}/"
+
+# ***********************************************************
+echo Update our safe search templates
+# ***********************************************************
+
+wget -qO sshosts 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/hosts/raw/master/matrix/safesearch.hosts'
+wget -qO ssdnsmasq 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/dnsmasq/raw/master/safesearch.dnsmasq.conf'
+wget -qO ssrpz 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/bind-9/raw/master/safesearch.mypdns.cloud.rpz'
+wget -qO ssunbound 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/unbound/raw/master/safesearch.conf'
 
 # First let us clean out old data in output folders
 
 find "${outdir}" -type f -delete
-find "${ssoutdir}" -type f -delete
 
 # Next ensure all output folders is there
 
-bash "${TRAVIS_BUILD_DIR}/dev-tools/make_output_dirs.dh (`grep -vE '^$' ${TRAVIS_BUILD_DIR}/dev-tools/output_dirs.txt`)"
+bash "${TRAVIS_BUILD_DIR}/dev-tools/make_output_dirs.sh (`grep -vE '^$' ${TRAVIS_BUILD_DIR}/dev-tools/output_dirs.txt`)"
 
-# **************************************************************************************
-# Strip out our Dead Domains / Whitelisted Domains and False Positives from CENTRAL REPO
-# **************************************************************************************
+# Generate the rawlist, as we need it for the rest of our work
 
+grep -vE "^(#|$)" ${activelist} > ${rawlist}
 
+# Strip out Whitelisted Domains and False Positives
 
-# *******************************
-echo Generate hosts 0.0.0.0
-# *******************************
-
-cat ${hostsTemplate} > ${tmphostsA}
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" >> ${tmphostsA}
-cat "${input1}" | awk '/^#/{ next }; {  printf("0.0.0.0\t%s\n",tolower($1)) }' >> ${tmphostsA}
-mv ${tmphostsA} ${hosts}
+uhb_whitelist -wc -m -p 4 -w "${TRAVIS_BUILD_DIR}/submit_here/whitelist.txt" -f ${rawlist} -o ${rawlist}
 
 # *******************************
-echo Generate hosts 0.0.0.0
+echo "Generate hosts 0.0.0.0"
 # *******************************
 
-cat ${sshostsTemplate} > ${tmphostsA}
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" >> ${tmphostsA}
-cat "${input1}" | awk '/^#/{ next }; {  printf("0.0.0.0\t%s\n",tolower($1)) }' >> ${tmphostsA}
-mv ${tmphostsA} ${sshosts}
+printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > ${hosts}
+cat ${hostsTempl} >> ${hosts}
+awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${activelist}" >> ${hosts}
 
 # *******************************
-echo Generate hosts 127.0.0.1
+echo "Generate safe hosts 0.0.0.0"
 # *******************************
 
-cat ${hostsTemplate} > ${tmphostsA}
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" >> ${tmphostsA}
-cat "${input1}" | awk '/^#/{ next }; {  printf("127.0.0.1\t%s\n",tolower($1)) }' >> ${tmphostsA}
-mv ${tmphostsA} ${hosts127}
+printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > ${sshosts}
+cat ${hostsTempl} >> ${sshosts}
+cat ${sshostsTempl} >> ${sshosts}
+awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${activelist}" >> ${sshosts}
 
 # *******************************
-# Generate Mobile hosts
+echo "Generate hosts 127.0.0.1"
 # *******************************
 
-cat ${MobileTemplate} > ${tmphostsA}
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" >> ${tmphostsA}
-cat "${input1}" | awk '/^#/{ next }; {  printf("0.0.0.0\t%s\n",tolower($1)) }' >> ${tmphostsA}
-mv ${tmphostsA} ${mobile}
+printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > ${hosts127}
+cat ${hostsTempl} >> ${hosts127}
+awk '{ printf("127.0.0.1\t%s\n",tolower($1)) }' "${activelist}" >> ${hosts127}
+
+# **********************************
+echo "Generate safe hosts 127.0.0.1"
+# **********************************
+
+printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > ${sshosts127}
+cat ${hostsTempl} >> ${sshosts127}
+cat ${sshostsTempl} >> ${sshosts127}
+awk '{ printf("127.0.0.1\t%s\n",tolower($1)) }' "${activelist}" >> ${sshosts127}
 
 # *******************************
-# Generate hosts + SafeSearch
+echo "Generate Mobile hosts"
 # *******************************
 
-#cat ${SafeSearchTemplate} > ${tmphostsA}
-#printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" >> ${tmphostsA}
-#cat "${input1}" | awk '/^#/{ next }; {  printf("0.0.0.0\t%s\n",tolower($1)) }' >> ${tmphostsA}
-#cp ${tmphostsA} ${safesearch}
+printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > ${mobile}
+cat ${mobileTempl} >> ${mobile}
+awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${activelist}" >> ${mobile}
+
+# *******************************
+echo "Generate safe Mobile hosts"
+# *******************************
+
+printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > ${ssmobile}
+cat ${mobileTempl} >> ${ssmobile}
+cat ${ssmobileTempl} >> ${ssmobile}
+awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${activelist}" >> ${ssmobile}
+
+
+
+# *********************************************************************************
+# DNSMASQ https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/dnsmasq/issues/1
+# *********************************************************************************
+
+printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > ${dnsmasq}
+cat ${dnsmasqTempl} >> ${dnsmasq}
+awk '{ printf("server=/%s/\n",tolower($1)) }' "${activelist}" >> ${dnsmasq}
+
+# **********************************
+echo "build Safe search for dnsmasq"
+# **********************************
+
+printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > ${ssdnsmasq}
+cat ${ssdnsmasqTempl} >> ${ssdnsmasq}
+awk '{ printf("server=/%s/\n",tolower($1)) }' "${activelist}" >> ${ssdnsmasq}
+
+
 
 # ********************************************************
-# PRINT DATE AND TIME OF LAST UPDATE INTO DNSMASQ TEMPLATE
+# UNBOUND
 # ********************************************************
 
-cat ${dnsmasqTemplate} > ${tmphostsB}
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" >> ${tmphostsB}
-cat "${input1}" | awk '/^#/{ next }; {  printf("address=/%s/\n",tolower($1)) }' >> ${tmphostsB}
-mv ${tmphostsB} ${dnsmasq}
+# **************************************
+echo "Unbound zone file always_nxdomain"
+# **************************************
+
+printf '{server:\n}' > "${unbound}"
+awk '{ printf("local-zone: \"%s\" always_nxdomain\n",tolower($1)) }' "${activelist}" >> "${unbound}"
+
+# **************************************************
+echo "Unbound safe search zone file always_nxdomain"
+# **************************************************
+
+cat ${ssunboundTempl} > ${unbound}
+awk '{ printf("local-zone: \"%s\" always_nxdomain\n",tolower($1)) }' "${activelist}" >> "${unbound}"
+
+
+
+# ********************************************************
+# RPZ formatted
+# ********************************************************
 
 # ************************************
-echo Make Bind format RPZ 
+echo "Make Bind format RPZ"
 # ************************************
-RPZ="$(mktemp)"
 
-printf "localhost.\t3600\tIN\tSOA\tneed.to.know.only. hostmaster.mypdns.org. `date +%s` 3600 60 604800 60;\nlocalhost.\t3600\tIN\tNS\tlocalhost\n" > "${RPZ}"
-cat "${input1}" | awk '/^#/{ next }; {  printf("%s\tCNAME\t.\n*.%s\tCNAME\t.\n",tolower($1),tolower($1)) }' >> "${RPZ}"
-mv "${RPZ}" "${TRAVIS_BUILD_DIR}/mypdns.cloud.rpz"
+cat ${rpzTempl} > ${rpz}
+printf "\$TTL 1w;
+\$ORIGIN\tlocalhost.
+\tSOA\tneed.to.know.only. hostmaster.mypdns.org. `date +%s` 3600 60 604800 60;
+\tNS\tlocalhost\n" > "${rpz}"
 
-# ***********************************
-echo Unbound zone file always_nxdomain
-# ***********************************
-UNBOUND="$(mktemp)"
-
-cat "${input1}" | awk '/^#/{ next }; {  printf("local-zone: \"%s\" always_nxdomain\n",tolower($1)) }' >> "${UNBOUND}"
-mv "${UNBOUND}" "${TRAVIS_BUILD_DIR}/unbound.nxdomain.zone"
-
-
-
+awk '{ printf("%s\tCNAME\t.\n*.%s\tCNAME\t.\n",tolower($1),tolower($1)) }' "${activelist}" >> "${rpz}"
 
 exit ${?}
