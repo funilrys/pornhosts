@@ -41,7 +41,7 @@ RunFunceble () {
     fi
 
     PyFunceble --ci -h -m -p 4 -db --database-type mariadb -ex --plain \
-		--dns 127.0.0.1 --autosave-minutes 10 --share-logs\
+		--dns 127.0.0.1 --autosave-minutes 20 --share-logs\
 		--ci-branch pyfunceble-processing \
 		--ci-distribution-branch master \
 		--commit-autosave-message "${TAG}  [Auto Saved]" \
@@ -59,7 +59,7 @@ mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${TRAVIS_BU
 
 git add ${TRAVIS_BUILD_DIR}/dev-tools/pyfunceble.sql
 git commit -m "update sql"
-git push
+git push origin HEAD:${TRAVIS_BRANCH}
 
 ls -lh ${TRAVIS_BUILD_DIR}/db/
 
