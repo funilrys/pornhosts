@@ -44,8 +44,8 @@ RunFunceble () {
 		--dns 127.0.0.1 --autosave-minutes 40 \
 		--ci-branch pyfunceble-processing \
 		--ci-distribution-branch master \
-		--ci-distribution-branch "${TAG}  [Auto Saved]" \
-		--ci_autosave_final_commit "${TAG} [ci skip]" \
+		--commit-autosave-message "${TAG}  [Auto Saved]" \
+		--commit-results-message "${TAG} [ci skip]" \
 		--cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
 		-f ${testfile}
 
