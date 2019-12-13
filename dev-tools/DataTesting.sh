@@ -16,7 +16,7 @@
 
 yeartag=$(date +%Y)
 monthtag=$(date +%m)
-
+TAG=$(V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER})
 # ******************
 # Set our Input File
 # ******************
@@ -40,11 +40,19 @@ RunFunceble () {
         rm "${pyfuncebleProductionConfigurationFileLocation}"
     fi
 
-    PyFunceble --ci -h -m -p 3 -db --database-type mariadb -ex --dns 127.0.0.1 --cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" --plain --autosave-minutes 20 --commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER}  [Auto Saved]" --commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [ci skip]" -f ${testfile}
+    PyFunceble --ci -h -m -p 4 -db --database-type mariadb -ex --plain \
+		--dns 127.0.0.1 --autosave-minutes 20 \
+		--travis-branch pyfunceble-processing \
+		--travis-distribution-branch master \
+		--commit-autosave-message "${TAG}  [Auto Saved]" \
+		--commit-results-message "${TAG} [ci skip]" \
+		--cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
+		-f ${testfile}
 
 }
 
 RunFunceble
 
+mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${TRAVIS_BUILD_DIR}/dev-tools/pyfunceble.sql
 
 exit ${?}

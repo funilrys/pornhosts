@@ -34,12 +34,15 @@ whitelist="$(wget -qO ${TRAVIS_BUILD_DIR}/whitelist 'https://gitlab.com/my-priva
 
 
 PrepareTravis () {
-    git remote rm origin
-    git remote add origin https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
-    git config --global user.email "${GIT_EMAIL}"
-    git config --global user.name "${GIT_NAME}"
-    git config --global push.default simple
-    git checkout "${GIT_BRANCH}"
+    # NOTE: Commented out because PyFunceble already handle that :-)
+    #git remote rm origin
+    #git remote add origin https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
+    #git config --global user.email "${GIT_EMAIL}"
+    #git config --global user.name "${GIT_NAME}"
+    #git config --global push.default simple
+    #git checkout "${GIT_BRANCH}"
+    mysql --user=pyfunceble --password=pyfunceble pyfunceble < ${TRAVIS_BUILD_DIR}/dev-tools/pyfunceble.sql
+    git checkout -B pyfunceble-processing
     ulimit -u
 }
 PrepareTravis
