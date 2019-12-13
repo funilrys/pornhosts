@@ -2,11 +2,11 @@
 
 If you feel like contributing there are a couple of ways to do this
 
-1. You can add new super high speed bash code, optimising existing, rewrite for 
+1. You can add new super high speed bash code, optimizing existing or rewrite for 
     broader support of bash environments across OS's
 1. You can add domains to either the [hosts.txt](submit_here/hosts.txt) in the source folder. or for snuff in 
     [snuff.txt](submit_here/snuff.txt)
-1. You don't have to locate the right line/order to add you contribution, the 
+1. Please add you contribution to either the vary beginning of the file or the bottom, the 
     CI/CD will do the sorting.
 
 # Workflow
@@ -69,6 +69,6 @@ to figure out the current way.
 # Encoding when writing files/lines
 - All files most end with a newline (\n)(LF) UTF-8.
 - All files have to be in universal UTF-8 style without BOM
-- ANy files or file location containing `_windows_` in it's files most be 
+- Any files or file location containing `_windows_` in it's files most be 
   encoded in `ISO-8859-1 Latin1` and newlines *most* end in (CRLF)
 - Line length should not be any longer than 80 chars for terminals support
