@@ -59,6 +59,6 @@ mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${HOME}/db/
 mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${TRAVIS_BUILD_DIR}/dev-tools/pyfunceble.sql
 
 
-ls -lh ${TRAVIS_BUILD_DIR}/db/
+ls -lh ${HOME}/db/
 
 exit ${?}
