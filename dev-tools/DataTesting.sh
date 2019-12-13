@@ -46,7 +46,7 @@ RunFunceble () {
 		--ci-distribution-branch master \
 		--commit-autosave-message "${TAG} [Auto Saved]" \
 		--commit-results-message "${TAG} [ci skip]" \
-		--cmd-before-end "mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${TRAVIS_BUILD_DIR}/db/pyfunceble.sql && bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
+		--cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
 		-f ${testfile}
 
 }
