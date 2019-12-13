@@ -4,8 +4,8 @@ If you feel like contributing there are a couple of ways to do this
 
 1. You can add new super high speed bash code, optimising existing, rewrite for 
     broader support of bash environments across OS's
-1. You can add domains to either the [hosts.txt](source/hosts.txt) in the source folder. or for snuff in 
-    [snuff.txt](source/snuff.txt)
+1. You can add domains to either the [hosts.txt](submit_here/hosts.txt) in the source folder. or for snuff in 
+    [snuff.txt](submit_here/snuff.txt)
 1. You don't have to locate the right line/order to add you contribution, the 
     CI/CD will do the sorting.
 
@@ -18,7 +18,7 @@ The workflow is a bit clumsy, but the most reliable and simple.
     (This is the _why_ to block forum)
 1. You open a MR (Merge Request) where you'll add your contribution 
     (This is the _when_ we did the block)
-1. Add your new hosts to either `source/hosts.txt` or `source/snuff.txt`
+1. Add your new hosts to either `submit_here/hosts.txt` or `submit_here/snuff.txt`
 1. You add the new hosts entry in the top of the list, then it is easier to find. 
     The code will make it appear in alphanumeric order
 1. Follow the [New commit](#new-commit) guide
@@ -30,7 +30,7 @@ The workflow is a bit clumsy, but the most reliable and simple.
     (This is the _why_ to block forum)
 1. You open a MR (Merge Request) where you'll add your contribution 
     (This is the _when_ we did the block)
-1. Add your new hosts to either `source/hosts.txt` or `source/snuff.txt`
+1. Add your new hosts to either `submit_here/hosts.txt` or `submit_here/snuff.txt`
 1. You add the new hosts entry in the top of the list, then it is easier to find. 
     The code will make it appear in alphanumeric order
 1. Follow the [New commit](#new-commit) guide
