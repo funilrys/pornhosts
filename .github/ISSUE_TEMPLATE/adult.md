@@ -3,7 +3,7 @@ name: adult
 about: I would like to add the following domain to the hosts file
 title: 'Type domain here'
 labels: NSFW Adult Material
-assignees: spirillen Clefspeare13
+assignees: Clefspeare13
 
 ---
 
