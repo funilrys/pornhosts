@@ -1,9 +1,9 @@
 ---
 name: adult
 about: I would like to add the following domain to the hosts file
-title: 'New: '
+title: 'Type domain here'
 labels: NSFW Adult Material
-assignees: spirillen
+assignees: spirillen Clefspeare13
 
 ---
 
@@ -45,6 +45,3 @@ example.org   CNAME . ; Adult
 
 ### Todo
 - [ ] Added to [Source file](submit_here/hosts.txt)?
-
-/label ~"NSFW Adult Material"
-/assign @AnonymousPoster @
