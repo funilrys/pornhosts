@@ -42,7 +42,7 @@ PrepareTravis () {
     #git config --global push.default simple
     #git checkout "${GIT_BRANCH}"
     mysql --user=pyfunceble --password=pyfunceble pyfunceble < ${TRAVIS_BUILD_DIR}/db/pyfunceble.sql
-    git checkout -B pyfunceble-processing
+    #git checkout -B pyfunceble-processing
     ulimit -u
 }
 PrepareTravis
