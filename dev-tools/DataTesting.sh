@@ -55,5 +55,12 @@ RunFunceble
 
 mkdir -p ${TRAVIS_BUILD_DIR}/db/
 mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${TRAVIS_BUILD_DIR}/db/pyfunceble.sql
+mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${TRAVIS_BUILD_DIR}/dev-tools/pyfunceble.sql
+
+git add ${TRAVIS_BUILD_DIR}/dev-tools/pyfunceble.sql
+git commit -m "update sql"
+git push
+
+ls -lh ${TRAVIS_BUILD_DIR}/db/
 
 exit ${?}

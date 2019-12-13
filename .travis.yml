@@ -41,6 +41,7 @@ git:
 branches:
   only:
     - master
+    - pyfunceble-processing
 
 matrix:
   fast_finish: true
