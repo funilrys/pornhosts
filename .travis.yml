@@ -8,7 +8,7 @@ python:
 cache:
   pip: true
   directories:
-  - db/
+  - $HOME/db/
 
 env:
   global:
