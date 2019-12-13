@@ -48,17 +48,17 @@ RunFunceble () {
 		--commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [ci skip]" \
 		--cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
 		-f ${testfile}
-exit ${?}
+
 }
 
 RunFunceble
 
 
-mkdir -p ${HOME}/db/
-mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${HOME}/db/pyfunceble.sql
-mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${TRAVIS_BUILD_DIR}/dev-tools/pyfunceble.sql
+#mkdir -p ${HOME}/db/
+#mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${HOME}/db/pyfunceble.sql
+#mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${TRAVIS_BUILD_DIR}/dev-tools/pyfunceble.sql
 
 
-ls -lh ${HOME}/db/
+#ls -lh ${HOME}/db/
 
 exit ${?}
