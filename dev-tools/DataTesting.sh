@@ -40,14 +40,7 @@ RunFunceble () {
         rm "${pyfuncebleProductionConfigurationFileLocation}"
     fi
 
-    PyFunceble --travis -h -m -p 4 -db --database-type mariadb -ex --plain \
-		--dns 127.0.0.1 --autosave-minutes 20 \
-		--travis-branch pyfunceble-processing \
-		--travis-distribution-branch master \
-		--commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
-		--commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [ci skip]" \
-		--cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
-		-f ${testfile}
+    PyFunceble --ci -h -m -p 4 -db --database-type mariadb -ex --plain  --dns 127.0.0.1 --autosave-minutes 20 --share-logs --ci-branch pyfunceble-processing --ci-distribution-branch master --commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" --commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [ci skip]" --cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" -f ${testfile}
 
 }
 
