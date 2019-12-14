@@ -42,7 +42,7 @@ RunFunceble () {
     fi
 
         PyFunceble --ci -h -m -p 4 -db --database-type mariadb -ex --plain \
-		--dns 127.0.0.1 --ci-autosave-minutes 20 --share-logs \
+		--dns 127.0.0.1 --autosave-minutes 20 --share-logs --http \
 		--ci-branch pyfunceble-processing \
 		--ci-distribution-branch master \
 		--commit-autosave-message "${TAG}  [Auto Saved]" \
