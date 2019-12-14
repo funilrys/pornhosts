@@ -8,4 +8,6 @@ PyYAML
 requests
 setuptools
 urllib3
-
+dos2unix
+msttcorefonts
+masriadb>=10.4
