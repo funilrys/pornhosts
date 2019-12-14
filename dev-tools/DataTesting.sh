@@ -41,7 +41,7 @@ RunFunceble () {
         rm "${pyfuncebleProductionConfigurationFileLocation}"
     fi
 
-        PyFunceble --ci -h -m -p 4 -db --database-type mariadb -ex --plain \
+        PyFunceble --ci -h -db -ex --plain --idna \
 		--dns 127.0.0.1 --autosave-minutes 20 --share-logs --http \
 		--ci-branch pyfunceble-processing \
 		--ci-distribution-branch master \
