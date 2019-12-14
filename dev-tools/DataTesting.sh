@@ -29,6 +29,7 @@ RunFunceble () {
 
     yeartag=$(date +%Y)
     monthtag=$(date +%m)
+    TAG=$(V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER})
     ulimit -u
     cd ${TRAVIS_BUILD_DIR}/dev-tools
 
@@ -40,12 +41,14 @@ RunFunceble () {
         rm "${pyfuncebleProductionConfigurationFileLocation}"
     fi
 
-    #PyFunceble --ci -h -m -p 4 -db --database-type mariadb -ex --plain  --dns 127.0.0.1 --autosave-minutes 20 --share-logs --ci-branch pyfunceble-processing --ci-distribution-branch master --commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" --commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [ci skip]" --cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" -f ${testfile}
-	PyFunceble --travis -db --database-type mariadb -ex --dns 127.0.0.1 --cmd-before-end \
-	"bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" --plain --autosave-minutes 20 \
-	--commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER}  [Auto Saved]" \
-	--commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER}" \
-	-f ${input}
+        PyFunceble --ci -h -m -p 4 -db --database-type mariadb -ex --plain \
+		--dns 127.0.0.1 --autosave-minutes 40 --share-logs\
+		--ci-branch pyfunceble-processing \
+		--ci-distribution-branch master \
+		--commit-autosave-message "${TAG}  [Auto Saved]" \
+		--commit-results-message "${TAG} [ci skip]" \
+		--cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
+		-f ${testfile}
 
 }
 

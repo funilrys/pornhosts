@@ -33,16 +33,16 @@ addons:
 
 install:
   - pip3 install --upgrade pip
-  - pip3 install PyFunceble #PyFunceble-dev
+  - pip3 install PyFunceble-dev
   - pip3 install ultimate-hosts-blacklist-whitelist
 
 git:
   depth: 5
 
-branches:
-  only:
-    - master
-    - pyfunceble-processing
+#branches:
+#  only:
+#    - master
+#    - pyfunceble-processing
 
 matrix:
   fast_finish: true
