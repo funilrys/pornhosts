@@ -42,9 +42,7 @@ RunFunceble () {
     fi
 
         PyFunceble --ci -h -m -p 4 -db --database-type mariadb -ex --plain \
-		--dns 127.0.0.1 --autosave-minutes 40 --share-logs\
-		--ci-branch pyfunceble-processing \
-		--ci-distribution-branch master \
+		--dns 127.0.0.1 --autosave-minutes 40 --share-logs \
 		--commit-autosave-message "${TAG}  [Auto Saved]" \
 		--commit-results-message "${TAG} [ci skip]" \
 		--cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
