@@ -53,12 +53,6 @@ RunFunceble () {
 
 RunFunceble
 
-
-#mkdir -p ${HOME}/db/
-#mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${HOME}/db/pyfunceble.sql
 #mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${TRAVIS_BUILD_DIR}/dev-tools/pyfunceble.sql
-
-
-#ls -lh ${HOME}/db/
 
 exit ${?}
