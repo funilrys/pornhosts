@@ -1,9 +1,9 @@
 ---
 name: Adult Porno NSFW
 about: I would like to contribute with the following domain to the hosts file
-title: ':underage:: Type only domain here'
+title: 'NSFW: Type only domain here'
 labels: NSFW Adult Material
-assignees: Spirillen
+assignees: spirillen
 
 ---
 
