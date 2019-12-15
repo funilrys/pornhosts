@@ -1,7 +1,7 @@
 ---
 name: Adult Porno NSFW
 about: I would like to contribute with the following domain to the hosts file
-title: 'Type only domain here'
+title: ':underage:: Type only domain here'
 labels: NSFW Adult Material
 assignees: Spirillen
 
@@ -15,17 +15,9 @@ and after the image link -->
 I believe this domain is an Adult(-related) domain --> that have to 
 be blocked as..
 
-- [X] [Wildcarded](source/porno-sites/wildcard.list)
-- [ ] [Single domain blocking](source/porno-sites/domains.list)
-
 ```python
-example.net   CNAME . ; Adult
-*.example.net   CNAME . ; Adult
-```
-
-### additional for hosts
-```shell
-static.example.net
+example.net
+*.example.net
 ```
 
 ## Screenshots
@@ -35,6 +27,11 @@ static.example.net
 
 
 </details>
+
+## External Info
+<!-- if you have found your submission elsewhere, Please credit it by pasting a link here --->
+
+
 
 ### All Submissions:
 - [ ] Have you followed the guidelines in our [Contributing](CONTRIBUTING.md) document?
