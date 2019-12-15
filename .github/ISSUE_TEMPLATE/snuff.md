@@ -4,7 +4,7 @@ about: I would like to contribute with the following domain to the hosts file as
 title: 'NSFW: domain.tld'
 labels: Snuff
 assignees: spirillen
-project: https://github.com/orgs/Import-External-Sources/projects/2
+projects: https://github.com/orgs/Import-External-Sources/projects/2
 ---
 
 <!-- Keep any domains in back ticks `(`)`
