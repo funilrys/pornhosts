@@ -1,8 +1,8 @@
 ---
-name: Adult Porno NSFW
-about: I would like to contribute with the following domain to the hosts file
-title: 'NSFW: Type only domain here'
-labels: NSFW Adult Material
+name: Snuff
+about: I would like to contribute with the following domain to the hosts file as *snuff*
+title: 'NSFW: domain.tld'
+labels: Snuff
 assignees: spirillen
 project: https://github.com/orgs/Import-External-Sources/projects/2
 ---
