@@ -1,5 +1,5 @@
 ---
-name: Adult Porno NSFW
+name: New submission
 about: I would like to contribute with the following domain to the hosts file
 title: 'NSFW: Type only domain here'
 labels: NSFW Adult Material
