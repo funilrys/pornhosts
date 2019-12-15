@@ -1,10 +1,10 @@
 ---
-name: Adult Porno NSFW
+name: Adult Porno NSFW MR
 about: I would like to contribute with the following domain to the hosts file
 title: 'NSFW: Type only domain here'
 labels: NSFW Adult Material
 assignees: spirillen
-project: https://github.com/orgs/Import-External-Sources/projects/2
+projects: https://github.com/orgs/Import-External-Sources/projects/2
 ---
 
 <!-- Keep any domains in back ticks `(`)`
