@@ -4,7 +4,7 @@ about: I would like to contribute with the following domain to the hosts file
 title: 'NSFW: Type only domain here'
 labels: NSFW Adult Material
 assignees: spirillen
-
+project: https://github.com/orgs/Import-External-Sources/projects/2
 ---
 
 <!-- Keep any domains in back ticks `(`)`
@@ -17,7 +17,7 @@ be blocked as..
 
 ```python
 example.net
-*.example.net
+www.example.net
 ```
 
 ## Screenshots
