@@ -16,6 +16,6 @@
 /**/wildcard.list text eol=lf
 
 # Ensure the non-standard windows understand files ending....
-# PS: Before you comments on this comment... *nix is bar far the most used OS
+# PS: Before you comments on this comment... *nix is by far the most used OS
 # EVER!!!
 **_windows_** text eol=crlf
