@@ -40,10 +40,10 @@ install:
 git:
   depth: 5
 
-#branches:
-#  only:
-#    - master
-#    - pyfunceble-processing
+branches:
+  only:
+    - master
+    - pyfunceble-processing
 
 matrix:
   fast_finish: true
