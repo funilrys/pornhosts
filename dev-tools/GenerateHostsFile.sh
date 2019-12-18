@@ -32,7 +32,7 @@ hosts127="${outdir}/127.0.0.1/hosts"
 mobile="${outdir}/mobile/hosts"
 dnsmasq="${outdir}/dnsmasq/pornhosts.conf"
 rpz="${outdir}/rpz/pornhosts.rpz"
-unbound="${outdir}/unbound/pornhosts.con"
+unbound="${outdir}/unbound/pornhosts.zone"
 
 # Safe Search enabled output
 ssoutdir="${outdir}/safesearch" # no trailing / as it would make a double //
@@ -40,9 +40,9 @@ ssoutdir="${outdir}/safesearch" # no trailing / as it would make a double //
 sshosts="${ssoutdir}/0.0.0.0/hosts"
 sshosts127="${ssoutdir}/127.0.0.1/hosts"
 ssmobile="${ssoutdir}/mobile/hosts"
-ssdnsmasq="${ssoutdir}/dnsmasq/dnsmasq.conf"
+ssdnsmasq="${ssoutdir}/dnsmasq/pornhosts.conf"
 ssrpz="${ssoutdir}/rpz/pornhosts.rpz"
-ssunbound="${ssoutdir}/unbound/pornhosts.conf"
+ssunbound="${ssoutdir}/unbound/pornhosts.zone"
 
 # ******************
 # Set templates path
