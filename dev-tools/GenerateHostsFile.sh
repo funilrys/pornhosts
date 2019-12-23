@@ -9,6 +9,7 @@
 # Please forward any additions, corrections or comments by logging an 
 # issue at https://gitlab.com/my-privacy-dns/support/issues
 
+printf "\n\tRunning GenerateHostFile.sh\n"
 
 # ******************
 # Set Some Variables

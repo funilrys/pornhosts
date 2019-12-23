@@ -43,7 +43,7 @@ RunFunceble () {
 
         PyFunceble --ci -h -m -p 4 -db --database-type mariadb -ex --plain \
 		--dns 127.0.0.1 --autosave-minutes 20 --share-logs --http --idna \
-		--ci-branch pyfunceble-processing \
+		--ci-branch master \
 		--ci-distribution-branch master \
 		--commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
 		--commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [ci skip]" \
