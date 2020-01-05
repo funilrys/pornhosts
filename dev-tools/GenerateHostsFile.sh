@@ -9,7 +9,9 @@
 # Please forward any additions, corrections or comments by logging an 
 # issue at https://gitlab.com/my-privacy-dns/support/issues
 
-printf "\n\tRunning GenerateHostFile.sh\n"
+printf "\n\tRunning GenerateHostFile.sh\n\n"
+
+#TRAVIS_BUILD_DIR="/var/storage01/repositories/github/pornhosts"
 
 # ******************
 # Set Some Variables
@@ -18,8 +20,6 @@ printf "\n\tRunning GenerateHostFile.sh\n"
 now=$(date '+%F %T %z (%Z)')
 my_git_tag=V.${TRAVIS_BUILD_NUMBER}
 activelist="${TRAVIS_BUILD_DIR}/dev-tools/output/domains/ACTIVE/list"
-rawlist=${outdir}/raw.txt
-bad_referrers=$(wc -l < ${rawlist})
 
 # ********************
 # Set the output files
@@ -27,7 +27,13 @@ bad_referrers=$(wc -l < ${rawlist})
 
 outdir="${TRAVIS_BUILD_DIR}/download_here" # no trailing / as it would make a double //
 
-# ordinary without safe search records
+# Generate the rawlist, as we need it for the rest of our work
+
+rawlist=${outdir}/raw.txt
+grep -vE "^(#|$)" ${activelist} > ${rawlist}
+bad_referrers=$(wc -l < ${rawlist})
+
+# Ordinary without safe search records
 hosts="${outdir}/0.0.0.0/hosts"
 hosts127="${outdir}/127.0.0.1/hosts"
 mobile="${outdir}/mobile/hosts"
@@ -51,7 +57,7 @@ ssunbound="${ssoutdir}/unbound/pornhosts.zone"
 templpath="${TRAVIS_BUILD_DIR}/dev-tools/templates"
 
 hostsTempl=${templpath}/hosts.template
-mobileTempl=${templpath}/dev-tools/mobile.template
+mobileTempl=${templpath}/mobile.template
 dnsmasqTempl=${templpath}/ddwrt-dnsmasq.template
 #unboundTempl # None as we print the header directly
 
@@ -66,7 +72,7 @@ sstemplpath="${templpath}/safesearch"
 sshostsTempl="${sstemplpath}/hosts.template" # same for mobile
 ssdnsmasqTempl="${sstemplpath}/ddwrt-dnsmasq.template"
 ssrpzTempl="${sstemplpath}/safesearch.rpz"
-ssunboundTempl="${sstemplpath}/"
+ssunboundTempl="${sstemplpath}/ddwrt-dnsmasq.template"
 
 # ***********************************************************
 echo Update our safe search templates
@@ -82,12 +88,12 @@ wget -qO ssunbound 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/unb
 find "${outdir}" -type f -delete
 
 # Next ensure all output folders is there
+downloaddir="${TRAVIS_BUILD_DIR}/download_here"
 
-bash "${TRAVIS_BUILD_DIR}/dev-tools/make_output_dirs.sh (`grep -vE '^$' ${TRAVIS_BUILD_DIR}/dev-tools/output_dirs.txt`)"
-
-# Generate the rawlist, as we need it for the rest of our work
-
-grep -vE "^(#|$)" ${activelist} > ${rawlist}
+mkdir -p  "$downloaddir/0.0.0.0" "$downloaddir/127.0.0.1" "$downloaddir/mobile" \
+  "$downloaddir/dnsmasq" "$downloaddir/rpz" "$downloaddir/safesearch/0.0.0.0" \
+  "$downloaddir/safesearch/127.0.0.1" "$downloaddir/safesearch/mobile" \
+  "$downloaddir/safesearch/dnsmasq" "$downloaddir/safesearch/rpz"
 
 # Strip out Whitelisted Domains and False Positives
 
@@ -141,10 +147,8 @@ echo "Generate safe Mobile hosts"
 
 printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > ${ssmobile}
 cat ${mobileTempl} >> ${ssmobile}
-cat ${ssmobileTempl} >> ${ssmobile}
+cat ${sshostsTempl} >> ${ssmobile}
 awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${activelist}" >> ${ssmobile}
-
-
 
 # *********************************************************************************
 # DNSMASQ https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/dnsmasq/issues/1
@@ -192,7 +196,7 @@ awk '{ printf("local-zone: \"%s\" always_nxdomain\n",tolower($1)) }' "${activeli
 echo "Make Bind format RPZ"
 # ************************************
 
-cat ${rpzTempl} > ${rpz}
+#cat ${rpzTempl} > ${rpz}
 printf "\$TTL 1w;
 \$ORIGIN\tlocalhost.
 \tSOA\tneed.to.know.only. hostmaster.mypdns.org. `date +%s` 3600 60 604800 60;
