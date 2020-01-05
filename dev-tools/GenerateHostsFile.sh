@@ -78,10 +78,10 @@ ssunboundTempl="${sstemplpath}/ddwrt-dnsmasq.template"
 echo Update our safe search templates
 # ***********************************************************
 
-wget -qO sshosts 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/hosts/raw/master/matrix/safesearch.hosts'
-wget -qO ssdnsmasq 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/dnsmasq/raw/master/safesearch.dnsmasq.conf'
-wget -qO ssrpz 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/bind-9/raw/master/safesearch.mypdns.cloud.rpz'
-wget -qO ssunbound 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/unbound/raw/master/safesearch.conf'
+wget -qO "${sstemplpath}/sshosts" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/hosts/raw/master/matrix/safesearch.hosts'
+wget -qO "${sstemplpath}/ssdnsmasq" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/dnsmasq/raw/master/safesearch.dnsmasq.conf'
+wget -qO "${sstemplpath}/ssrpz" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/bind-9/raw/master/safesearch.mypdns.cloud.rpz'
+wget -qO "${sstemplpath}/ssunbound" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/unbound/raw/master/safesearch.conf'
 
 # First let us clean out old data in output folders
 
