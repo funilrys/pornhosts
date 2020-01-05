@@ -20,18 +20,18 @@ monthtag=$(date +%m)
 # ******************
 # Set our Input File
 # ******************
-input=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
-testfile=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
-pyfuncebleConfigurationFileLocation=${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble.yaml
-pyfuncebleProductionConfigurationFileLocation=${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble_production.yaml
+#input=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
+testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
+pyfuncebleConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble.yaml"
+pyfuncebleProductionConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble_production.yaml"
 
 RunFunceble () {
 
-    yeartag=$(date +%Y)
-    monthtag=$(date +%m)
-    TAG=$(V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER})
+    yeartag="$(date +%Y)"
+    monthtag="$(date +%m)"
+    TAG="$(V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER})"
     ulimit -u
-    cd ${TRAVIS_BUILD_DIR}/dev-tools
+    cd "${TRAVIS_BUILD_DIR}/dev-tools"
 
     hash PyFunceble
 
@@ -47,7 +47,7 @@ RunFunceble () {
             --cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
             --commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
             --commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [ci skip]" \
-            -f ${testfile}
+            -f "${testfile}"
 
 }
 

@@ -17,10 +17,10 @@
 # **********************************
 
 # Type the url of source here
-SOURCE=""
-input1=${TRAVIS_BUILD_DIR}/submit_here/hosts.txt
-snuff=${TRAVIS_BUILD_DIR}/submit_here/snuff.txt
-testfile=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
+#SOURCE=""
+input1="${TRAVIS_BUILD_DIR}/submit_here/hosts.txt"
+snuff="${TRAVIS_BUILD_DIR}/submit_here/snuff.txt"
+testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
 
 # This should be replaced by a local whitelist
 
@@ -53,16 +53,16 @@ PrepareTravis
 
 PrepareLists () {
 
-    mkdir -p ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/
+    mkdir -p "${TRAVIS_BUILD_DIR}/PULL_REQUESTS/"
 
-    cat ${snuff} >> ${testfile}
-    cat ${input1} >> ${testfile}
+    cat "${snuff}" >> "${testfile}"
+    cat "${input1}" >> "${testfile}"
 
-    sort -u -f ${input1} -o ${input1}
-    sort -u -f ${snuff} -o ${snuff}
-    sort -u -f ${testfile} -o ${testfile}
+    sort -u -f "${input1}" -o "${input1}"
+    sort -u -f "${snuff}" -o "${snuff}"
+    sort -u -f "${testfile}" -o "${testfile}"
 
-    dos2unix ${testfile}
+    dos2unix "${testfile}"
  }
 PrepareLists
 
