@@ -24,7 +24,7 @@ printf "\n\tRunning FinalCommit.sh\n"
 
 #cat ${TRAVIS_BUILD_DIR}/dev-tools/output/domains/ACTIVE/list | grep -v "^$" | grep -v "^#" > tempdomains.txt
 #mv tempdomains.txt ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
-grep -v "^($|#)" "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INACTIVE/list" > "${TRAVIS_BUILD_DIR}/submit_here/apparently_inactive.txt"
+grep -Ev "^($|#)" "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INACTIVE/list" > "${TRAVIS_BUILD_DIR}/submit_here/apparently_inactive.txt"
 
 # ***************************************************************************
 echo Generate our host file
