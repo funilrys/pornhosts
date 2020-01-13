@@ -28,8 +28,8 @@ pyfuncebleProductionConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.Py
 
 RunFunceble () {
 
-    yeartag="$(date +%Y)"
-    monthtag="$(date +%m)"
+    #yeartag="$(date +%Y)"
+    #monthtag="$(date +%m)"
     TAG="$(V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER})"
     ulimit -u
     cd "${TRAVIS_BUILD_DIR}/dev-tools"
@@ -46,8 +46,8 @@ RunFunceble () {
             --autosave-minutes 20 --share-logs --http --idna --ci-branch master \
             --ci-distribution-branch master \
             --cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
-            --commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
-            --commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [ci skip]" \
+            --commit-autosave-message "V1.${TAG} [Auto Saved]" \
+            --commit-results-message "V1.${TAG}" \
             -f "${testfile}"
 
 }
