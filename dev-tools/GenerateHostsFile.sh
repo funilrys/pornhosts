@@ -87,10 +87,10 @@ ssunboundTempl="${sstemplpath}/ddwrt-dnsmasq.template"
 printf "\n\tUpdate our safe search templates\n"
 # ***********************************************************
 
-wget -O "${sstemplpath}/sshosts" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/hosts/raw/master/matrix/safesearch.hosts'
-wget -O "${sstemplpath}/ssdnsmasq" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/dnsmasq/raw/master/safesearch.dnsmasq.conf'
-wget -O "${sstemplpath}/ssrpz" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/bind-9/raw/master/safesearch.mypdns.cloud.rpz'
-wget -O "${sstemplpath}/ssunbound" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/unbound/raw/master/safesearch.conf'
+wget -qO "${sstemplpath}/sshosts" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/hosts/raw/master/matrix/safesearch.hosts'
+wget -qO "${sstemplpath}/ssdnsmasq" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/dnsmasq/raw/master/safesearch.dnsmasq.conf'
+wget -qO "${sstemplpath}/ssrpz" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/bind-9/raw/master/safesearch.mypdns.cloud.rpz'
+wget -qO "${sstemplpath}/ssunbound" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/unbound/raw/master/safesearch.conf'
 
 # First let us clean out old data in output folders
 
@@ -107,7 +107,7 @@ mkdir -p  "$downloaddir/0.0.0.0" "$downloaddir/127.0.0.1" "$downloaddir/mobile" 
 # Strip out Whitelisted Domains and False Positives
 
 # Input (-f) cant be the same as output (-o)
-uhb_whitelist -wc -d -m -p 4 -w "${TRAVIS_BUILD_DIR}/submit_here/whitelist.txt" -f "${activelist}" -o "${rawlist}"
+#uhb_whitelist -wc -m -p 4 -w "${TRAVIS_BUILD_DIR}/submit_here/whitelist.txt" -f "${rawlist}" -o "${rawlist}"
 
 # *******************************
 echo "Generate hosts 0.0.0.0"
