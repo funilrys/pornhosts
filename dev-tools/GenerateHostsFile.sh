@@ -29,7 +29,7 @@ outdir="${TRAVIS_BUILD_DIR}/download_here" # no trailing / as it would make a do
 
 # Generate the rawlist, as we need it for the rest of our work
 
-rawlist=${outdir}/raw.txt
+rawlist=${outdir}/active_raw_data.txt
 grep -vE "^(#|$)" "${activelist}" > "${rawlist}"
 bad_referrers=$(wc -l < "${rawlist}")
 

@@ -30,6 +30,8 @@ then
   grep -Ev "^($|#)" "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INACTIVE/list" > "${TRAVIS_BUILD_DIR}/submit_here/apparently_inactive.txt"
 fi
 
+#exit 0
+
 # ***************************************************************************
 echo Generate our host file
 # ***************************************************************************
