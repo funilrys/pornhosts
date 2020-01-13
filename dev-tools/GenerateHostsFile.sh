@@ -30,7 +30,16 @@ outdir="${TRAVIS_BUILD_DIR}/download_here" # no trailing / as it would make a do
 # Generate the rawlist, as we need it for the rest of our work
 
 rawlist=${outdir}/active_raw_data.txt
+touch "${rawlist}"
 grep -vE "^(#|$)" "${activelist}" > "${rawlist}"
+
+printf "\n\tCount rows in active list\n"
+wc -l "${activelist}"
+
+printf "\n\trawlist"
+wc -l "${rawlist}"
+
+printf "\n\tNumbers of bad_referrers"
 bad_referrers=$(wc -l < "${rawlist}")
 
 # Ordinary without safe search records
