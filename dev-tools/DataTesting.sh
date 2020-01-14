@@ -30,7 +30,7 @@ RunFunceble () {
 
     yeartag="$(date +%Y)"
     monthtag="$(date +%m)"
-    TAG="$(V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER})"
+    #TAG="$(V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER})"
     ulimit -u
     cd "${TRAVIS_BUILD_DIR}/dev-tools"
 
