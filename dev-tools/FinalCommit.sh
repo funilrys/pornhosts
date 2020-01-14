@@ -36,7 +36,7 @@ fi
 printf "\n\tGenerate our host file\n"
 # ***************************************************************************
 
-#exit 0
+exit 0
 
 #bash ${TRAVIS_BUILD_DIR}/dev-tools/UpdateReadme.sh
 bash "${TRAVIS_BUILD_DIR}/dev-tools/GenerateHostsFile.sh"
