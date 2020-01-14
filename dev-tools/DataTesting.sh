@@ -28,8 +28,8 @@ pyfuncebleProductionConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.Py
 
 RunFunceble () {
 
-    #yeartag="$(date +%Y)"
-    #monthtag="$(date +%m)"
+    yeartag="$(date +%Y)"
+    monthtag="$(date +%m)"
     TAG="$(V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER})"
     ulimit -u
     cd "${TRAVIS_BUILD_DIR}/dev-tools"
