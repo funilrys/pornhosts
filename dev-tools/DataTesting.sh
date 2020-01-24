@@ -16,15 +16,19 @@
 
 yeartag=$(date +%Y)
 monthtag=$(date +%m)
+TAG="$(V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER})"
 
 # ******************
 # Set our Input File
 # ******************
 #input=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
-testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
-#testfile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
+#testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
+testfile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
 pyfuncebleConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble.yaml"
 pyfuncebleProductionConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble_production.yaml"
+
+git add. 
+git commit -m "PyFunceble testing ${TAG}"
 
 RunFunceble () {
 
