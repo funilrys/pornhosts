@@ -30,12 +30,11 @@ RunFunceble () {
 
     yeartag="$(date +%Y)"
     monthtag="$(date +%m)"
-    TAG="$(V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER})"
     ulimit -u
     cd "${TRAVIS_BUILD_DIR}/dev-tools"
 
     git add . 
-    git commit -m "PyFunceble testing ${TAG}"
+    git commit -m "PyFunceble testing"
 
     hash PyFunceble
 
