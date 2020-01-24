@@ -34,7 +34,7 @@ RunFunceble () {
     ulimit -u
     cd "${TRAVIS_BUILD_DIR}/dev-tools"
 
-    git add. 
+    git add . 
     git commit -m "PyFunceble testing ${TAG}"
 
     hash PyFunceble
