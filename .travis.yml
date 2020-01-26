@@ -21,6 +21,7 @@ env:
     - TZ: UTC
     - PYFUNCEBLE_CONFIG_DIR: "${TRAVIS_BUILD_DIR}/dev-tools/"
     - PYFUNCEBLE_AUTO_CONFIGURATION: PyFunceble
+    - DEBUG_PYFUNCEBLE_ON_SCREEN: YES
 
 addons:
   mariadb: '10.4'
