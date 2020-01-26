@@ -44,7 +44,7 @@ RunFunceble () {
         rm "${pyfuncebleProductionConfigurationFileLocation}"
     fi
 
-        PyFunceble --ci -q -h -m -p $(nproc --ignore=1) -db --database-type mariadb -ex --plain --dns 127.0.0.1 \
+        PyFunceble --ci -q -h -p $(nproc --ignore=1) -db --database-type mariadb -ex --plain --dns 127.0.0.1 \
             --autosave-minutes 40 --share-logs --http --idna --ci-branch "master" \
             --ci-distribution-branch master --hierarchical \
             --cmd-before-end "echo 'Final Commit' && bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
