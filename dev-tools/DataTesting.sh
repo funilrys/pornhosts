@@ -21,8 +21,8 @@ monthtag=$(date +%m)
 # Set our Input File
 # ******************
 #input=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
-#testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
-testfile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
+testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
+#testfile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
 pyfuncebleConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble.yaml"
 pyfuncebleProductionConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble_production.yaml"
 
@@ -33,8 +33,8 @@ RunFunceble () {
     ulimit -u
     cd "${TRAVIS_BUILD_DIR}/dev-tools"
 
-    git add . 
-    git commit -m "PyFunceble testing"
+#    git add .
+#    git commit -m "PyFunceble testing"
 
     hash PyFunceble
 

@@ -29,7 +29,7 @@ whitelist="$(wget -qO ${TRAVIS_BUILD_DIR}/whitelist 'https://gitlab.com/my-priva
 # *********************************************
 # Get Travis CI Prepared for Committing to Repo
 # with the new --travis-commmit &
-# 
+#
 # *********************************************
 
 
