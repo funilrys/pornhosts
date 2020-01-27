@@ -1,28 +1,22 @@
 dist: bionic
-
 language: python
-
 python:
-  - '3.8'
-
+- '3.8'
 cache:
   pip: true
   directories:
-  - $HOME/db/
-
+  - "$HOME/db/"
 env:
   global:
-    - secure: "QKiP1Rt+ir3uLyt/adSIL4402rsHgorvG7u6z1NjXXVCTK+V1oP5sFoFOzcZh4RVZA3varsQ2Cp7LFdylccSqxMRPwZZ8VUHMufzrGqGwj1e/cQPXWl5Epzcph2XLPxGfvDO/ZFXKL1ZSJClA4/RhRWGWmESO5rHwXpZ2pMXJRa79o1WDbjXNEwYbD1L3dJ2pGPs5YVjaC/RPXRRiFsP1QL5kLoVrWB3Q50emDVxWsZ1HuqMOQ4gORuvJA3kjgnwF+4v+cdJB+rWBwq3k+Q98Q90VfvvnuqhfFdD4g+Ix1X4VSh5RM1D3y2jOuugnY42/pO4kRdYiIf7TYRV0XAnUP2mmy1cZryjG1dluExzuhD4/WWw8jM1gg+8fOO1BQ83a0D3ngTVmNylRW/FdH4faeCpSc/HNPXKjA9ylit/fD3iaDhfX8yh0BB33im3RpNNcexjQaOBjvNS5+vp9WDr0kTIAfSazY1Y/NWEnjxoIhvss/Dmz9m94esKVSuq1q7JxCv9pqpjguMun4/yenVR+w+B77KoBSQAHefe2jOQYcwPpCwCu3NmU4O9vZu7ecc9TDk5a2jE1+jVmaW8zdRRLjByIMCq/6/4Rn0chf9RkBsz9BQxvIQRhBRVsPknK+Vj9SqtTGxM4XskogAMczGBQ5N0YMW+LlhMpSTH3eo9YO0="
-    - GIT_NAME: "Spirillen"
-    - GIT_EMAIL: "44526987+spirillen@users.noreply.github.com"
-    - TRAVIS_REPO_SLUG: Import-External-Sources/pornhosts
-    - GIT_BRANCH: master
-    #- GIT_BRANCH: "${GIT_BRANCH}"
-    - TZ: UTC
-    - PYFUNCEBLE_CONFIG_DIR: "${TRAVIS_BUILD_DIR}/dev-tools/"
-    - PYFUNCEBLE_AUTO_CONFIGURATION: PyFunceble
-    - DEBUG_PYFUNCEBLE_ON_SCREEN: YES
-
+  - GIT_NAME: Spirillen
+  - GIT_EMAIL: 44526987+spirillen@users.noreply.github.com
+  - TRAVIS_REPO_SLUG: Import-External-Sources/pornhosts
+  - GIT_BRANCH: master
+  - TZ: UTC
+  - PYFUNCEBLE_CONFIG_DIR: "${TRAVIS_BUILD_DIR}/dev-tools/"
+  - PYFUNCEBLE_AUTO_CONFIGURATION: PyFunceble
+  - DEBUG_PYFUNCEBLE_ON_SCREEN: true
+  - secure: CRu8TgXoJ2CDUIux4Li4T9hnKshvPTffRZdtmgOYHIUW5/ARpZnUP2yHuYY+MSLJBDoVwO9KsT5qqHVev0ki8wvxlT95XhEkaRsh1KWuKXj/q5TRoeOexR0kicC8a8sSlxuLxVVR4E9DNpzbsG0HZRFgk9eduQILkcaYqpqw/DiqpCvzH1RzPtBXbKwjU9z6O9QLvG3I/6eNP2boIT5XZSuKporfAJHe7adhMJPCuUpmLOGzMr3xurvbMWMtCjpTBoYUZp1nN6e4iMy/AigRvzgu68tXnnJV0QBAm3sAbs3+nl/DfgtLhK945Do9o/uDz7C25lmnJMi6ZDg3YUDmc0ZVfmNHA5hGv8AwIKohMvfJw7ypFeqDWppxO/30k3T3KaS/vbVfYANSFm6ttcoI1SXXCqCePoh+Qcw4AEuucgZUCLwliVxFbjQaWvV6m7yQorUhABVWIjOtEQqkqCNl8QJI3bwL8yhg41Wo7ktXOF0GA1Rr48G27PZvuxEHLwZe72LJBxXZDEU7JUUff7HoNufc7nIzilDO0Xf6bBHFPvhHVjHyEcgMW2H/1WUmEkv6G7oGXicnwDngbyo4mJDv+YH1YYIlN+MdgaIRm+eEYLX5kVTQlZL2l7BySAc/ltAk16yfcxBI4wpl1MVsXNgY+2SaJIgd36LUt6bd1lamLEo=
 addons:
   mariadb: '10.4'
   apt:
@@ -31,32 +25,27 @@ addons:
     - msttcorefonts
     - lsof
     - pdns-recursor
-
 install:
-  - pip3 install --upgrade pip
-  #- pip3 install PyFunceble-dev #==2.53.6
-  - pip3 install git+https://github.com/funilrys/PyFunceble.git@dev
-  #- pip3 install ultimate-hosts-blacklist-whitelist
-
+- pip3 install --upgrade pip
+- pip3 install git+https://github.com/funilrys/PyFunceble.git@dev
 git:
   depth: 2
-
 branches:
   only:
-    - master
-    - pyfunceble-processing
-
+  - master
+  - pyfunceble-processing
 matrix:
   fast_finish: true
-
 sudo: required
-
 script:
-  - sudo systemctl restart mysql.service
-  - sudo mysql -u root -h localhost -e "CREATE DATABASE pyfunceble DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-  - sudo mysql -u root -h localhost -e "CREATE USER 'root'@'%' IDENTIFIED BY ''"
-  - sudo mysql -u root -h localhost -e "CREATE USER 'pyfunceble'@'localhost' IDENTIFIED BY 'pyfunceble';"
-  - sudo mysql -u root -h localhost -e "GRANT ALL PRIVILEGES ON pyfunceble.* TO 'pyfunceble'@'localhost';"
-  - sudo mysql --user=pyfunceble --password=pyfunceble pyfunceble < ${HOME}/db/pyfunceble.sql
-  - bash dev-tools/PrepareData.sh && bash dev-tools/DataTesting.sh && sudo mkdir -p ${HOME}/db/ && sudo mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble > ${HOME}/db/pyfunceble.sql
-  #- head -n 20 "download_here/0.0.0.0/hosts"
+- sudo systemctl restart mysql.service
+- sudo mysql -u root -h localhost -e "CREATE DATABASE pyfunceble DEFAULT CHARACTER
+  SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+- sudo mysql -u root -h localhost -e "CREATE USER 'root'@'%' IDENTIFIED BY ''"
+- sudo mysql -u root -h localhost -e "CREATE USER 'pyfunceble'@'localhost' IDENTIFIED
+  BY 'pyfunceble';"
+- sudo mysql -u root -h localhost -e "GRANT ALL PRIVILEGES ON pyfunceble.* TO 'pyfunceble'@'localhost';"
+- sudo mysql --user=pyfunceble --password=pyfunceble pyfunceble < ${HOME}/db/pyfunceble.sql
+- bash dev-tools/PrepareData.sh && bash dev-tools/DataTesting.sh && sudo mkdir -p
+  ${HOME}/db/ && sudo mysqldump --user=pyfunceble --password=pyfunceble --opt pyfunceble
+  > ${HOME}/db/pyfunceble.sql
