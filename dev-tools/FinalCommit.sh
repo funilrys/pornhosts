@@ -22,7 +22,7 @@
 
 printf "\n\tRunning FinalCommit.sh\n"
 
-exit 0
+#exit 0
 
 #cat ${TRAVIS_BUILD_DIR}/dev-tools/output/domains/ACTIVE/list | grep -v "^$" | grep -v "^#" > tempdomains.txt
 #mv tempdomains.txt ${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
