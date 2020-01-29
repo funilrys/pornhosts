@@ -1,24 +1,5 @@
-edgekey.net
-i.imgur.com
-s3.amazonaws.com
 adguard.com
 adtidy.org
-discordapp.com
-github.com
-github.io
-gitlab.io
-gtld-servers.net
-insomniagamingfestival.com
-matrix.rocks
-mypdns.cloud
-mypdns.com
-mypdns.org
-spb.ru
-thepiratebay.org
-tinypic.com
-wwwfacebook.com
-i.imgur.com
-s3.amazonaws.com
 ALL adguard.com
 ALL adtidy.org
 ALL discordapp.com
@@ -35,3 +16,20 @@ ALL spb.ru
 ALL thepiratebay.org
 ALL tinypic.com
 ALL wwwfacebook.com
+discordapp.com
+edgekey.net
+github.com
+github.io
+gitlab.io
+gtld-servers.net
+i.imgur.com
+insomniagamingfestival.com
+matrix.rocks
+mypdns.cloud
+mypdns.com
+mypdns.org
+s3.amazonaws.com
+spb.ru
+thepiratebay.org
+tinypic.com
+wwwfacebook.com
