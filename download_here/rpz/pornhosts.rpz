@@ -1,6 +1,6 @@
 $TTL 1w;
 $ORIGIN	localhost.
-	SOA	need.to.know.only. hostmaster.mypdns.org. 1580317799 3600 60 604800 60;
+	SOA	need.to.know.only. hostmaster.mypdns.org. 1580318796 3600 60 604800 60;
 	NS	localhost
 7-7-7-partner.com	CNAME	.
 *.7-7-7-partner.com	CNAME	.
@@ -106,8 +106,6 @@ girlsbooking.ch	CNAME	.
 *.girlsbooking.ch	CNAME	.
 girlsfucked.com	CNAME	.
 *.girlsfucked.com	CNAME	.
-github.com	CNAME	.
-*.github.com	CNAME	.
 gitlab.com	CNAME	.
 *.gitlab.com	CNAME	.
 glamourbabez.com	CNAME	.
@@ -142,12 +140,6 @@ kichduc.me	CNAME	.
 *.kichduc.me	CNAME	.
 londep18.com	CNAME	.
 *.londep18.com	CNAME	.
-mypdns.org	CNAME	.
-*.mypdns.org	CNAME	.
-wiki.mypdns.org	CNAME	.
-*.wiki.mypdns.org	CNAME	.
-www.mypdns.org	CNAME	.
-*.www.mypdns.org	CNAME	.
 phimsd.org	CNAME	.
 *.phimsd.org	CNAME	.
 phimsex1.net	CNAME	.
@@ -160,8 +152,6 @@ plublogs.com	CNAME	.
 *.plublogs.com	CNAME	.
 porngays.pro	CNAME	.
 *.porngays.pro	CNAME	.
-pyfunceble.github.io	CNAME	.
-*.pyfunceble.github.io	CNAME	.
 sex5.pro	CNAME	.
 *.sex5.pro	CNAME	.
 sex88.net	CNAME	.
