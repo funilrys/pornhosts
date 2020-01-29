@@ -1,10 +1,18 @@
-#!/bin/bash
-# https://www.mypdns.org/
-# Copyright: Content: https://gitlab.com/spirillen
-# Source:Content:
+#!/usr/bin/env bash
+
+# Copyright: https://www.mypdns.org/
+# Content: https://gitlab.com/spirillen
+# Source: https://github.com/Import-External-Sources/pornhosts
+# License: https://www.mypdns.org/wiki/License
+# License Comment: GNU AGPLv3, MODIFIED FOR NON COMMERCIAL USE
 #
-# Please forward any additions, corrections or comments by logging an issue at
-# https://gitlab.com/my-privacy-dns/support/issues
+# License in short:
+# You are free to copy and distribute this file for non-commercial uses,
+# as long the original URL and attribution is included.
+#
+# Please forward any additions, corrections or comments by logging an 
+# issue at https://github.com/mypdns/matrix/issues
+
 pushd . > /dev/null
 SCRIPT_PATH="${BASH_SOURCE[0]}";
 if ([ -h "${SCRIPT_PATH}" ]) then

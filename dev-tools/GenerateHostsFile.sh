@@ -1,30 +1,32 @@
 #!/usr/bin/env bash
-# https://www.mypdns.org/
-# Copyright: Content: https://gitlab.com/spirillen
-# Source:Content:
+
+# Copyright: https://www.mypdns.org/
+# Content: https://gitlab.com/spirillen
+# Source: https://github.com/Import-External-Sources/pornhosts
+# License: https://www.mypdns.org/wiki/License
+# License Comment: GNU AGPLv3, MODIFIED FOR NON COMMERCIAL USE
 #
+# License in short:
 # You are free to copy and distribute this file for non-commercial uses,
 # as long the original URL and attribution is included.
 #
 # Please forward any additions, corrections or comments by logging an 
-# issue at https://gitlab.com/my-privacy-dns/support/issues
+# issue at https://github.com/mypdns/matrix/issues
 
 # Fail if exit != 0
 set -e
 
 # Run script in verbose
-set -x
+# set -x
 
 printf "\n\tRunning GenerateHostFile.sh\n\n"
-
-#TRAVIS_BUILD_DIR="/var/storage01/repositories/github/pornhosts"
 
 # ******************
 # Set Some Variables
 # ******************
 
 now=$(date '+%F %T %z (%Z)')
-my_git_tag=V.${TRAVIS_BUILD_NUMBER}
+my_git_tag="build: ${TRAVIS_BUILD_NUMBER}"
 activelist="${TRAVIS_BUILD_DIR}/dev-tools/output/domains/ACTIVE/list"
 
 # ********************
@@ -118,77 +120,72 @@ mkdir -p  "${outdir}/0.0.0.0" \
   "${ssoutdir}/rpz" \
   "${ssoutdir}/unbound/"
 
-# Strip out Whitelisted Domains and False Positives
-
-# Input (-f) cant be the same as output (-o)
-#uhb_whitelist -wc -m -p 4 -w "${TRAVIS_BUILD_DIR}/submit_here/whitelist.txt" -f "${rawlist}" -o "${rawlist}"
-
 # *******************************
 echo "Generate hosts 0.0.0.0"
 # *******************************
 
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > "${hosts}"
+printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${hosts}"
 cat "${hostsTempl}" >> "${hosts}"
-awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${activelist}" >> "${hosts}"
+awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${rawlist}" >> "${hosts}"
 
 # *******************************
 echo "Generate safe hosts 0.0.0.0"
 # *******************************
 
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > "${sshosts}"
+printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${sshosts}"
 cat "${hostsTempl}" >> "${sshosts}"
 cat "${sshostsTempl}" >> "${sshosts}"
-awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${activelist}" >> "${sshosts}"
+awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${rawlist}" >> "${sshosts}"
 
 # *******************************
 echo "Generate hosts 127.0.0.1"
 # *******************************
 
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > "${hosts127}"
+printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${hosts127}"
 cat "${hostsTempl}" >> "${hosts127}"
-awk '{ printf("127.0.0.1\t%s\n",tolower($1)) }' "${activelist}" >> "${hosts127}"
+awk '{ printf("127.0.0.1\t%s\n",tolower($1)) }' "${rawlist}" >> "${hosts127}"
 
 # **********************************
 echo "Generate safe hosts 127.0.0.1"
 # **********************************
 
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > "${sshosts127}"
+printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${sshosts127}"
 cat "${hostsTempl}" >> "${sshosts127}"
 cat "${sshostsTempl}" >> "${sshosts127}"
-awk '{ printf("127.0.0.1\t%s\n",tolower($1)) }' "${activelist}" >> "${sshosts127}"
+awk '{ printf("127.0.0.1\t%s\n",tolower($1)) }' "${rawlist}" >> "${sshosts127}"
 
 # *******************************
 echo "Generate Mobile hosts"
 # *******************************
 
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > "${mobile}"
+printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${mobile}"
 cat "${mobileTempl}" >> "${mobile}"
-awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${activelist}" >> "${mobile}"
+awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${rawlist}" >> "${mobile}"
 
 # *******************************
 echo "Generate safe Mobile hosts"
 # *******************************
 
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > "${ssmobile}"
+printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${ssmobile}"
 cat "${mobileTempl}" >> "${ssmobile}"
 cat "${sshostsTempl}" >> "${ssmobile}"
-awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${activelist}" >> "${ssmobile}"
+awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${rawlist}" >> "${ssmobile}"
 
 # *********************************************************************************
 # DNSMASQ https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/dnsmasq/issues/1
 # *********************************************************************************
 
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > "${dnsmasq}"
+printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${dnsmasq}"
 cat "${dnsmasqTempl}" >> "${dnsmasq}"
-awk '{ printf("server=/%s/\n",tolower($1)) }' "${activelist}" >> "${dnsmasq}"
+awk '{ printf("server=/%s/\n",tolower($1)) }' "${rawlist}" >> "${dnsmasq}"
 
 # **********************************
 echo "build Safe search for dnsmasq"
 # **********************************
 
-printf "### Updated: ${now} Build: ${my_git_tag}\n### Porn Hosts Count: ${bad_referrers}\n" > "${ssdnsmasq}"
+printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${ssdnsmasq}"
 cat "${ssdnsmasqTempl}" >> "${ssdnsmasq}"
-awk '{ printf("server=/%s/\n",tolower($1)) }' "${activelist}" >> "${ssdnsmasq}"
+awk '{ printf("server=/%s/\n",tolower($1)) }' "${rawlist}" >> "${ssdnsmasq}"
 
 
 
@@ -201,14 +198,14 @@ echo "Unbound zone file always_nxdomain"
 # **************************************
 
 printf '{server:\n}' > "${unbound}"
-awk '{ printf("local-zone: \"%s\" always_nxdomain\n",tolower($1)) }' "${activelist}" >> "${unbound}"
+awk '{ printf("local-zone: \"%s\" always_nxdomain\n",tolower($1)) }' "${rawlist}" >> "${unbound}"
 
 # **************************************************
 echo "Unbound safe search zone file always_nxdomain"
 # **************************************************
 
 cat "${ssunboundTempl}" > "${ssunbound}"
-awk '{ printf("local-zone: \"%s\" always_nxdomain\n",tolower($1)) }' "${activelist}" >> "${ssunbound}"
+awk '{ printf("local-zone: \"%s\" always_nxdomain\n",tolower($1)) }' "${rawlist}" >> "${ssunbound}"
 
 
 
@@ -217,7 +214,7 @@ awk '{ printf("local-zone: \"%s\" always_nxdomain\n",tolower($1)) }' "${activeli
 # ********************************************************
 
 # ************************************
-echo "Make Bind format RPZ"
+echo "Making Bind formatted RPZ zones"
 # ************************************
 
 #cat ${rpzTempl} > ${rpz}
@@ -226,6 +223,6 @@ printf "\$TTL 1w;
 \tSOA\tneed.to.know.only. hostmaster.mypdns.org. `date +%s` 3600 60 604800 60;
 \tNS\tlocalhost\n" > "${rpz}"
 
-awk '{ printf("%s\tCNAME\t.\n*.%s\tCNAME\t.\n",tolower($1),tolower($1)) }' "${activelist}" >> "${rpz}"
+awk '{ printf("%s\tCNAME\t.\n*.%s\tCNAME\t.\n",tolower($1),tolower($1)) }' "${rawlist}" >> "${rpz}"
 
 exit ${?}

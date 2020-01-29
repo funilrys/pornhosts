@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 # https://www.mypdns.org/
 # Copyright: Content: https://gitlab.com/spirillen
 # Source:Content:
