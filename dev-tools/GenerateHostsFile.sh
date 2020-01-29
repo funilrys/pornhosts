@@ -9,6 +9,12 @@
 # Please forward any additions, corrections or comments by logging an 
 # issue at https://gitlab.com/my-privacy-dns/support/issues
 
+# Fail if exit != 0
+set -e
+
+# Run script in verbose
+set -x
+
 printf "\n\tRunning GenerateHostFile.sh\n\n"
 
 #TRAVIS_BUILD_DIR="/var/storage01/repositories/github/pornhosts"
@@ -97,12 +103,20 @@ wget -qO "${ssunboundTempl}" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall
 find "${outdir}" -type f -delete
 
 # Next ensure all output folders is there
-downloaddir="${TRAVIS_BUILD_DIR}/download_here"
+#downloaddir="${TRAVIS_BUILD_DIR}/download_here"
 
-mkdir -p  "$downloaddir/0.0.0.0" "$downloaddir/127.0.0.1" "$downloaddir/mobile" \
-  "$downloaddir/dnsmasq" "$downloaddir/rpz" "$downloaddir/safesearch/0.0.0.0" \
-  "$downloaddir/safesearch/127.0.0.1" "$downloaddir/safesearch/mobile" \
-  "$downloaddir/safesearch/dnsmasq" "$downloaddir/safesearch/rpz" "${outdir}/unbound/"
+mkdir -p  "${outdir}/0.0.0.0" \
+  "${outdir}/127.0.0.1" \
+  "${outdir}/mobile" \
+  "${outdir}/dnsmasq" \
+  "${outdir}/rpz" \
+  "${outdir}/unbound/" \
+  "${ssoutdir}/0.0.0.0" \
+  "${ssoutdir}/127.0.0.1" \
+  "${ssoutdir}/mobile" \
+  "${ssoutdir}/dnsmasq" \
+  "${ssoutdir}/rpz" \
+  "${ssoutdir}/unbound/"
 
 # Strip out Whitelisted Domains and False Positives
 
