@@ -72,9 +72,9 @@ PrepareLists () {
     sort -u -f "${snuff}" -o "${snuff}"
     sort -u -f "${testfile}" -o "${testfile}"
 
-    dos2unix "${testfile}" -n "${testfile}.tmp"
+    dos2unix "${testfile}" -n "${testfile}.tmp.txt"
 
-    uhb_whitelist -wc -w "${WhiteList}" -f "${testfile}.tmp" -o "${testfile}"
+    uhb_whitelist -wc -m -p $(nproc --ignore=1) -d -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testfile}"
 
  }
 PrepareLists
@@ -83,13 +83,13 @@ PrepareLists
 # Deletion of all whitelisted domains
 # ***********************************
 
-WhiteListing () {
-    if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
-        then
-            hash uhb_whitelist
-            uhb_whitelist -wc -w "${WhiteList}" -f "${testfile}.tmp" -o "${testfile}"
-    fi
-}
-WhiteListing
+#WhiteListing () {
+    #if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
+        #then
+            #hash uhb_whitelist
+            #uhb_whitelist -wc -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testfile}"
+    #fi
+#}
+#WhiteListing
 
 exit ${?}
