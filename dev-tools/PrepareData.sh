@@ -29,9 +29,9 @@ WhiteList="${TRAVIS_BUILD_DIR}/whitelist"
 
 getWhiteList () {
     wget -qO- 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/domain.list' \
-    | awk '{ printf("%s",tolower($1)) }' >> ${WhiteList}
+    | awk '{ printf("%s\n",tolower($1)) }' >> ${WhiteList}
     wget -qO- 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/wildcard.list' \
-    | awk '{ printf("ALL %s",tolower($1)) }' >> ${WhiteList}
+    | awk '{ printf("ALL %s\n",tolower($1)) }' >> ${WhiteList}
 }
 getWhiteList
 
