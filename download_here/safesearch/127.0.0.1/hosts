@@ -1,4 +1,4 @@
-### Updated: 2020-01-29 11:41:01 +0000 (UTC) Build: V.767
+### Updated: 2020-01-29 12:05:58 +0000 (UTC) Build: V.768
 ### Porn Hosts Count: 7
 # This is a custom hosts file with all the porn sites I could find.
 #
@@ -17,21 +17,14 @@
 fe80::1%lo0 localhost
 
 
-# This is a custom hosts file with all the porn sites I could find.
-# It contains over 5,800 domains with no duplicates.
-# An updated version is always available at https://github.com/Clefspeare13/pornhosts
-# Submit complaints or suggestions here https://github.com/Clefspeare13/pornhosts/issues
+# Safe Search Domains by www.mypdns.org
+# If you know about other safe search setup, please submit it here
+# https://gitlab.com/my-privacy-dns/matrix/matrix/issues/582
+# License: https://gitlab.com/my-privacy-dns/matrix/matrix/blob/master/LICENSE
+# Source: https://gitlab.com/my-privacy-dns/matrix/matrix/tree/master/safesearch
 
-# localhost
-127.0.0.1 local
-127.0.0.1 localhost
-127.0.0.1 localhost.localdomain
-255.255.255.255 broadcasthost
-::1 localhost
-fe80::1%lo0 localhost
-
-# Safe Search Domains
-# DuckDuckgo.com The only real safe serach engine
+# DuckDuckGo.com The only real safe serach engine
+# EU region
 79.125.106.1 duckduckgo.com
 54.229.105.151 duckduckgo.com
 79.125.105.136 duckduckgo.com
@@ -39,6 +32,22 @@ fe80::1%lo0 localhost
 # Bing The second most inrelable and UNSAFE privacy invading "search" portal
 # Be aware, it ain't you who is searching here, it is Microsoft that search for you
 204.79.197.220 bing.com
+204.79.197.220 www.bing.com
+
+# Youtube
+# Strict
+216.239.38.120	www.youtube-nocookie.com
+216.239.38.120	www.youtube.com
+216.239.38.120	youtube.com
+216.239.38.120	youtube.googleapis.com
+216.239.38.120	youtubei.googleapis.com
+
+# Strict moderate
+#216.239.38.119	www.youtube-nocookie.com
+#216.239.38.119	www.youtube.com
+#216.239.38.119	youtube.com
+#216.239.38.119	youtube.googleapis.com
+#216.239.38.119	youtubei.googleapis.com
 
 # Google The most inrelable and UNSAFE privacy invading "search" portal
 # Be aware, it ain't you who is searching here, it is Google that search for you
@@ -236,6 +245,12 @@ fe80::1%lo0 localhost
 216.239.38.120 google.vu
 216.239.38.120 google.ws
 
+# pixabay.com
+104.18.82.97 pixabay.com
+104.18.141.87 pixabay.com
+# Requires IPv6
+#2606:4700::6812:5261 pixabay.com
+#2606:4700::6812:8d57 pixabay.com
 127.0.0.1	#
 127.0.0.1	#
 127.0.0.1	
