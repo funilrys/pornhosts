@@ -22,8 +22,8 @@ monthtag=$(date +%m)
 # Set our Input File
 # ******************
 #input=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
-#testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
-testfile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
+testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
+#testfile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
 pyfuncebleConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble.yaml"
 pyfuncebleProductionConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble_production.yaml"
 
@@ -43,7 +43,7 @@ RunFunceble () {
     fi
 
         PyFunceble --ci -q -h -m -p $(nproc --ignore=1) -db --database-type mariadb -ex --plain --dns 127.0.0.1 \
-            --autosave-minutes 2 --share-logs --http --idna --ci-branch master \
+            --autosave-minutes 2 --share-logs --http --idna --ci-branch pyfunceble-processing \
             --ci-distribution-branch master --hierarchical \
             --cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
             --commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \

@@ -22,9 +22,8 @@
 input1="${TRAVIS_BUILD_DIR}/submit_here/hosts.txt"
 snuff="${TRAVIS_BUILD_DIR}/submit_here/snuff.txt"
 testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
-testfile2="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
 
-# This should be replaced by a local whitelist
+# This following should be replaced by a local whitelist
 
 WhiteList="${TRAVIS_BUILD_DIR}/whitelist"
 
@@ -86,8 +85,8 @@ WhiteListing () {
     if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
         then
             hash uhb_whitelist
-	    mv "${testfile2}" "${testfile}.tmp.txt"
-            uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testfile2}"
+	    mv "${testfile}" "${testfile}.tmp.txt"
+            uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testfile}"
     fi
 }
 WhiteListing
