@@ -29,9 +29,10 @@ WhiteList="${TRAVIS_BUILD_DIR}/whitelist"
 
 getWhiteList () {
     wget -qO- 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/domain.list' \
-    | awk '{ printf("%s\n",tolower($1)) }' >> ${WhiteList}
+    | awk '{ printf("%s\n",tolower($1)) }' >> "${WhiteList}"
     wget -qO- 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/wildcard.list' \
-    | awk '{ printf("ALL %s\n",tolower($1)) }' >> ${WhiteList}
+    | awk '{ printf("ALL %s\n",tolower($1)) }' >> "${WhiteList}"
+    sort -u -f "${WhiteList}" -o "${WhiteList}"
 }
 getWhiteList
 
@@ -73,7 +74,7 @@ PrepareLists () {
 
     dos2unix "${testfile}" -n "${testfile}.tmp"
 
-    #uhb_whitelist -wc -w "${WhiteList}" -f "${testfile}.tmp" -o "${testfile}"
+    uhb_whitelist -wc -w "${WhiteList}" -f "${testfile}.tmp" -o "${testfile}"
 
  }
 PrepareLists
@@ -83,11 +84,11 @@ PrepareLists
 # ***********************************
 
 WhiteListing () {
-    #if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
-        #then
+    if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
+        then
             hash uhb_whitelist
             uhb_whitelist -wc -w "${WhiteList}" -f "${testfile}.tmp" -o "${testfile}"
-    #fi
+    fi
 }
 WhiteListing
 

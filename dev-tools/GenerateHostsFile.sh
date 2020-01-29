@@ -129,7 +129,7 @@ mkdir -p \
   "${ssoutdir}/unbound/"
 
 # *********************************************************************************
-printf "Generate hosts 0.0.0.0"
+printf "\nGenerate hosts 0.0.0.0\n"
 # *********************************************************************************
 
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${hosts}"
@@ -137,7 +137,7 @@ cat "${hostsTempl}" >> "${hosts}"
 awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${rawlist}" >> "${hosts}"
 
 # *********************************************************************************
-printf "Generate safe hosts 0.0.0.0"
+printf "\nGenerate safe hosts 0.0.0.0\n"
 # *********************************************************************************
 
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${sshosts}"
@@ -146,7 +146,7 @@ cat "${sshostsTempl}" >> "${sshosts}"
 awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${rawlist}" >> "${sshosts}"
 
 # *********************************************************************************
-printf "Generate hosts 127.0.0.1"
+printf "\nGenerate hosts 127.0.0.1\n"
 # *********************************************************************************
 
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${hosts127}"
@@ -154,7 +154,7 @@ cat "${hostsTempl}" >> "${hosts127}"
 awk '{ printf("127.0.0.1\t%s\n",tolower($1)) }' "${rawlist}" >> "${hosts127}"
 
 # *********************************************************************************
-printf "Generate safe hosts 127.0.0.1"
+printf "\nGenerate safe hosts 127.0.0.1\n"
 # *********************************************************************************
 
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${sshosts127}"
@@ -163,7 +163,7 @@ cat "${sshostsTempl}" >> "${sshosts127}"
 awk '{ printf("127.0.0.1\t%s\n",tolower($1)) }' "${rawlist}" >> "${sshosts127}"
 
 # *********************************************************************************
-printf "Generate Mobile hosts"
+printf "\nGenerate Mobile hosts\n"
 # *********************************************************************************
 
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${mobile}"
@@ -171,7 +171,7 @@ cat "${mobileTempl}" >> "${mobile}"
 awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${rawlist}" >> "${mobile}"
 
 # *********************************************************************************
-printf "Generate safe Mobile hosts"
+printf "\nGenerate safe Mobile hosts\n"
 # *********************************************************************************
 
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${ssmobile}"
@@ -188,7 +188,7 @@ cat "${dnsmasqTempl}" >> "${dnsmasq}"
 awk '{ printf("server=/%s/\n",tolower($1)) }' "${rawlist}" >> "${dnsmasq}"
 
 # *********************************************************************************
-printf "build Safe search for dnsmasq"
+printf "\nbuild Safe search for dnsmasq\n"
 # *********************************************************************************
 
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${ssdnsmasq}"
@@ -201,14 +201,14 @@ awk '{ printf("server=/%s/\n",tolower($1)) }' "${rawlist}" >> "${ssdnsmasq}"
 # *********************************************************************************
 
 # *********************************************************************************
-printf "Unbound zone file always_nxdomain"
+printf "\nUnbound zone file always_nxdomain\n"
 # *********************************************************************************
 
 printf '{server:\n}' > "${unbound}"
 awk '{ printf("local-zone: \"%s\" always_nxdomain\n",tolower($1)) }' "${rawlist}" >> "${unbound}"
 
 # *********************************************************************************
-printf "Unbound safe search zone file always_nxdomain"
+printf "\nUnbound safe search zone file always_nxdomain\n"
 # *********************************************************************************
 
 cat "${ssunboundTempl}" > "${ssunbound}"
@@ -220,7 +220,7 @@ awk '{ printf("local-zone: \"%s\" always_nxdomain\n",tolower($1)) }' "${rawlist}
 # *********************************************************************************
 
 # *********************************************************************************
-printf "Making Bind formatted RPZ zones"
+printf "\nMaking Bind formatted RPZ zones\n"
 # *********************************************************************************
 
 #cat ${rpzTempl} > ${rpz}
