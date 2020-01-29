@@ -102,7 +102,7 @@ downloaddir="${TRAVIS_BUILD_DIR}/download_here"
 mkdir -p  "$downloaddir/0.0.0.0" "$downloaddir/127.0.0.1" "$downloaddir/mobile" \
   "$downloaddir/dnsmasq" "$downloaddir/rpz" "$downloaddir/safesearch/0.0.0.0" \
   "$downloaddir/safesearch/127.0.0.1" "$downloaddir/safesearch/mobile" \
-  "$downloaddir/safesearch/dnsmasq" "$downloaddir/safesearch/rpz"
+  "$downloaddir/safesearch/dnsmasq" "$downloaddir/safesearch/rpz" "${outdir}/unbound/"
 
 # Strip out Whitelisted Domains and False Positives
 
