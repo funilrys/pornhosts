@@ -41,15 +41,16 @@ rawlist="${outdir}/active_raw_data.txt"
 touch "${rawlist}"
 grep -vE "^(#|$)" "${activelist}" > "${rawlist}"
 
+ls -lh "${rawlist}"
 bad_referrers=$(wc -l < "${rawlist}")
+ls -lh "${rawlist}"
 
-# Print some stats with color fun
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-NC=$(tput sgr0) # No Color
-
-printf "\n\t${GREEN}Rows in active list: ${RED}$(wc -l < "${activelist}")${NC}\n"
-printf "\n\t${GREEN}Rows of raw data: ${RED}${bad_referrers}${NC}\n"
+# Print some stats
+ls -lh "${rawlist}"
+printf "\n\tRows in active list: $(wc -l < "${activelist}")\n"
+ls -lh "${rawlist}"
+printf "\n\tRows of raw data: ${bad_referrers}\n"
+ls -lh "${rawlist}"
 
 # Ordinary without safe search records
 hosts="${outdir}/0.0.0.0/hosts"
