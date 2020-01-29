@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# This hosts file for DD-WRT Routers with DNSMasq is brought to you by 
+# This hosts file for DD-WRT Routers with DNSMasq is brought to you by
 # https://www.mypdns.org/
 # Copyright: Content: https://gitlab.com/spirillen
-# Source:Content: 
+# Source:Content:
 #
 # Original attributes and credit
 # This hosts file for DD-WRT Routers with DNSMasq is brought to you by Mitchell Krog
