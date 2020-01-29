@@ -35,6 +35,10 @@ activelist="${TRAVIS_BUILD_DIR}/dev-tools/output/domains/ACTIVE/list"
 
 outdir="${TRAVIS_BUILD_DIR}/download_here" # no trailing / as it would make a double //
 
+# First let us clean out old data in output folders
+
+find "${outdir}" -type f -delete
+
 # Generate the rawlist, as we need it for the rest of our work
 
 rawlist="${outdir}/active_raw_data.txt"
@@ -101,10 +105,6 @@ wget -qO "${sshostsTempl}" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-t
 wget -qO "${ssdnsmasqTempl}" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/dnsmasq/raw/master/safesearch.dnsmasq.conf'
 wget -qO "${ssrpzTempl}" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/bind-9/raw/master/safesearch.mypdns.cloud.rpz'
 wget -qO "${ssunboundTempl}" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/unbound/raw/master/safesearch.conf'
-
-# First let us clean out old data in output folders
-
-find "${outdir}" -type f -delete
 
 # Next ensure all output folders is there
 #downloaddir="${TRAVIS_BUILD_DIR}/download_here"
