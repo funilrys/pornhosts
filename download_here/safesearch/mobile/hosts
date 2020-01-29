@@ -1,5 +1,5 @@
-### Updated: 2020-01-29 00:08:14 +0000 (UTC) Build: V.766
-### Porn Hosts Count: 14
+### Updated: 2020-01-29 11:41:01 +0000 (UTC) Build: V.767
+### Porn Hosts Count: 7
 # This is a custom hosts file with all the porn sites I could find.
 #
 # It contains over 5,800 domains with no duplicates. Note that m.* versions of domains and
@@ -240,17 +240,10 @@ fe80::1%lo0 localhost
 0.0.0.0	#
 0.0.0.0	#
 0.0.0.0	
-0.0.0.0	zooporn.ws
-0.0.0.0	zweistein12.tumblr.com
-0.0.0.0	zoosexfarm.com
-0.0.0.0	zootube1.com
-0.0.0.0	zooxxxsexporn.black
-0.0.0.0	zooxxxsexpornmovies.com
-0.0.0.0	zoztube.com
-0.0.0.0	zptkr.com
-0.0.0.0	ztod.com
-0.0.0.0	zuckerporno.com
-0.0.0.0	zuzandra.com
-0.0.0.0	zweiporn.com
-0.0.0.0	zzgays.com
-0.0.0.0	zzitube.com
+0.0.0.0	duckduckgo.com
+0.0.0.0	github.com
+0.0.0.0	gitlab.com
+0.0.0.0	mypdns.org
+0.0.0.0	wiki.mypdns.org
+0.0.0.0	www.mypdns.org
+0.0.0.0	pyfunceble.github.io

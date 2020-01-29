@@ -1,6 +1,6 @@
 $TTL 1w;
 $ORIGIN	localhost.
-	SOA	need.to.know.only. hostmaster.mypdns.org. 1580256495 3600 60 604800 60;
+	SOA	need.to.know.only. hostmaster.mypdns.org. 1580298061 3600 60 604800 60;
 	NS	localhost
 #	CNAME	.
 *.#	CNAME	.
@@ -8,31 +8,17 @@ $ORIGIN	localhost.
 *.#	CNAME	.
 	CNAME	.
 *.	CNAME	.
-zooporn.ws	CNAME	.
-*.zooporn.ws	CNAME	.
-zweistein12.tumblr.com	CNAME	.
-*.zweistein12.tumblr.com	CNAME	.
-zoosexfarm.com	CNAME	.
-*.zoosexfarm.com	CNAME	.
-zootube1.com	CNAME	.
-*.zootube1.com	CNAME	.
-zooxxxsexporn.black	CNAME	.
-*.zooxxxsexporn.black	CNAME	.
-zooxxxsexpornmovies.com	CNAME	.
-*.zooxxxsexpornmovies.com	CNAME	.
-zoztube.com	CNAME	.
-*.zoztube.com	CNAME	.
-zptkr.com	CNAME	.
-*.zptkr.com	CNAME	.
-ztod.com	CNAME	.
-*.ztod.com	CNAME	.
-zuckerporno.com	CNAME	.
-*.zuckerporno.com	CNAME	.
-zuzandra.com	CNAME	.
-*.zuzandra.com	CNAME	.
-zweiporn.com	CNAME	.
-*.zweiporn.com	CNAME	.
-zzgays.com	CNAME	.
-*.zzgays.com	CNAME	.
-zzitube.com	CNAME	.
-*.zzitube.com	CNAME	.
+duckduckgo.com	CNAME	.
+*.duckduckgo.com	CNAME	.
+github.com	CNAME	.
+*.github.com	CNAME	.
+gitlab.com	CNAME	.
+*.gitlab.com	CNAME	.
+mypdns.org	CNAME	.
+*.mypdns.org	CNAME	.
+wiki.mypdns.org	CNAME	.
+*.wiki.mypdns.org	CNAME	.
+www.mypdns.org	CNAME	.
+*.www.mypdns.org	CNAME	.
+pyfunceble.github.io	CNAME	.
+*.pyfunceble.github.io	CNAME	.
