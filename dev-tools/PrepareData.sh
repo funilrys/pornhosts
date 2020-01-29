@@ -27,7 +27,7 @@ testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
 
 whitelist="$(wget -qO ${TRAVIS_BUILD_DIR}/whitelist 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/domain.list' > ${TRAVIS_BUILD_DIR}/whitelist && wget -qO- 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/wildcard.list' >> ${TRAVIS_BUILD_DIR}/whitelist )"
 cp "${testfile}" "${testfile}.tmp"
-uhb_whitelist -wc -w "${whitelist}" -f "${testfile}" -o "${testfile}"
+uhb_whitelist -wc -w "${whitelist}" -f "${testfile}.tmp" -o "${testfile}"
 
 # *********************************************
 # Get Travis CI Prepared for Committing to Repo
