@@ -125,11 +125,11 @@ mkdir -p  "${outdir}/0.0.0.0" \
 # *******************************
 echo "Generate hosts 0.0.0.0"
 # *******************************
-
+ls -lh "${rawlist}"
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${hosts}"
 cat "${hostsTempl}" >> "${hosts}"
 awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${rawlist}" >> "${hosts}"
-
+ls -lh "${rawlist}"
 # *******************************
 echo "Generate safe hosts 0.0.0.0"
 # *******************************
