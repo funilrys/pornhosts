@@ -75,9 +75,6 @@ PrepareLists () {
 
     dos2unix "${testfile}"
 
-    mv "${testfile2}" "${testfile}.tmp.txt"
-    uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testfile2}"
-
  }
 PrepareLists
 
@@ -85,13 +82,14 @@ PrepareLists
 # Deletion of all whitelisted domains
 # ***********************************
 
-#WhiteListing () {
-    #if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
-        #then
-            #hash uhb_whitelist
-            #uhb_whitelist -wc -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testfile}"
-    #fi
-#}
-#WhiteListing
+WhiteListing () {
+    if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
+        then
+            hash uhb_whitelist
+	    mv "${testfile2}" "${testfile}.tmp.txt"
+            uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testfile2}"
+    fi
+}
+WhiteListing
 
 exit ${?}
