@@ -80,17 +80,17 @@ sstemplpath="${templpath}/safesearch"
 
 sshostsTempl="${sstemplpath}/hosts.template" # same for mobile
 ssdnsmasqTempl="${sstemplpath}/ddwrt-dnsmasq.template"
-#ssrpzTempl="${sstemplpath}/safesearch.rpz"
-ssunboundTempl="${sstemplpath}/ddwrt-dnsmasq.template"
+ssrpzTempl="${sstemplpath}/safesearch.rpz"
+ssunboundTempl="${sstemplpath}/unbound.template"
 
 # ***********************************************************
 printf "\n\tUpdate our safe search templates\n"
 # ***********************************************************
 
-wget -qO "${sstemplpath}/sshosts" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/hosts/raw/master/matrix/safesearch.hosts'
-wget -qO "${sstemplpath}/ssdnsmasq" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/dnsmasq/raw/master/safesearch.dnsmasq.conf'
-wget -qO "${sstemplpath}/ssrpz" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/bind-9/raw/master/safesearch.mypdns.cloud.rpz'
-wget -qO "${sstemplpath}/ssunbound" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/unbound/raw/master/safesearch.conf'
+wget -qO "${sshostsTempl}" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/hosts/raw/master/matrix/safesearch.hosts'
+wget -qO "${ssdnsmasqTempl}" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/dnsmasq/raw/master/safesearch.dnsmasq.conf'
+wget -qO "${ssrpzTempl}" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/bind-9/raw/master/safesearch.mypdns.cloud.rpz'
+wget -qO "${ssunboundTempl}" 'https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/unbound/raw/master/safesearch.conf'
 
 # First let us clean out old data in output folders
 
@@ -193,7 +193,7 @@ awk '{ printf("local-zone: \"%s\" always_nxdomain\n",tolower($1)) }' "${activeli
 echo "Unbound safe search zone file always_nxdomain"
 # **************************************************
 
-cat "${ssunboundTempl}" > "${unbound}"
+cat "${ssunboundTempl}" > "${ssunbound}"
 awk '{ printf("local-zone: \"%s\" always_nxdomain\n",tolower($1)) }' "${activelist}" >> "${ssunbound}"
 
 
