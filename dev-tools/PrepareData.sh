@@ -26,7 +26,7 @@ testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
 # This should be replaced by a local whitelist
 
 whitelist="$(wget -qO ${TRAVIS_BUILD_DIR}/whitelist 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/domain.list' > ${TRAVIS_BUILD_DIR}/whitelist && wget -qO- 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/wildcard.list' >> ${TRAVIS_BUILD_DIR}/whitelist )"
-
+cp "${testfile}" "${testfile}.tmp"
 uhb_whitelist -wc -w "${whitelist}" -f "${testfile}" -o "${testfile}"
 
 # *********************************************
@@ -77,7 +77,8 @@ WhiteListing () {
     if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
         then
             hash uhb_whitelist
-            uhb_whitelist -wc -w "${whitelist}" -f "${testfile}" -o "${testfile}"
+	    cp "${testfile}" "${testfile}.tmp"
+            uhb_whitelist -wc -w "${whitelist}" -f "${testfile}.tmp" -o "${testfile}"
     fi
 }
 WhiteListing
