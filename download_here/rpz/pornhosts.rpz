@@ -1,6 +1,6 @@
 $TTL 1w;
 $ORIGIN	localhost.
-	SOA	need.to.know.only. hostmaster.mypdns.org. 1580314641 3600 60 604800 60;
+	SOA	need.to.know.only. hostmaster.mypdns.org. 1580315936 3600 60 604800 60;
 	NS	localhost
 7-7-7-partner.com	CNAME	.
 *.7-7-7-partner.com	CNAME	.
