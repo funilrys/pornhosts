@@ -76,7 +76,7 @@ PrepareLists () {
     dos2unix "${testfile}"
 
     mv "${testfile2}" "${testfile}.tmp.txt"
-    uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" > "${testfile2}"
+    uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testfile2}"
 
  }
 PrepareLists
