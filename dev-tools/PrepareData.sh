@@ -21,7 +21,8 @@
 #SOURCE=""
 input1="${TRAVIS_BUILD_DIR}/submit_here/hosts.txt"
 snuff="${TRAVIS_BUILD_DIR}/submit_here/snuff.txt"
-testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
+#testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
+testfile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
 
 # This should be replaced by a local whitelist
 
@@ -74,8 +75,8 @@ PrepareLists () {
 
     dos2unix "${testfile}"
 
-    #mv "${testfile}" "${testfile}.tmp.txt"
-    #uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" > "${testfile}"
+    mv "${testfile}" "${testfile}.tmp.txt"
+    uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" > "${testfile}"
 
  }
 PrepareLists
