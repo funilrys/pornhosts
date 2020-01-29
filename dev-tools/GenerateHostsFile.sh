@@ -44,9 +44,9 @@ grep -vE "^(#|$)" "${activelist}" > "${rawlist}"
 bad_referrers=$(wc -l < "${rawlist}")
 
 # Print some stats with color fun
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+NC=$(tput sgr0) # No Color
 
 printf "\n\t${GREEN}Rows in active list: ${RED}$(wc -l < "${activelist}")${NC}\n"
 printf "\n\t${GREEN}Rows of raw data: ${RED}${bad_referrers}${NC}\n"
