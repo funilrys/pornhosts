@@ -25,9 +25,15 @@ testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
 
 # This should be replaced by a local whitelist
 
-whitelist="$(wget -qO ${TRAVIS_BUILD_DIR}/whitelist 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/domain.list' > ${TRAVIS_BUILD_DIR}/whitelist && wget -qO- 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/wildcard.list' >> ${TRAVIS_BUILD_DIR}/whitelist )"
-cp "${testfile}" "${testfile}.tmp"
-uhb_whitelist -wc -w "${whitelist}" -f "${testfile}.tmp" -o "${testfile}"
+WhiteList="${TRAVIS_BUILD_DIR}/whitelist"
+
+getWhiteList () {
+    wget -qO- 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/domain.list' \
+    | awk '{ printf("%s",tolower($1)) }' >> ${WhiteList}
+    wget -qO- 'https://gitlab.com/my-privacy-dns/matrix/matrix/raw/master/source/whitelist/wildcard.list' \
+    | awk '{ printf("ALL %s",tolower($1)) }' >> ${WhiteList}
+}
+getWhiteList
 
 # *********************************************
 # Get Travis CI Prepared for Committing to Repo
@@ -65,7 +71,10 @@ PrepareLists () {
     sort -u -f "${snuff}" -o "${snuff}"
     sort -u -f "${testfile}" -o "${testfile}"
 
-    dos2unix "${testfile}"
+    dos2unix "${testfile}" -n "${testfile}.tmp"
+
+    #uhb_whitelist -wc -w "${whitelist}" -f "${testfile}.tmp" -o "${testfile}"
+
  }
 PrepareLists
 
@@ -77,7 +86,6 @@ WhiteListing () {
     if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
         then
             hash uhb_whitelist
-	    cp "${testfile}" "${testfile}.tmp"
             uhb_whitelist -wc -w "${whitelist}" -f "${testfile}.tmp" -o "${testfile}"
     fi
 }
