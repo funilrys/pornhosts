@@ -72,8 +72,9 @@ PrepareLists () {
     sort -u -f "${snuff}" -o "${snuff}"
     sort -u -f "${testfile}" -o "${testfile}"
 
-    dos2unix "${testfile}" -n "${testfile}.tmp.txt"
+    dos2unix "${testfile}" "${testfile}.tmp.txt"
 
+    mv "${testfile}" "${testfile}.tmp.txt"
     uhb_whitelist -wc -m -p $(nproc --ignore=1) -d -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testfile}"
 
  }
