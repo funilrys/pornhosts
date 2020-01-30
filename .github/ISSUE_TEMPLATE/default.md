@@ -45,3 +45,4 @@ www.example.net
 
 ### Todo
 - [ ] Added to [Source file](submit_here/hosts.txt)?
+- [ ] Added to the RPZ zone [adult.mypdns.cloud](https://www.mypdns.org/wiki/RpzList#adult.mypdns.cloud) (@spirillen)

@@ -2,7 +2,7 @@
 name: Removal request
 about: If you have found a dead domain listed in the hosts file
 title: ''
-labels: invalid, Porn
+labels: Porn, invalid
 assignees: ''
 
 ---
@@ -42,3 +42,4 @@ alive.example..com
 
 ### Todo
 - [ ] Removed this from [Source file](submit_here/hosts.txt)?
+- [ ] Removed from the RPZ zone [adult.mypdns.cloud](https://www.mypdns.org/wiki/RpzList#adult.mypdns.cloud) (@spirillen)
