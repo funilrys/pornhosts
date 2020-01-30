@@ -1,5 +1,7 @@
 # Temponary fork for getting this project back up to date
 
+[![Build Status](https://travis-ci.com/Import-External-Sources/pornhosts.svg?branch=master)](https://travis-ci.com/Import-External-Sources/pornhosts)
+
 # pornhosts -- a consolidated anti porn hosts file
 
 This is an endeavour to find all porn domains and compile them into a single 
