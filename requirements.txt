@@ -1,4 +1,4 @@
-PyFunceble-dev==2.53.6
+pyfunceble-dev==2.57.1
 ultimate-hosts-blacklist-whitelist
 python>=3.7
 colorama
