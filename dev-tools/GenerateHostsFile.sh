@@ -224,10 +224,16 @@ printf "\nMaking Bind formatted RPZ zones\n"
 # *********************************************************************************
 
 #cat ${rpzTempl} > ${rpz}
-printf "\$TTL 1w;
-\$ORIGIN\tlocalhost.
-\tSOA\tneed.to.know.only. hostmaster.mypdns.org. `date +%s` 3600 60 604800 60;
-\tNS\tlocalhost\n" > "${rpz}"
+printf "\$ORIGIN\tlocalhost.
+\$TTL 1800;
+\@\tIN\tSOA\tlocalhost. hostmaster.mypdns.org. `date +%s`\t; Serial
+\t\t\t3600\t\t; refresh
+\t\t\t60\t\t; retry
+\t\t\t604800\t\t; Expire
+\t\t\t60;\t\t; TTL
+\t\t\t\)
+\ Nameservers
+\t\t\tIN\tNS\tlocalhost\n\n" > "${rpz}"
 
 awk '{ printf("%s\tCNAME\t.\n*.%s\tCNAME\t.\n",tolower($1),tolower($1)) }' "${rawlist}" >> "${rpz}"
 
