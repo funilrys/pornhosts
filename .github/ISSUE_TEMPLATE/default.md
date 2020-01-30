@@ -1,10 +1,10 @@
 ---
 name: New submission
 about: I would like to contribute with the following domain to the hosts file
-title: 'NSFW: Type only domain here'
+title: ''
 labels: NSFW Adult Material
 assignees: spirillen
-projects: https://github.com/orgs/Import-External-Sources/projects/2
+
 ---
 
 <!-- Keep any domains in back ticks `(`)`
