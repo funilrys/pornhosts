@@ -3,8 +3,8 @@ name: New submission
 about: I would like to contribute with the following domain to the hosts file
 title: ''
 labels: NSFW Adult Material
-assignees: spirillen
-projects: https://github.com/orgs/Import-External-Sources/projects/2
+assignees: AnonymousPoster, spirillen
+
 ---
 
 <!-- Keep any domains in back ticks `(`)`
@@ -37,11 +37,10 @@ www.example.net
 
 
 ### All Submissions:
-- [ ] Have you followed the guidelines in our [Contributing](CONTRIBUTING.md) document?
 - [ ] Have you checked to ensure there aren't other open
 	[Merge Requests (MR)](../merge_requests) or [Issues](../issues) for
 	the same update/change?
-- [ ] Added ScreenDump for prove of False Negative
+- [ ] Added a Screenshot for prove of Adult contents
 
 ### Todo
 - [ ] Added to [Source file](submit_here/hosts.txt)?
