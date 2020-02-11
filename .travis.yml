@@ -34,7 +34,7 @@ git:
 branches:
   only:
   - master
-  - pyfunceble-processing
+  #- pyfunceble-processing
 matrix:
   fast_finish: true
 sudo: required
