@@ -8905,3 +8905,4 @@ s5.cloudembed.net
 javmec.com
 javfinder.sh
 findercdn.me
+javfun.me
