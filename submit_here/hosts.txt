@@ -8901,4 +8901,5 @@ file2.7mmtv.tv
 7mmtv.tv
 s2.cloudembed.net
 javboss.me
-cloudembed.net
+s5.cloudembed.net
+javmec.com
