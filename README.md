@@ -1,5 +1,3 @@
-# Temponary fork for getting this project back up to date
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/84b46b76e27740bb9eb3770dc6b004a2)](https://app.codacy.com/gh/Import-External-Sources/pornhosts?utm_source=github.com&utm_medium=referral&utm_content=Import-External-Sources/pornhosts&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.com/Import-External-Sources/pornhosts.svg?branch=master)](https://travis-ci.com/Import-External-Sources/pornhosts)
 
