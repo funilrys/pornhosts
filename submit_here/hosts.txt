@@ -9146,3 +9146,5 @@ d.xxx-cdn.com
 e.xxx-cdn.com
 xxx-cdn.com
 www.xxx-cdn.com
+ecvision.info
+www.ecvision.info
