@@ -9172,4 +9172,5 @@ img-ams-7-edge.thumbdn.com
 img-ams-8-edge.thumbdn.com
 static.thumbdn.com
 d205ufcvjjtr3v.cloudfront.net
-www.d205ufcvjjtr3v.cloudfront.net
+lcmapp.com
+www.lcmapp.com
