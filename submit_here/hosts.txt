@@ -9171,5 +9171,5 @@ img-ams-6-edge.thumbdn.com
 img-ams-7-edge.thumbdn.com
 img-ams-8-edge.thumbdn.com
 static.thumbdn.com
-thumbdn.com
-www.thumbdn.com
+d205ufcvjjtr3v.cloudfront.net
+www.d205ufcvjjtr3v.cloudfront.net
