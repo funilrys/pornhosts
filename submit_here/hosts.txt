@@ -9162,5 +9162,14 @@ firecams.com
 vss-edge-ams-03.lcmcdn.net
 vss-edge-ams-06.lcmcdn.net
 vss-edge-ams-07.lcmcdn.net
-lcmcdn.net
-www.lcmcdn.net
+img-ams-1-edge.thumbdn.com
+img-ams-2-edge.thumbdn.com
+img-ams-3-edge.thumbdn.com
+img-ams-4-edge.thumbdn.com
+img-ams-5-edge.thumbdn.com
+img-ams-6-edge.thumbdn.com
+img-ams-7-edge.thumbdn.com
+img-ams-8-edge.thumbdn.com
+static.thumbdn.com
+thumbdn.com
+www.thumbdn.com
