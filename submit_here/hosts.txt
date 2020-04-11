@@ -9172,5 +9172,8 @@ img-ams-7-edge.thumbdn.com
 img-ams-8-edge.thumbdn.com
 static.thumbdn.com
 d205ufcvjjtr3v.cloudfront.net
-lcmapp.com
-www.lcmapp.com
+vss.lcmapp.com
+statsd-wc.hwtool.net
+cyclops-wc.hwtool.net
+hwtool.net
+www.hwtool.net
