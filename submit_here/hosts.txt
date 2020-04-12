@@ -7352,7 +7352,7 @@ www.pornokarhu.com
 www.pornokura.it
 www.pornolaan.com
 www.pornolaba.com
-www.pornolab.net
+static.pornolab.net
 www.pornolandia.xxx
 www.porno-maniac.net
 www.pornomexicana.com.mx
@@ -9473,3 +9473,5 @@ www.zteenporn.com
 fuqporn.pro
 www.drivepornvideos.com
 hentai-for.net
+pornolab.net
+www.pornolab.net
