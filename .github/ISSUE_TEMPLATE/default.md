@@ -25,14 +25,10 @@ www.
 ## Logger output
 
 
-## External Info
-- 
-- 
-
 ### All Submissions:
-- [ ] Have you checked to ensure there aren't other open [Merge Requests (MR)](../merge_requests) or [Issues](../issues) for the same update/change?
-- [ ] Added a Screenshot for prove of Adult contents
+- [X] Have you checked to ensure there aren't other open [Merge Requests (MR)](../merge_requests) or [Issues](../issues) for the same update/change?
+- [X] Added a Screenshot for prove of Adult contents
 
 ### Todo
-- [ ] Added to [Source file](submit_here/hosts.txt)?
-- [ ] Added to the RPZ zone [adult.mypdns.cloud](https://www.mypdns.org/w/rpzlist/#adult-mypdns-cloud) (@spirillen)
+- [X] Added to [Source file](submit_here/hosts.txt)?
+- [X] Added to the RPZ zone [adult.mypdns.cloud](https://www.mypdns.org/w/rpzlist/#adult-mypdns-cloud) (@spirillen)
