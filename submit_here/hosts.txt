@@ -9525,5 +9525,13 @@ si.1cam.webcam
 sk.1cam.webcam
 tr.1cam.webcam
 ua.1cam.webcam
-1cam.webcam
-www.1cam.webcam
+mobile-edge18.bcvcdn.com
+mobile-edge19.bcvcdn.com
+mobile-edge20.bcvcdn.com
+mobile-edge44.bcvcdn.com
+mobile-edge47.bcvcdn.com
+mobile-edge49.bcvcdn.com
+mobile-edge51.bcvcdn.com
+mobile-edge53.bcvcdn.com
+bcvcdn.com
+www.bcvcdn.com
