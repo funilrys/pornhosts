@@ -9914,4 +9914,8 @@ cdn1.trysextube.com
 cdn2.trysextube.com
 cdn3.trysextube.com
 trysextube.com
-www.trysextube.com
+cdn1.adult-tuber.com
+cdn2.adult-tuber.com
+cdn3.adult-tuber.com
+adult-tuber.com
+www.adult-tuber.com
