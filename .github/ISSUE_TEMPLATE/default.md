@@ -3,12 +3,11 @@ name: New submission
 about: I would like to contribute with the following domain to the hosts file
 title: ''
 labels: NSFW Adult Material
-assignees: AnonymousPoster, spirillen
+assignees: spirillen
 
 ---
 
-I believe this domain is an Adult(-related) domain --> that have to 
-be blocked as..
+I believe this domain is an Adult(-related) domain --> that have to be blocked as..
 
 ```python
 
