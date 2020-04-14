@@ -22,6 +22,8 @@
 # ***********************************************************
 # echo Remove our inactive and invalid domains from PULL_REQUESTS
 # ***********************************************************
+set -e
+set -x
 
 printf "\n\tRunning FinalCommit.sh\n"
 
@@ -32,7 +34,9 @@ printf "\n\tRunning FinalCommit.sh\n"
 
 if [ -f "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INACTIVE/list" ]
 then
-  grep -Ev "^($|#)" "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INACTIVE/list" > "${TRAVIS_BUILD_DIR}/submit_here/apparently_inactive.txt"
+  grep -vE "^($|#)" "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INACTIVE/list" > "${TRAVIS_BUILD_DIR}/submit_here/apparently_inactive.txt"
+else
+	exit 0
 fi
 
 #exit 0
