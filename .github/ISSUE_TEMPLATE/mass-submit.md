@@ -24,9 +24,7 @@ www.
 ## Logger output
 
 ## External Info
-- 
-- 
-- 
+- https://github.com/Sinfonietta/hostfiles/pull/100
 
 ### All Submissions:
 - [X] Have you checked to ensure there aren't other open [Merge Requests (MR)](../merge_requests) or [Issues](../issues) for the same update/change?
