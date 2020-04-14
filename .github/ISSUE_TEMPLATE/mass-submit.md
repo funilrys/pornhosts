@@ -1,5 +1,5 @@
 ---
-name: New submission
+name: Mass submission
 about: I would like to contribute with the following domain to the hosts file
 title: ''
 labels: NSFW Adult Material
