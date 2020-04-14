@@ -3,7 +3,7 @@ name: New submission
 about: I would like to contribute with the following domain to the hosts file
 title: ''
 labels: NSFW Adult Material
-assignees: spirillen
+assignees: AnonymousPoster, spirillen
 
 ---
 
@@ -24,9 +24,7 @@ www.
 ## Logger output
 
 ## External Info
-- 
-- 
-- 
+- https://github.com/Sinfonietta/hostfiles/pull/100
 
 ### All Submissions:
 - [X] Have you checked to ensure there aren't other open [Merge Requests (MR)](../merge_requests) or [Issues](../issues) for the same update/change?

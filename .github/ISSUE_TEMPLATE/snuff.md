@@ -2,7 +2,7 @@
 name: Snuff
 about: I would like to contribute with the following domain to the hosts file as *snuff*
 title: 'NSFW: domain.tld'
-labels: Snuff
+labels: Snuff, NSFW Adult Material
 assignees: spirillen
 
 ---
@@ -16,8 +16,8 @@ I believe this domain is an Adult(-related) domain --> that have to
 be blocked as..
 
 ```python
-example.net
-www.example.net
+
+www.
 ```
 
 ## Screenshots
@@ -29,15 +29,13 @@ www.example.net
 </details>
 
 ## External Info
-<!-- if you have found your submission elsewhere, Please credit it by pasting a link here --->
-
-
+- 
+- 
+- 
 
 ### All Submissions:
 - [ ] Have you followed the guidelines in our [Contributing](CONTRIBUTING.md) document?
-- [ ] Have you checked to ensure there aren't other open
-	[Merge Requests (MR)](../merge_requests) or [Issues](../issues) for
-	the same update/change?
+- [ ] Have you checked to ensure there aren't other open [Merge Requests (MR)](../merge_requests) or [Issues](../issues) for the same update/change?
 - [ ] Added ScreenDump for prove of False Positive
 
 ### Todo
