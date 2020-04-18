@@ -45,7 +45,7 @@ RunFunceble () {
         PyFunceble --ci -q -h -m -p $(nproc --ignore=1) -db \
 			--database-type mariadb -ex --plain --dns 127.0.0.1 \
             --autosave-minutes 38 --share-logs --http --idna \
-            --hierarchical --ci-branch travis-ci-runner \
+            --hierarchical --ci-branch "pyfunceble-processing" \
             --ci-distribution-branch master  \
             --cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
             --commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
