@@ -24,31 +24,32 @@ popd  > /dev/null
 
 ROOT_DIR="$(dirname "$SCRIPT_PATH")"
 
+TRAVIS_BUILD_DIR="${ROOT_DIR}"
+
 cd "${SCRIPT_PATH}"
 
 PythonVersion () {
 if grep --quiet -F 'python3.8' $(which python3.8)
 
-	then
-		python3=$(which python3.8)
+then
+  python3=$(which python3.8)
 
 elif 
+  grep --quiet -F 'python3.7' $(which python3.7)
 
-	grep --quiet -F 'python3.7' $(which python3.7)
-
-	then
-		python3=$(which python3.7)
+then
+  python3=$(which python3.7)
 
 elif
+  grep --quiet -F 'python3.6' $(which python3.6)
 
-	grep --quiet -F 'python3.6' $(which python3.6)
+then
+  printf "\nPyFunceble requires python >=3.7"
+  exit 99
 
-	then
-		printf "\nPyFunceble requires python >=3.7"
-		exit 99
 else
-	printf "\n\tPyFunceble requires Python >=3.7"
-	exit 99
+  printf "\n\tPyFunceble requires Python >=3.7"
+  exit 99
 fi
 }
 PythonVersion
@@ -71,16 +72,17 @@ testfile="${ROOT_DIR}/PULL_REQUESTS/domains.txt"
 
 PrepareLists () {
 
-    mkdir -p "${ROOT_DIR}/PULL_REQUESTS/"
+  mkdir -p "${ROOT_DIR}/PULL_REQUESTS/"
 
-    cat "${snuff}" >> "${testfile}"
-    cat "${input}" >> "${testfile}"
+  sort -u -f "${input}" -o "${input}"
+  sort -u -f "${snuff}" -o "${snuff}"
+  
+  cat "${snuff}" > "${testfile}"
+  cat "${input}" >> "${testfile}"
 
-    sort -u -f "${input}" -o "${input}"
-    sort -u -f "${snuff}" -o "${snuff}"
-    sort -u -f "${testfile}" -o "${testfile}"
+  sort -u -f "${testfile}" -o "${testfile}"
 
-    dos2unix "${testfile}"
+  dos2unix "${testfile}"
  }
 PrepareLists
 
@@ -89,11 +91,11 @@ PrepareLists
 # ***********************************
 
 #WhiteListing () {
-    #if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
-        #then
-            #hash uhb_whitelist
-            #uhb_whitelist -wc -w "${whitelist}" -f "${testfile}" -o "${testfile}"
-    #fi
+#if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
+  #then
+    #hash uhb_whitelist
+    #uhb_whitelist -wc -w "${whitelist}" -f "${testfile}" -o "${testfile}"
+#fi
 #}
 #WhiteListing
 
@@ -109,12 +111,17 @@ RunFunceble () {
 
     if [[ -f "${pyfuncebleConfigurationFileLocation}" ]]
     then
-        rm "${pyfuncebleConfigurationFileLocation}"
-        rm "${pyfuncebleProductionConfigurationFileLocation}"
+      rm "${pyfuncebleConfigurationFileLocation}"
+      rm "${pyfuncebleProductionConfigurationFileLocation}"
     fi
 
-  "${python3}" "$PyFunceble" -h -m -p $(nproc --ignore=1) -db --database-type mariadb \
-    -ex --plain --dns 192.168.1.100 --share-logs --http --idna \
+  #"${python3}" 
+  #"$PyFunceble" -h -m -p $(nproc --ignore=2) -db --database-type mariadb \
+    #-ex --plain --dns 9.9.9.9 --share-logs --http --idna \
+    #--hierarchical -f "${testfile}"
+
+  "$PyFunceble" -h \
+    -ex --plain --dns 9.9.9.9 --share-logs --idna \
     --hierarchical -f "${testfile}"
 }
 RunFunceble
@@ -124,10 +131,16 @@ then
   grep -Ev "^($|#)" "${SCRIPT_PATH}/output/domains/INACTIVE/list" > "${ROOT_DIR}/submit_here/apparently_inactive.txt"
 fi
 
+#if [ -f "${SCRIPT_PATH}/output/domains/ACTIVE/list" ]
+#then
+#  mkdir -p "${ROOT_DIR}/0.0.0.0/"
+#  awk '/^(#|$)/{ next }; { printf("0.0.0.0\t%s\n",tolower($1)) }' "${SCRIPT_PATH}/output/domains/ACTIVE/list" > "${ROOT_DIR}/0.0.0.0/hosts"
+#fi
+
+# Testing the Real script
 if [ -f "${SCRIPT_PATH}/output/domains/ACTIVE/list" ]
 then
-  mkdir -p "${ROOT_DIR}/0.0.0.0/"
-  awk '/^(#|$)/{ next }; { printf("0.0.0.0\t%s\n",tolower($1)) }' "${SCRIPT_PATH}/output/domains/ACTIVE/list" > "${ROOT_DIR}/0.0.0.0/hosts"
+  bash ${ROOT_DIR}/dev-tools/GenerateHostsFile.sh
 fi
 
 printf "${ROOT_DIR}\n"
