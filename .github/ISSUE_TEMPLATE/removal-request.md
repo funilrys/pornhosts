@@ -2,7 +2,7 @@
 name: Removal request
 about: If you have found a dead domain listed in the hosts file
 title: ''
-labels: Porn, invalid
+labels: NSFW Adult Material, invalid
 assignees: ''
 
 ---
@@ -35,9 +35,7 @@ alive.example..com
 
 ### All Submissions:
 - [ ] Have you followed the guidelines in our [Contributing](CONTRIBUTING.md) document?
-- [ ] Have you checked to ensure there aren't other open
-	[Merge Requests (MR)](../merge_requests) or [Issues](../issues) for
-	the same update/change?
+- [ ] Have you checked to ensure there aren't other open [Merge Requests (MR)](../merge_requests) or [Issues](../issues) for the same update/change?
 - [ ] Added ScreenDump for prove of False Positive
 
 ### Todo
