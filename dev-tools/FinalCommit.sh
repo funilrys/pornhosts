@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Copyright: https://www.mypdns.org/
-# Content: https://gitlab.com/spirillen
+# Content: https://www.mypdns.org/p/Spirillen/
 # Source: https://github.com/Import-External-Sources/pornhosts
-# License: https://www.mypdns.org/wiki/License
+# License: https://www.mypdns.org/w/license
 # License Comment: GNU AGPLv3, MODIFIED FOR NON COMMERCIAL USE
 #
 # License in short:
@@ -11,7 +11,7 @@
 # as long the original URL and attribution is included.
 #
 # Please forward any additions, corrections or comments by logging an 
-# issue at https://github.com/mypdns/matrix/issues
+# issue at https://www.mypdns.org/maniphest/
 #
 # Original attributes and credit
 # This hosts file for DD-WRT Routers with DNSMasq is brought to you by Mitchell Krog
