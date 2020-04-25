@@ -10,7 +10,7 @@
 # You are free to copy and distribute this file for non-commercial uses,
 # as long the original URL and attribution is included.
 #
-# Please forward any additions, corrections or comments by logging an 
+# Please forward any additions, corrections or comments by logging an
 # issue at https://github.com/mypdns/matrix/issues
 
 # Fail if exit != 0

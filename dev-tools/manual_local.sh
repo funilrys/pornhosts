@@ -10,7 +10,7 @@
 # You are free to copy and distribute this file for non-commercial uses,
 # as long the original URL and attribution is included.
 #
-# Please forward any additions, corrections or comments by logging an 
+# Please forward any additions, corrections or comments by logging an
 # issue at https://github.com/mypdns/matrix/issues
 
 pushd . > /dev/null
@@ -24,7 +24,7 @@ popd  > /dev/null
 
 ROOT_DIR="$(dirname "$SCRIPT_PATH")"
 
-TRAVIS_BUILD_DIR="${ROOT_DIR}"
+export TRAVIS_BUILD_DIR="${ROOT_DIR}"
 
 cd "${SCRIPT_PATH}"
 
@@ -76,7 +76,7 @@ PrepareLists () {
 
   sort -u -f "${input}" -o "${input}"
   sort -u -f "${snuff}" -o "${snuff}"
-  
+
   cat "${snuff}" > "${testfile}"
   cat "${input}" >> "${testfile}"
 
@@ -99,32 +99,34 @@ PrepareLists
 #}
 #WhiteListing
 
-pyfuncebleConfigurationFileLocation="${SCRIPT_PATH}/.PyFunceble.yaml"
-pyfuncebleProductionConfigurationFileLocation="${SCRIPT_PATH}/.PyFunceble_production.yaml"
+#pyfuncebleConfigurationFileLocation="${SCRIPT_PATH}/.PyFunceble.yaml"
+#pyfuncebleProductionConfigurationFileLocation="${SCRIPT_PATH}/.PyFunceble_production.yaml"
 
 RunFunceble () {
   PyFunceble=$(which PyFunceble)
-  
+
   cd "${SCRIPT_PATH}"
-  
+
   hash PyFunceble
 
-    if [[ -f "${pyfuncebleConfigurationFileLocation}" ]]
-    then
-      rm "${pyfuncebleConfigurationFileLocation}"
-      rm "${pyfuncebleProductionConfigurationFileLocation}"
-    fi
+    #if [[ -f "${pyfuncebleConfigurationFileLocation}" ]]
+    #then
+      #rm "${pyfuncebleConfigurationFileLocation}"
+      #rm "${pyfuncebleProductionConfigurationFileLocation}"
+    #fi
 
-  #"${python3}" 
-  #"$PyFunceble" -h -m -p $(nproc --ignore=2) -db --database-type mariadb \
-    #-ex --plain --dns 9.9.9.9 --share-logs --http --idna \
-    #--hierarchical -f "${testfile}"
-
-  "$PyFunceble" -h \
-    -ex --plain --dns 9.9.9.9 --share-logs --idna \
+  #"${python3}"
+  "$PyFunceble" -h -m -p $(nproc --ignore=2) -db --database-type mariadb \
+    -ex --plain --dns 127.0.0.1:5301 --share-logs --http --idna \
     --hierarchical -f "${testfile}"
+
+  #"$PyFunceble" -h --http --complements --cooldown-time 1\
+    #-ex --plain --dns 95.217.218.209:53 --share-logs --idna \
+    #--hierarchical -f "${testfile}"
 }
 RunFunceble
+
+head "${SCRIPT_PATH}/output/domains/ACTIVE/list"
 
 if [ -f "${SCRIPT_PATH}/output/domains/INACTIVE/list" ]
 then
@@ -140,7 +142,7 @@ fi
 # Testing the Real script
 if [ -f "${SCRIPT_PATH}/output/domains/ACTIVE/list" ]
 then
-  bash ${ROOT_DIR}/dev-tools/GenerateHostsFile.sh
+  bash "${SCRIPT_PATH}/GenerateHostsFile.sh"
 fi
 
 printf "${ROOT_DIR}\n"
