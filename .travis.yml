@@ -27,20 +27,20 @@ addons:
     - pdns-recursor
 install:
 - pip3 install --upgrade pip
-- pip3 install pyfunceble==3.00.0 ultimate-hosts-blacklist-whitelist
+- pip3 install pyfunceble-dev ultimate-hosts-blacklist-whitelist
 #- pip3 install git+https://github.com/funilrys/PyFunceble.git@dev
 git:
   depth: 2
-branches:
-  only:
-  - master
+#branches:
+  #only:
+  #- master
   #- pyfunceble-processing
 matrix:
   fast_finish: true
 sudo: required
 script:
 - sudo systemctl restart mysql.service
-- sudo mysql -u root -h localhost -e "CREATE DATABASE pyfunceble DEFAULT CHARACTER
+- sudo mysql -u root -h localhost -e "CREATE DATABASE PyFunceble DEFAULT CHARACTER
   SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
 - sudo mysql -u root -h localhost -e "CREATE USER 'root'@'%' IDENTIFIED BY ''"
 - sudo mysql -u root -h localhost -e "CREATE USER 'pyfunceble'@'localhost' IDENTIFIED
