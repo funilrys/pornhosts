@@ -9,7 +9,8 @@ cache:
 env:
   global:
   - GIT_NAME: Travis CI
-  - GIT_EMAIL: 44526987+spirillen@users.noreply.github.com
+  - GIT_EMAIL: "travis@travis-ci.org"
+  #- GIT_EMAIL: 44526987+spirillen@users.noreply.github.com
   - TRAVIS_REPO_SLUG: spirillen/pornhosts
   - GIT_BRANCH: master
   - TZ: UTC
