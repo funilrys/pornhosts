@@ -16,10 +16,10 @@
 pushd . > /dev/null
 SCRIPT_PATH="${BASH_SOURCE[0]}";
 if ([ -h "${SCRIPT_PATH}" ]) then
-  while([ -h "${SCRIPT_PATH}" ]) do cd `dirname "$SCRIPT_PATH"`; SCRIPT_PATH=`readlink "${SCRIPT_PATH}"`; done
+  while([ -h "${SCRIPT_PATH}" ]) do cd `dirname "$SCRIPT_PATH"`; SCRIPT_PATH=$(readlink "${SCRIPT_PATH}"); done
 fi
-cd `dirname ${SCRIPT_PATH}.` > /dev/null
-SCRIPT_PATH=`pwd`;
+cd $(dirname "${SCRIPT_PATH}".) > /dev/null
+SCRIPT_PATH=$(pwd);
 popd  > /dev/null
 
 ROOT_DIR="$(dirname "$SCRIPT_PATH")"
@@ -28,31 +28,31 @@ export TRAVIS_BUILD_DIR="${ROOT_DIR}"
 
 cd "${SCRIPT_PATH}"
 
-PythonVersion () {
-if grep --quiet -F 'python3.8' $(which python3.8)
+#PythonVersion () {
+#if grep --quiet -F 'python3.8' $(which python3.8)
 
-then
-  python3=$(which python3.8)
+#then
+  #python3=$(which python3.8)
 
-elif 
-  grep --quiet -F 'python3.7' $(which python3.7)
+#elif 
+  #grep --quiet -F 'python3.7' $(which python3.7)
 
-then
-  python3=$(which python3.7)
+#then
+  #python3=$(which python3.7)
 
-elif
-  grep --quiet -F 'python3.6' $(which python3.6)
+#elif
+  #grep --quiet -F 'python3.6' $(which python3.6)
 
-then
-  printf "\nPyFunceble requires python >=3.7"
-  exit 99
+#then
+  #printf "\nPyFunceble requires python >=3.7"
+  #exit 99
 
-else
-  printf "\n\tPyFunceble requires Python >=3.7"
-  exit 99
-fi
-}
-PythonVersion
+#else
+  #printf "\n\tPyFunceble requires Python >=3.7"
+  #exit 99
+#fi
+#}
+#PythonVersion
 
 # ***********************************
 # Setup input bots and referrer lists
@@ -117,7 +117,7 @@ RunFunceble () {
 
   #"${python3}"
   "$PyFunceble" -h -m -p $(nproc --ignore=2) -db --database-type mariadb \
-    -ex --plain --dns 127.0.0.1:5301 --share-logs --http --idna \
+    -ex --plain --dns 192.168.1.105 --share-logs --http --idna \
     --hierarchical -f "${testfile}"
 
   #"$PyFunceble" -h --http --complements --cooldown-time 1\
