@@ -12,11 +12,11 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         reviewers: "spirillen"
-        team-reviewers: "a,b,c"
+        team-reviewers: "spirillen"
     - name: "Send Review Request 2"
       if: github.actor == 'spirillen'
       uses: kunihiko-t/review-request-action@master
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         reviewers: "AnonymousPoster"
-        team-reviewers: "a,b,c" 
+        team-reviewers: "spirillen" 
