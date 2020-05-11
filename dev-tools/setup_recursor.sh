@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 RELEASE=$(lsb_release -c | cut -f2)
 
 printf "deb [arch=amd64] http://repo.powerdns.com/ubuntu $RELEASE-rec-master main" > "/etc/apt/sources.list.d/pdns.list"
