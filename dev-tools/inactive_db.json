@@ -301,6 +301,13 @@
             "last_retested_at_iso": "2020-05-11T01:21:04.363741",
             "status": "INACTIVE"
         },
+        "dlbooks.to": {
+            "included_at_epoch": 1589223718.993065,
+            "included_at_iso": "2020-05-11T19:01:58.993065",
+            "last_retested_at_epoch": 1589223718.993065,
+            "last_retested_at_iso": "2020-05-11T19:01:58.993065",
+            "status": "INACTIVE"
+        },
         "drunkporn.us": {
             "included_at_epoch": 1589160073.171057,
             "included_at_iso": "2020-05-11T01:21:13.171057",
@@ -1083,6 +1090,13 @@
             "included_at_iso": "2020-05-11T01:25:20.625110",
             "last_retested_at_epoch": 1589160320.62511,
             "last_retested_at_iso": "2020-05-11T01:25:20.625110",
+            "status": "INACTIVE"
+        },
+        "www.judeporn.com": {
+            "included_at_epoch": 1589223938.470908,
+            "included_at_iso": "2020-05-11T19:05:38.470908",
+            "last_retested_at_epoch": 1589223938.470908,
+            "last_retested_at_iso": "2020-05-11T19:05:38.470908",
             "status": "INACTIVE"
         },
         "www.kissteenclub.com": {
