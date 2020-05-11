@@ -1,7 +1,7 @@
 pyfunceble-dev
 #pyfunceble==3.00.0
 ultimate-hosts-blacklist-whitelist
-python>=3.7
+python>=3.8
 colorama
 domain2idna
 dnspython
