@@ -23,7 +23,10 @@ printf "Package: pdns-*\nPin: origin repo.powerdns.com\nPin-Priority: 600" > \
 
 curl "https://repo.powerdns.com/CBC8B383-pub.asc" | sudo apt-key add - && \
   sudo apt-get update && \
-  sudo apt-get install pdns-recursor
+  sudo apt-get install pdns-recursor ldnsutils
+
+# Lets get rit of known deadbeats by loading the Response policy zone
+# for known pirated domains
 
 cp "${TRAVIS_BUILD_DIR}/dev-tools/recursor.lua" "/etc/powerdns/recursor.lua"
 
