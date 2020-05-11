@@ -15,8 +15,8 @@
 # Setting date variables
 # **********************
 
-yeartag=$(date +%Y)
-monthtag=$(date +%m)
+#yeartag=$(date +%Y)
+#monthtag=$(date +%m)
 
 # ******************
 # Set our Input File
@@ -29,10 +29,9 @@ pyfuncebleProductionConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.Py
 
 RunFunceble () {
 
-#    yeartag="$(date +%Y)"
-#    monthtag="$(date +%m)"
-#            --commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
-#            --commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER}" \
+    yeartag="$(date +%Y)"
+    monthtag="$(date +%m)"
+
     ulimit -u
     cd "${TRAVIS_BUILD_DIR}/dev-tools"
 
@@ -49,6 +48,8 @@ RunFunceble () {
             --autosave-minutes 38 --share-logs --http --idna --dots\
             --hierarchical --ci-branch master \
             --ci-distribution-branch master  \
+            --commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
+            --commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER}" \
             --cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
             -f "${testfile}"
 

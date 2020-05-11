@@ -10,7 +10,7 @@
 # You are free to copy and distribute this file for non-commercial uses,
 # as long the original URL and attribution is included.
 #
-# Please forward any additions, corrections or comments by logging an 
+# Please forward any additions, corrections or comments by logging an
 # issue at https://www.mypdns.org/maniphest/
 #
 # Original attributes and credit
@@ -22,8 +22,7 @@
 # ***********************************************************
 # echo Remove our inactive and invalid domains from PULL_REQUESTS
 # ***********************************************************
-set -e
-set -x
+set -e #-x -v
 
 printf "\n\tRunning FinalCommit.sh\n"
 
@@ -34,7 +33,9 @@ printf "\n\tRunning FinalCommit.sh\n"
 
 if [ -f "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INACTIVE/list" ]
 then
-  grep -vE "^($|#)" "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INACTIVE/list" > "${TRAVIS_BUILD_DIR}/submit_here/apparently_inactive.txt"
+	rm "${TRAVIS_BUILD_DIR}/submit_here/apparently_inactive.txt"
+	grep -vE "^($|#)" "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INACTIVE/list" > "${TRAVIS_BUILD_DIR}/submit_here/apparently_inactive.txt"
+	sort -u -f "${TRAVIS_BUILD_DIR}/submit_here/apparently_inactive.txt" \
 else
 	exit 0
 fi
