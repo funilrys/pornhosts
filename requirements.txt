@@ -1,14 +1,4 @@
 pyfunceble-dev
-#pyfunceble==3.00.0
 ultimate-hosts-blacklist-whitelist
-python>=3.8
-colorama
-domain2idna
-dnspython
-PyYAML
-requests
-setuptools
-urllib3
-dos2unix
-msttcorefonts
-masriadb>=10.4
+mariadb>=10.4
+wheel
