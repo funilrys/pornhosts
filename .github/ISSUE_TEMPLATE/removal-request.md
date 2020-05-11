@@ -4,7 +4,7 @@ about: If you have found a dead domain listed in the hosts file
 title: ''
 labels: NSFW Adult Material, invalid
 assignees: ''
-
+projects: https://github.com/orgs/Import-External-Sources/projects/2
 ---
 
 I believe this specific domain(s) is to be moved from the hosts file as it no longer is active for Adult material

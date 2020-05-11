@@ -8,15 +8,15 @@
 
 # ****************************************************************
 # This uses the awesome PyFunceble script created by Nissar Chababy
-# Find funceble at: https://github.com/funilrys/PyFunceble
+# Find PyFunceble at: https://github.com/funilrys/PyFunceble
 # ****************************************************************
 
 # **********************
 # Setting date variables
 # **********************
 
-yeartag=$(date +%Y)
-monthtag=$(date +%m)
+#yeartag=$(date +%Y)
+#monthtag=$(date +%m)
 
 # ******************
 # Set our Input File
@@ -31,6 +31,7 @@ RunFunceble () {
 
     yeartag="$(date +%Y)"
     monthtag="$(date +%m)"
+
     ulimit -u
     cd "${TRAVIS_BUILD_DIR}/dev-tools"
 
@@ -42,14 +43,14 @@ RunFunceble () {
         rm "${pyfuncebleProductionConfigurationFileLocation}"
     fi
 
-        PyFunceble --ci -q -h -m -p $(nproc --ignore=1) -db \
-			--database-type mariadb -ex --plain --dns 127.0.0.1 \
-            --autosave-minutes 38 --share-logs --http --idna \
-            --hierarchical --ci-branch "pyfunceble-processing" \
+        PyFunceble --ci -q -h -m -p $(nproc --ignore=1) \
+			-ex --plain --dns 127.0.0.1 \
+            --autosave-minutes 38 --share-logs --http --idna --dots\
+            --hierarchical --ci-branch processing \
             --ci-distribution-branch master  \
-            --cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
             --commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
-            --commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [ci skip]" \
+            --commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER}" \
+            --cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
             -f "${testfile}"
 
 }

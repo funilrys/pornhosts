@@ -1,10 +1,8 @@
 # source https://github.com/actions/labeler/blob/master/README.md
 # Add 'repo' label to any root file changes
-Porn:
-  - submit_here/hosts.txt
-
 NSFW Adult Material:
   - submit_here/hosts.txt
+  - submit_here/snuff.txt
 
 Snuff:
   - submit_here/snuff.txt

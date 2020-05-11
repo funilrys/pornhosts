@@ -4,7 +4,7 @@ about: I would like to contribute with the following domain to the hosts file
 title: ''
 labels: NSFW Adult Material
 assignees: spirillen
-
+projects: https://github.com/orgs/Import-External-Sources/projects/2
 ---
 
 I believe this domain is an Adult(-related) domain --> that have to be blocked as..

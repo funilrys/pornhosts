@@ -82,12 +82,12 @@ PrepareLists
 # ***********************************
 
 WhiteListing () {
-    if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
-        then
-            hash uhb_whitelist
-	    mv "${testfile}" "${testfile}.tmp.txt"
-            uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testfile}"
-    fi
+if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
+	then
+		hash uhb_whitelist
+		mv "${testfile}" "${testfile}.tmp.txt"
+		uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testfile}"
+fi
 }
 WhiteListing
 

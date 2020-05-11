@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
 # Copyright: https://www.mypdns.org/
-# Content: https://gitlab.com/spirillen
+# Content: https://www.mypdns.org/p/Spirillen/
 # Source: https://github.com/Import-External-Sources/pornhosts
-# License: https://www.mypdns.org/wiki/License
+# License: https://www.mypdns.org/w/license
 # License Comment: GNU AGPLv3, MODIFIED FOR NON COMMERCIAL USE
 #
 # License in short:
 # You are free to copy and distribute this file for non-commercial uses,
 # as long the original URL and attribution is included.
 #
-# Please forward any additions, corrections or comments by logging an 
+# Please forward any additions, corrections or comments by logging an
 # issue at https://github.com/mypdns/matrix/issues
 
 # Fail if exit != 0
@@ -134,7 +134,7 @@ printf "\nGenerate hosts 0.0.0.0\n"
 
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${hosts}"
 cat "${hostsTempl}" >> "${hosts}"
-awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${rawlist}" >> "${hosts}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${rawlist}" >> "${hosts}"
 
 # *********************************************************************************
 printf "\nGenerate safe hosts 0.0.0.0\n"
@@ -143,7 +143,7 @@ printf "\nGenerate safe hosts 0.0.0.0\n"
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${sshosts}"
 cat "${hostsTempl}" >> "${sshosts}"
 cat "${sshostsTempl}" >> "${sshosts}"
-awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${rawlist}" >> "${sshosts}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${rawlist}" >> "${sshosts}"
 
 # *********************************************************************************
 printf "\nGenerate hosts 127.0.0.1\n"
@@ -151,7 +151,7 @@ printf "\nGenerate hosts 127.0.0.1\n"
 
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${hosts127}"
 cat "${hostsTempl}" >> "${hosts127}"
-awk '{ printf("127.0.0.1\t%s\n",tolower($1)) }' "${rawlist}" >> "${hosts127}"
+awk '{ printf("127.0.0.1 %s\n",tolower($1)) }' "${rawlist}" >> "${hosts127}"
 
 # *********************************************************************************
 printf "\nGenerate safe hosts 127.0.0.1\n"
@@ -160,7 +160,7 @@ printf "\nGenerate safe hosts 127.0.0.1\n"
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${sshosts127}"
 cat "${hostsTempl}" >> "${sshosts127}"
 cat "${sshostsTempl}" >> "${sshosts127}"
-awk '{ printf("127.0.0.1\t%s\n",tolower($1)) }' "${rawlist}" >> "${sshosts127}"
+awk '{ printf("127.0.0.1 %s\n",tolower($1)) }' "${rawlist}" >> "${sshosts127}"
 
 # *********************************************************************************
 printf "\nGenerate Mobile hosts\n"
@@ -168,7 +168,7 @@ printf "\nGenerate Mobile hosts\n"
 
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${mobile}"
 cat "${mobileTempl}" >> "${mobile}"
-awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${rawlist}" >> "${mobile}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${rawlist}" >> "${mobile}"
 
 # *********************************************************************************
 printf "\nGenerate safe Mobile hosts\n"
@@ -177,7 +177,7 @@ printf "\nGenerate safe Mobile hosts\n"
 printf "# Last Updated: ${now} Build: ${my_git_tag}\n# Porn Hosts Count: ${bad_referrers}\n#\n" > "${ssmobile}"
 cat "${mobileTempl}" >> "${ssmobile}"
 cat "${sshostsTempl}" >> "${ssmobile}"
-awk '{ printf("0.0.0.0\t%s\n",tolower($1)) }' "${rawlist}" >> "${ssmobile}"
+awk '{ printf("0.0.0.0 %s\n",tolower($1)) }' "${rawlist}" >> "${ssmobile}"
 
 # *********************************************************************************
 # DNSMASQ https://gitlab.com/my-privacy-dns/rpz-dns-firewall-tools/dnsmasq/issues/1

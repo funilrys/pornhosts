@@ -1,9 +1,10 @@
 ---
-name: Adult Porno NSFW MR
+name: default
 about: I would like to contribute with the following domain to the hosts file
-title: 'NSFW: Type only domain here'
+title: 'Type only domain here'
 labels: NSFW Adult Material
 assignees: spirillen
+reviewers: Clefspeare13, Spirillen
 projects: https://github.com/orgs/Import-External-Sources/projects/2
 ---
 
