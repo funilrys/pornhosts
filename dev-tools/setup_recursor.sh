@@ -34,4 +34,6 @@ systemctl restart pdns-recursor.service
 
 systemctl status pdns-recursor.service | grep -iF "active (running)" >/dev/null || exit 1
 
+
+
 exit ${?}
