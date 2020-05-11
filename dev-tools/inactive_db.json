@@ -665,6 +665,13 @@
             "last_retested_at_iso": "2020-05-11T01:25:11.902003",
             "status": "INACTIVE"
         },
+        "www.angelina-croft.com": {
+            "included_at_epoch": 1589210654.773455,
+            "included_at_iso": "2020-05-11T15:24:14.773455",
+            "last_retested_at_epoch": 1589210654.773455,
+            "last_retested_at_iso": "2020-05-11T15:24:14.773455",
+            "status": "INACTIVE"
+        },
         "www.angelina.cz": {
             "included_at_epoch": 1589160311.969579,
             "included_at_iso": "2020-05-11T01:25:11.969579",
