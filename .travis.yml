@@ -32,6 +32,7 @@ addons:
 install:
   - sudo bash "${TRAVIS_BUILD_DIR}/dev-tools/setup_recursor.sh"
   # Test of pdns-recursor
+  - sudo grep -vE "^(#|$)" /etc/powerdns/recursor.conf
   - drill @127.0.0.1 ns1.sedoparking.com
   - export PATH="${HOME}/miniconda/bin:${PATH}"
   - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda.sh; else wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh; fi
