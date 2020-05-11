@@ -42,6 +42,12 @@ fi
 
 #exit 0
 
+## fail the pyfunceble test if any submissions are invalid
+if [ -f "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INVALID/list" ]
+then
+	exit 99
+fi
+
 # ***************************************************************************
 printf "\n\tGenerate our host file\n"
 # ***************************************************************************
