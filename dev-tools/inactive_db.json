@@ -1,5 +1,12 @@
 {
     "/home/travis/build/Import-External-Sources/pornhosts/PULL_REQUESTS/domains.txt": {
+        "360safe.xn--com-5ma.cn": {
+            "included_at_epoch": 1589219315.066383,
+            "included_at_iso": "2020-05-11T17:48:35.066383",
+            "last_retested_at_epoch": 1589219315.066383,
+            "last_retested_at_iso": "2020-05-11T17:48:35.066383",
+            "status": "INACTIVE"
+        },
         "7.easyxtubes.com": {
             "included_at_epoch": 1589159938.678577,
             "included_at_iso": "2020-05-11T01:18:58.678577",
@@ -203,6 +210,13 @@
             "last_retested_at_iso": "2020-05-11T01:20:24.858424",
             "status": "INACTIVE"
         },
+        "buby.xyz": {
+            "included_at_epoch": 1589219393.28299,
+            "included_at_iso": "2020-05-11T17:49:53.282990",
+            "last_retested_at_epoch": 1589219393.28299,
+            "last_retested_at_iso": "2020-05-11T17:49:53.282990",
+            "status": "INACTIVE"
+        },
         "buckangel.nl": {
             "included_at_epoch": 1589160025.983608,
             "included_at_iso": "2020-05-11T01:20:25.983608",
@@ -362,6 +376,13 @@
             "included_at_iso": "2020-05-11T01:22:26.330507",
             "last_retested_at_epoch": 1589160146.330507,
             "last_retested_at_iso": "2020-05-11T01:22:26.330507",
+            "status": "INACTIVE"
+        },
+        "img2.asian-moms.com": {
+            "included_at_epoch": 1589219496.234298,
+            "included_at_iso": "2020-05-11T17:51:36.234298",
+            "last_retested_at_epoch": 1589219496.234298,
+            "last_retested_at_iso": "2020-05-11T17:51:36.234298",
             "status": "INACTIVE"
         },
         "iwebanalyze.com": {
