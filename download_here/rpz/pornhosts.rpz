@@ -1,6 +1,6 @@
 $ORIGIN	localhost.
 $TTL 1800;
-\@	IN	SOA	localhost. hostmaster.mypdns.org. 1589161487	; Serial
+\@	IN	SOA	localhost. hostmaster.mypdns.org. 1589210934	; Serial
 			3600		; refresh
 			60		; retry
 			604800		; Expire
@@ -1547,8 +1547,6 @@ www.angelinacastrolive.com	CNAME	.
 *.www.angelinacastrolive.com	CNAME	.
 angelina-croft.com	CNAME	.
 *.angelina-croft.com	CNAME	.
-www.angelina-croft.com	CNAME	.
-*.www.angelina-croft.com	CNAME	.
 angelina.cz	CNAME	.
 *.angelina.cz	CNAME	.
 angelina.de	CNAME	.
@@ -1827,10 +1825,10 @@ animalsex.blue	CNAME	.
 *.animalsex.blue	CNAME	.
 www.animalsex.blue	CNAME	.
 *.www.animalsex.blue	CNAME	.
-animalsex-clips.top	CNAME	.
-*.animalsex-clips.top	CNAME	.
 animalsexclips.top	CNAME	.
 *.animalsexclips.top	CNAME	.
+animalsex-clips.top	CNAME	.
+*.animalsex-clips.top	CNAME	.
 www.animalsexclips.top	CNAME	.
 *.www.animalsexclips.top	CNAME	.
 animalsexdb.com	CNAME	.
@@ -1951,16 +1949,16 @@ annangel.com	CNAME	.
 *.annangel.com	CNAME	.
 ann-angel.com	CNAME	.
 *.ann-angel.com	CNAME	.
-www.annangel.com	CNAME	.
-*.www.annangel.com	CNAME	.
 www.ann-angel.com	CNAME	.
 *.www.ann-angel.com	CNAME	.
+www.annangel.com	CNAME	.
+*.www.annangel.com	CNAME	.
 annas-angels.co.uk	CNAME	.
 *.annas-angels.co.uk	CNAME	.
-www.annas-angels.co.uk	CNAME	.
-*.www.annas-angels.co.uk	CNAME	.
 www.annasangels.co.uk	CNAME	.
 *.www.annasangels.co.uk	CNAME	.
+www.annas-angels.co.uk	CNAME	.
+*.www.annas-angels.co.uk	CNAME	.
 annasassets.com	CNAME	.
 *.annasassets.com	CNAME	.
 www.annasassets.com	CNAME	.
@@ -6123,10 +6121,10 @@ banners2.eroadvertising.com	CNAME	.
 *.banners2.eroadvertising.com	CNAME	.
 banners2.ero-advertising.com	CNAME	.
 *.banners2.ero-advertising.com	CNAME	.
-www.banners2.ero-advertising.com	CNAME	.
-*.www.banners2.ero-advertising.com	CNAME	.
 www.banners2.eroadvertising.com	CNAME	.
 *.www.banners2.eroadvertising.com	CNAME	.
+www.banners2.ero-advertising.com	CNAME	.
+*.www.banners2.ero-advertising.com	CNAME	.
 www.banners.eroadvertising.com	CNAME	.
 *.www.banners.eroadvertising.com	CNAME	.
 www.banners.ero-advertising.com	CNAME	.
@@ -6153,10 +6151,10 @@ www.thumbs.ero-advertising.com	CNAME	.
 *.www.thumbs.ero-advertising.com	CNAME	.
 www.tracker.ero-advertising.com	CNAME	.
 *.www.tracker.ero-advertising.com	CNAME	.
-www.eroadvertising.com	CNAME	.
-*.www.eroadvertising.com	CNAME	.
 www.ero-advertising.com	CNAME	.
 *.www.ero-advertising.com	CNAME	.
+www.eroadvertising.com	CNAME	.
+*.www.eroadvertising.com	CNAME	.
 erocurves.com	CNAME	.
 *.erocurves.com	CNAME	.
 www.erocurves.com	CNAME	.
@@ -10435,10 +10433,10 @@ www.metaporn.com	CNAME	.
 *.www.metaporn.com	CNAME	.
 metartarchive.com	CNAME	.
 *.metartarchive.com	CNAME	.
-access.metart.com	CNAME	.
-*.access.metart.com	CNAME	.
 access.met-art.com	CNAME	.
 *.access.met-art.com	CNAME	.
+access.metart.com	CNAME	.
+*.access.metart.com	CNAME	.
 fhg.met-art.com	CNAME	.
 *.fhg.met-art.com	CNAME	.
 www.hosted.met-art.com	CNAME	.
@@ -17285,10 +17283,10 @@ velvetfantasies.com	CNAME	.
 *.velvetfantasies.com	CNAME	.
 www.velvetfantasies.com	CNAME	.
 *.www.velvetfantasies.com	CNAME	.
-www.veporn.net	CNAME	.
-*.www.veporn.net	CNAME	.
 www.ve-porn.net	CNAME	.
 *.www.ve-porn.net	CNAME	.
+www.veporn.net	CNAME	.
+*.www.veporn.net	CNAME	.
 veporns.com	CNAME	.
 *.veporns.com	CNAME	.
 veporn.video	CNAME	.
