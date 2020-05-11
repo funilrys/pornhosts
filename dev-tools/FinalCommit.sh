@@ -34,7 +34,8 @@ printf "\n\tRunning FinalCommit.sh\n"
 if [ -f "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INACTIVE/list" ]
 then
 	rm "${TRAVIS_BUILD_DIR}/submit_here/apparently_inactive.txt"
-	grep -vE "^($|#)" "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INACTIVE/list" > "${TRAVIS_BUILD_DIR}/submit_here/apparently_inactive.txt"
+	grep -vE "^($|#)" "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INACTIVE/list" \
+	  > "${TRAVIS_BUILD_DIR}/submit_here/apparently_inactive.txt"
 	sort -u -f "${TRAVIS_BUILD_DIR}/submit_here/apparently_inactive.txt" \
 else
 	exit 0
@@ -45,6 +46,7 @@ fi
 ## fail the pyfunceble test if any submissions are invalid
 if [ -f "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INVALID/list" ]
 then
+	printf "The following are invalid  $(cat "${TRAVIS_BUILD_DIR}/dev-tools/output/domains/INVALID/list")\n"
 	exit 99
 fi
 
