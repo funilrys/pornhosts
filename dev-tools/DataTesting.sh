@@ -39,7 +39,7 @@ RunFunceble () {
 
     hash PyFunceble
 
-	printf "\n\tYou are running with default Pyfunceble\n"
+	printf "\n\tYou are running with default Pyfunceble\n\n"
 
     #if [[ -f "${pyfuncebleConfigurationFileLocation}" ]]
     #then
@@ -65,7 +65,7 @@ SyntaxTest () {
 
     hash PyFunceble
 
-	printf "\n\tYou are running with Syntax test\n"
+	printf "\n\tYou are running with Syntax test\n\n"
 
 	PyFunceble --ci -s -m -p "$(nproc --ignore=1)" \
 		--autosave-minutes 38 --syntax \
@@ -81,7 +81,7 @@ debugPyfunceble () {
 
     hash PyFunceble
 
-	printf "\n\tYou are running with Debug Pyfunceble\n"
+	printf "\n\tYou are running with Debug Pyfunceble\n\n"
 
     PyFunceble -a -m -p "$(nproc --ignore=1)" --share-logs \
 		--autosave-minutes 38 --idna --hierarchical \
@@ -93,7 +93,7 @@ if [ "$TRAVIS_PULL_REQUEST" = "false" ] # run on non pull requests
 	RunFunceble
 
 	else
-	if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
+	if [[ "$(DEBUG_PYFUNCEBLE|DEBUG_PYFUNCEBLE_ON_SCREEN)" = "true" ]]
 	then
 		debugPyfunceble
 
