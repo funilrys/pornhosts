@@ -23,7 +23,7 @@ printf "Package: pdns-*\nPin: origin repo.powerdns.com\nPin-Priority: 600" > \
 
 curl "https://repo.powerdns.com/CBC8B383-pub.asc" | sudo apt-key add - && \
   sudo apt-get update && \
-  sudo apt-get install pdns-recursor ldnsutils
+  sudo apt-get install -q pdns-recursor ldnsutils
 
 # Lets get rit of known deadbeats by loading the Response policy zone
 # for known pirated domains
@@ -39,8 +39,7 @@ printf "local-address=0.0.0.0\nlocal-port=5300\n" >> "/etc/powerdns/recursor.con
 
 systemctl restart pdns-recursor.service
 
-systemctl status pdns-recursor.service | grep -iF "active (running)" >/dev/null \
-  || printf "\n\tRecursor failed to load\n" && exit 1
+systemctl status pdns-recursor.service | grep -iF "active (running)" >/dev/null || printf "\n\tRecursor failed to load\n" && exit 1
 
 # Let the recursor load the RPZ zone before testing it
 sleep 5
