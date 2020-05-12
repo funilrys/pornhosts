@@ -13,7 +13,7 @@ env:
   - GIT_EMAIL: "travis@travis-ci.org"
   #- GIT_EMAIL: 44526987+spirillen@users.noreply.github.com
   - TRAVIS_REPO_SLUG: spirillen/pornhosts
-  - GIT_BRANCH: master
+  - GIT_BRANCH: $"{TRAVIS_BRANCH}"
   - TZ: UTC
   - PYFUNCEBLE_CONFIG_DIR: "${TRAVIS_BUILD_DIR}/dev-tools/"
   - PYFUNCEBLE_AUTO_CONFIGURATION: yes
