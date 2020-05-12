@@ -37,11 +37,11 @@ grep -vE "^(#|$)" /etc/powerdns/recursor.conf
 
 journalctl -xeu pdns_recursor -n 20
 
-#sed -i "/local-address/d" "/etc/powerdns/recursor.conf"
+sed -i "/local-address/d" "/etc/powerdns/recursor.conf"
 
-#printf "local-address=0.0.0.0\nport=5300\n" >> "/etc/powerdns/recursor.conf"
+printf "local-address=0.0.0.0\nlocal-port=5300\n" >> "/etc/powerdns/recursor.conf"
 
-printf "port=5300\n" >> "/etc/powerdns/recursor.conf"
+#printf "local-port=5300\n" >> "/etc/powerdns/recursor.conf"
 
 printf "after adding port\n\n"
 grep -vE "^(#|$)" /etc/powerdns/recursor.conf
