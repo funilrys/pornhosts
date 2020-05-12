@@ -63,8 +63,6 @@ SyntaxTest () {
 
     cd "${TRAVIS_BUILD_DIR}/dev-tools" || exit 1
 
-    hash PyFunceble
-
 	printf "\n\tYou are running with SyntaxTest\n\n"
 
 	if [ -z "${testDomains}" ]
@@ -73,6 +71,8 @@ SyntaxTest () {
 	else
 		data="-d ${testDomains}"
 	fi
+
+    hash PyFunceble
 
 	PyFunceble --ci -s -m -p "$(nproc --ignore=1)" \
 		--autosave-minutes 38 --syntax \
