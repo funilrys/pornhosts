@@ -53,13 +53,13 @@ else
 	exit 1
 fi
 
-if drill 21x.org @127.0.0.1 -p 5300 | grep -qE "^21x\.org\."
+if drill 21x.org @127.0.0.1 -p 5300 | grep -qi "NXDOMAIN"
 then
-	printf "\t\nResponse policy zone not loaded, we are done for this time"
-	exit 1
-else
-	printf "\n\tPirated domains Response policy zone from www.mypdns.org is loaded... :smiley:"
+	printf "\n\tPirated domains Response policy zone My Privacy DNS is loaded... :smiley:\n"
 	exit 0
+else
+	printf "\t\nResponse policy zone not loaded, we are done for this time\n"
+	exit 1
 fi
 
 exit ${?}
