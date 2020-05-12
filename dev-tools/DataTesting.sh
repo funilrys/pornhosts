@@ -95,21 +95,19 @@ debugPyfunceble () {
 
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ] # run on pull requests
-	then
-		SyntaxTest | grep --quiet -F "INVALID" | \
-		  awk '{ printf("Failed domain:\n%s\n",$1) }' && exit 1 \
-		  || printf "Build succeeded, your submission is good" && exit 0
+then
+	SyntaxTest | grep --quiet -F "INVALID" | \
+	  awk '{ printf("Failed domain:\n%s\n",$1) }' && exit 1 \
+	  || printf "Build succeeded, your submission is good" && exit 0
 
 else
-	if [ "$TRAVIS_PULL_REQUEST" = "false" ] && \
-	  [ -z ${testDomains} ] || \
-	  [[ "$(git log -1 | tail -1 | xargs)" =~ "(debug|test)" ]]
+	if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ -z "${testDomains}" ] || [[ "$(git log -1 | tail -1 | xargs)" =~ (debug|test) ]]
 	then
 		debugPyfunceble
-	fi
 
-else
-	RunFunceble
+	else
+		RunFunceble
+	fi
 fi
 
 #if [ "$TRAVIS_PULL_REQUEST" = "false" ] # run on non pull requests
@@ -131,12 +129,3 @@ fi
 #fi
 
 exit ${?}
-
-
-
-
-
-
-
-
-
