@@ -79,7 +79,7 @@ debugPyfunceble () {
 
     PyFunceble -a -m -p $(nproc --ignore=1) --share-logs \
 		--autosave-minutes 38 --idna --hierarchical \
-		-f "debugfile"
+		-f "${debugfile}"
 }
 
 if [ "$TRAVIS_PULL_REQUEST" = "false" ] # run on non pull requests
@@ -87,7 +87,7 @@ if [ "$TRAVIS_PULL_REQUEST" = "false" ] # run on non pull requests
 	RunFunceble
 
 	else
-	if [ "$(git log -1 | tail -1 | xargs)" =~ "(ci skip|skip ci)" ]
+	if [ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]
 	then
 		debugPyfunceble
 
