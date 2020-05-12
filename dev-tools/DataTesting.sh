@@ -23,7 +23,7 @@ version=$(date +%Y.%m)
 testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
 debugfile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
 testDomains=$(git log --word-diff=porcelain -1 -p  -- submit_here/hosts.txt | \
-  grep -e "^+" | tail -1 | cut -d "+" -f2)
+  grep -e "^+" | tail -1 | awk -F "+" '{ printf("%s ",$2) }' )
 
 # These shouldnt be nessesary do to "PYFUNCEBLE_AUTO_CONFIGURATION: yes" in -travis
 #pyfuncebleConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble.yaml"
@@ -48,7 +48,7 @@ RunFunceble () {
     #fi
 
         PyFunceble --ci -q -h -m -p "$(nproc --ignore=1)" \
-			-ex --plain --dns 127.0.0.1 \
+			-ex --plain --dns 127.0.0.1:5300 \
             --autosave-minutes 38 --share-logs --http --idna --dots \
             --hierarchical --ci-branch processing \
             --ci-distribution-branch master  \
@@ -90,13 +90,13 @@ debugPyfunceble () {
 
     PyFunceble -a -m -p "$(nproc --ignore=1)" --share-logs \
 		--autosave-minutes 38 --idna --hierarchical \
-		-f "${debugfile}"
+		--dns 127.0.0.1:5300 -f "${debugfile}"
 }
 
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ] # run on pull requests
 then
-	SyntaxTest | grep --quiet -F "INVALID" | \
+	SyntaxTest | grep -qF "INVALID" | \
 	  awk '{ printf("Failed domain:\n%s\n",$1) }' && exit 1 \
 	  || printf "Build succeeded, your submission is good" && exit 0
 

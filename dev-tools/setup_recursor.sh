@@ -30,12 +30,20 @@ curl "https://repo.powerdns.com/CBC8B383-pub.asc" | sudo apt-key add - && \
 
 cp "${TRAVIS_BUILD_DIR}/dev-tools/recursor.lua" "/etc/powerdns/recursor.lua"
 
-# We need to stop the fucked up systemd-resolve before restarting the recursor
+# Since this systemd-resolved kill script also killed Travis we most change
+# the default port of the recursor.... fuck!!!!!
 
-systemctl stop systemd-resolved
+sed -i "/local-address/d" "/etc/powerdns/recursor.conf"
+
+printf "local-address=0.0.0.0, ::\nport=5300\n" >> "/etc/powerdns/recursor.conf"
+
+#printf "port=5300\n" >> "/etc/powerdns/recursor.conf"
+
+# We need to stop the fucked up systemd-resolve before restarting the recursor
+#systemctl stop systemd-resolved
 
 # And make sure it stays down for goooooooood
-systemctl disable systemd-resolved
+#systemctl disable systemd-resolved
 
 # To debug for further needs on killing the anoying ubuntu shit
 NetworkManager="/etc/NetworkManager/NetworkManager.conf"
@@ -58,6 +66,28 @@ systemctl restart pdns-recursor.service
 
 systemctl status pdns-recursor.service | grep -iF "active (running)" >/dev/null || exit 1
 
+# Let the recursor load the RPZ zone before testing it
+sleep 5
+
+# Check if the recursor is listening to port on port 5300
+if lsof -i :5300 | grep -q '^pdns_'
+then
+	printf "\n\tThe recursor is running on port 5300
+			\tWe carry on with our test procedure"
+	exit 0
+else
+	printf "\n\tRecursor not running, We stops here\n"
+	exit 1
+fi
+
+if drill 21x.org @127.0.0.1 -p 5300 | grep -qE "^21x\.org\."
+then
+	printf "\t\nResponse policy zone not loaded, we are done for this time"
+	exit 1
+else
+	printf "\n\tPirated domains Response policy zone from https://www.mypdns.org/ is loaded... :smiley:"
+	exit 0
+fi
 
 
 exit ${?}
