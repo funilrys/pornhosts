@@ -15,46 +15,98 @@
 # Setting date variables
 # **********************
 
-#yeartag=$(date +%Y)
-#monthtag=$(date +%m)
+version=$(date +%Y.%m)
 
 # ******************
 # Set our Input File
 # ******************
-#input=${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt
 testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
-#testfile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
-pyfuncebleConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble.yaml"
-pyfuncebleProductionConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble_production.yaml"
+debugfile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
+testDomains=$(git log --word-diff=porcelain -1 -p  -- submit_here/hosts.txt | \
+  grep -e "^+" | tail -1 | cut -d "+" -f2)
+
+# These shouldnt be nessesary do to "PYFUNCEBLE_AUTO_CONFIGURATION: yes" in -travis
+#pyfuncebleConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble.yaml"
+#pyfuncebleProductionConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble_production.yaml"
 
 RunFunceble () {
 
-    yeartag="$(date +%Y)"
-    monthtag="$(date +%m)"
+    #yeartag="$(date +%Y)"
+    #monthtag="$(date +%m)"
 
     ulimit -u
-    cd "${TRAVIS_BUILD_DIR}/dev-tools"
+    cd "${TRAVIS_BUILD_DIR}/dev-tools" || exit 1
 
     hash PyFunceble
 
-    if [[ -f "${pyfuncebleConfigurationFileLocation}" ]]
-    then
-        rm "${pyfuncebleConfigurationFileLocation}"
-        rm "${pyfuncebleProductionConfigurationFileLocation}"
-    fi
+    #if [[ -f "${pyfuncebleConfigurationFileLocation}" ]]
+    #then
+        #rm "${pyfuncebleConfigurationFileLocation}"
+        #rm "${pyfuncebleProductionConfigurationFileLocation}"
+    #fi
 
         PyFunceble --ci -q -h -m -p $(nproc --ignore=1) \
 			-ex --plain --dns 127.0.0.1 \
-            --autosave-minutes 38 --share-logs --http --idna --dots\
+            --autosave-minutes 38 --share-logs --http --idna --dots \
             --hierarchical --ci-branch processing \
             --ci-distribution-branch master  \
-            --commit-autosave-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
-            --commit-results-message "V1.${yeartag}.${monthtag}.${TRAVIS_BUILD_NUMBER}" \
+            --commit-autosave-message "V1.${version}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
+            --commit-results-message "V1.${version}.${TRAVIS_BUILD_NUMBER}" \
             --cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
             -f "${testfile}"
 
 }
 
-RunFunceble
+SyntaxTest () {
+
+    cd "${TRAVIS_BUILD_DIR}/dev-tools" || exit 1
+
+    hash PyFunceble
+
+	PyFunceble --ci -s -m -p $(nproc --ignore=1) \
+		--autosave-minutes 38 --syntax \
+		--hierarchical --ci-branch ${TRAVIS_PULL_REQUEST_BRANCH} \
+		--ci-distribution-branch ${TRAVIS_PULL_REQUEST_BRANCH}  \
+		--commit-autosave-message "${version}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
+		--commit-results-message "${version}.${TRAVIS_BUILD_NUMBER}" \
+		-d "${testDomains}"
+}
+
+debugPyfunceble () {
+	cd "${TRAVIS_BUILD_DIR}/dev-tools" || exit 1
+
+    hash PyFunceble
+
+    PyFunceble -a -m -p $(nproc --ignore=1) --share-logs \
+		--autosave-minutes 38 --idna --hierarchical \
+		-f "debugfile"
+}
+
+if [ "$TRAVIS_PULL_REQUEST" = "false" ] # run on non pull requests
+	then
+	RunFunceble
+
+	else
+	if [ "$(git log -1 | tail -1 | xargs)" =~ "(ci skip|skip ci)" ]
+	then
+		debugPyfunceble
+
+	else
+		if [ "$TRAVIS_PULL_REQUEST" != "false" ] # run on pull requests
+		then
+		SyntaxTest | grep --quiet -F "INVALID" | awk '{ printf("Failed domain:\n%s\n",tolower($1)) }' && exit 10 \
+		  || printf "Build succeeded, your submission is good" && exit 0
+		fi
+	fi
+fi
 
 exit ${?}
+
+
+
+
+
+
+
+
+
