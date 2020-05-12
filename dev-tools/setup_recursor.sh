@@ -38,7 +38,21 @@ systemctl stop systemd-resolved
 systemctl disable systemd-resolved
 
 # To debug for further needs on killing the anoying ubuntu shit
-cat "/etc/NetworkManager/NetworkManager.conf"
+NetworkManager="/etc/NetworkManager/NetworkManager.conf"
+
+if [ -f "${NetworkManager}" ]
+then
+	cat "${NetworkManager}"
+else
+	if [ -d "/etc/netplan/" ]
+	then
+		ls -lh "/etc/netplan/"
+		grep "/etc/netplan/*.yml"
+
+	else
+		cat "/etc/resolve.conf"
+	fi
+fi
 
 systemctl restart pdns-recursor.service
 
