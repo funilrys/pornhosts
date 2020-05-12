@@ -35,9 +35,12 @@ cp "${TRAVIS_BUILD_DIR}/dev-tools/recursor.lua" "/etc/powerdns/recursor.lua"
 
 sed -i "/local-address/d" "/etc/powerdns/recursor.conf"
 
-printf "local-address=0.0.0.0, ::\nport=5300\n" >> "/etc/powerdns/recursor.conf"
+printf "local-address=0.0.0.0\nport=5300\n" >> "/etc/powerdns/recursor.conf"
 
 systemctl restart pdns-recursor.service
+
+# Why did recursor fail to load?
+journalctl -xeu pdns_recursor
 
 systemctl status pdns-recursor.service | grep -iF "active (running)" >/dev/null || exit 1
 
