@@ -47,7 +47,6 @@ if lsof -i :5300 | grep -q '^pdns_'
 then
 	printf "\n\tThe recursor is running on port 5300
 			\tWe carry on with our test procedure"
-	exit 0
 else
 	printf "\n\tRecursor not running, We stops here\n"
 	exit 1
@@ -56,7 +55,6 @@ fi
 if drill 21x.org @127.0.0.1 -p 5300 | grep -qi "NXDOMAIN"
 then
 	printf "\n\tPirated domains Response policy zone My Privacy DNS is loaded... :smiley:\n"
-	exit 0
 else
 	printf "\t\nResponse policy zone not loaded, we are done for this time\n"
 	exit 1
