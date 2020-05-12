@@ -61,10 +61,13 @@ RunFunceble () {
 
 SyntaxTest () {
 
-    cd "${TRAVIS_BUILD_DIR}/dev-tools" || exit 1
+	cd "${TRAVIS_BUILD_DIR}/dev-tools" || exit 1
 
 	printf "\n\tYou are running with SyntaxTest\n\n"
 
+	# If this MR is a removal, we check the remaining records for accidental
+	# Errors where e.g. two lines have become one etc.
+	# Therefor if no new domains $testDomains = empty, then test $testfile
 	if [ -z "${testDomains}" ]
 	then
 		data="-f ${testfile}"
@@ -80,7 +83,7 @@ SyntaxTest () {
 		--ci-distribution-branch "${TRAVIS_PULL_REQUEST_BRANCH}"  \
 		--commit-autosave-message "${version}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
 		--commit-results-message "${version}.${TRAVIS_BUILD_NUMBER}" \
-		"${data}"
+		${data}
 }
 
 printf "\n%s\n" "${data}"
