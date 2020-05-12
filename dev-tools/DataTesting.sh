@@ -73,9 +73,7 @@ SyntaxTest () {
 		--ci-distribution-branch "${TRAVIS_PULL_REQUEST_BRANCH}"  \
 		--commit-autosave-message "${version}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
 		--commit-results-message "${version}.${TRAVIS_BUILD_NUMBER}" \
-		-d "${testDomains}" | grep --quiet -F "INVALID" | \
-		  awk '{ printf("Failed domain:\n%s\n",$1) }' && exit 10 \
-		  || printf "Build succeeded, your submission is good" && exit 0
+		-d "${testDomains}"
 }
 
 debugPyfunceble () {
@@ -93,8 +91,9 @@ debugPyfunceble () {
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ] # run on pull requests
 	then
-		SyntaxTest
-	fi
+		SyntaxTest | grep --quiet -F "INVALID" | \
+		  awk '{ printf("Failed domain:\n%s\n",$1) }' && exit 1 \
+		  || printf "Build succeeded, your submission is good" && exit 0
 
 else
 	if [ "$TRAVIS_PULL_REQUEST" = "false" ] && \
