@@ -33,16 +33,20 @@ cp "${TRAVIS_BUILD_DIR}/dev-tools/recursor.lua" "/etc/powerdns/recursor.lua"
 # Since this systemd-resolved kill script also killed Travis we most change
 # the default port of the recursor.... fuck!!!!!
 
-sed -i "/local-address/d" "/etc/powerdns/recursor.conf"
+grep -vE "^(#|$)" /etc/powerdns/recursor.conf
 
-printf "local-address=0.0.0.0\nport=5300\n" >> "/etc/powerdns/recursor.conf"
+journalctl -xeu pdns_recursor -n 20
+
+#sed -i "/local-address/d" "/etc/powerdns/recursor.conf"
+
+#printf "local-address=0.0.0.0\nport=5300\n" >> "/etc/powerdns/recursor.conf"
 
 systemctl restart pdns-recursor.service
 
 # Why did recursor fail to load?
-journalctl -xeu pdns_recursor
+journalctl -xeu pdns_recursor -n 20
 
-systemctl status pdns-recursor.service | grep -iF "active (running)" >/dev/null || exit 1
+systemctl status pdns-recursor.service #| grep -iF "active (running)" >/dev/null || exit 1
 
 # Let the recursor load the RPZ zone before testing it
 sleep 5
