@@ -39,7 +39,7 @@ RunFunceble () {
 
     hash PyFunceble
 
-	printf "\n\tYou are running with default Pyfunceble\n\n"
+	printf "\n\tYou are running with RunFunceble\n\n"
 
     #if [[ -f "${pyfuncebleConfigurationFileLocation}" ]]
     #then
@@ -65,7 +65,7 @@ SyntaxTest () {
 
     hash PyFunceble
 
-	printf "\n\tYou are running with Syntax test\n\n"
+	printf "\n\tYou are running with SyntaxTest\n\n"
 
 	if [ -z "${testDomains}" ]
 	then
@@ -90,7 +90,7 @@ debugPyfunceble () {
 
     hash PyFunceble
 
-	printf "\n\tYou are running with Debug Pyfunceble\n\n"
+	printf "\n\tYou are running with debugPyfunceble\n\n"
 
     PyFunceble -a -m -p "$(nproc --ignore=1)" --share-logs \
 		--autosave-minutes 38 --idna --hierarchical \
