@@ -69,7 +69,9 @@ SyntaxTest () {
 
 	if [ -z "${testDomains}" ]
 	then
-		testDomains="${testfile}"
+		data="-f ${testfile}"
+	else
+		data="-d ${testDomains}"
 	fi
 
 	PyFunceble --ci -s -m -p "$(nproc --ignore=1)" \
@@ -78,7 +80,7 @@ SyntaxTest () {
 		--ci-distribution-branch "${TRAVIS_PULL_REQUEST_BRANCH}"  \
 		--commit-autosave-message "${version}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
 		--commit-results-message "${version}.${TRAVIS_BUILD_NUMBER}" \
-		-d "${testDomains}"
+		${data}
 }
 
 debugPyfunceble () {

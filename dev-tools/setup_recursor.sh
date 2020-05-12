@@ -33,25 +33,14 @@ cp "${TRAVIS_BUILD_DIR}/dev-tools/recursor.lua" "/etc/powerdns/recursor.lua"
 # Since this systemd-resolved kill script also killed Travis we most change
 # the default port of the recursor.... fuck!!!!!
 
-grep -vE "^(#|$)" /etc/powerdns/recursor.conf
-
-journalctl -xeu pdns_recursor -n 20
-
 sed -i "/local-address/d" "/etc/powerdns/recursor.conf"
 
 printf "local-address=0.0.0.0\nlocal-port=5300\n" >> "/etc/powerdns/recursor.conf"
 
-#printf "local-port=5300\n" >> "/etc/powerdns/recursor.conf"
-
-printf "after adding port\n\n"
-grep -vE "^(#|$)" /etc/powerdns/recursor.conf
-printf "\n\nafter adding port\n"
 systemctl restart pdns-recursor.service
 
-# Why did recursor fail to load?
-journalctl -xeu pdns_recursor -n 20
-
-systemctl status pdns-recursor.service #| grep -iF "active (running)" >/dev/null || exit 1
+systemctl status pdns-recursor.service | grep -iF "active (running)" >/dev/null \
+  || printf "\n\tRecursor failed to load\n" && exit 1
 
 # Let the recursor load the RPZ zone before testing it
 sleep 5
@@ -72,9 +61,8 @@ then
 	printf "\t\nResponse policy zone not loaded, we are done for this time"
 	exit 1
 else
-	printf "\n\tPirated domains Response policy zone from https://www.mypdns.org/ is loaded... :smiley:"
+	printf "\n\tPirated domains Response policy zone from www.mypdns.org is loaded... :smiley:"
 	exit 0
 fi
-
 
 exit ${?}
