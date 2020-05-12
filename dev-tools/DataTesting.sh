@@ -98,7 +98,7 @@ debugPyfunceble () {
 }
 
 
-if [ "$TRAVIS_PULL_REQUEST" != "false" ] # run on pull requests
+if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [[ "$(git log -1 | tail -1 | xargs)" !=~ (debug|test) ]] # run on pull requests
 then
 	SyntaxTest | grep -qF "INVALID" | \
 	  awk '{ printf("Failed domain:\n%s\n",$1) }' && exit 1 \
