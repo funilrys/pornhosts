@@ -37,31 +37,6 @@ sed -i "/local-address/d" "/etc/powerdns/recursor.conf"
 
 printf "local-address=0.0.0.0, ::\nport=5300\n" >> "/etc/powerdns/recursor.conf"
 
-#printf "port=5300\n" >> "/etc/powerdns/recursor.conf"
-
-# We need to stop the fucked up systemd-resolve before restarting the recursor
-#systemctl stop systemd-resolved
-
-# And make sure it stays down for goooooooood
-#systemctl disable systemd-resolved
-
-# To debug for further needs on killing the anoying ubuntu shit
-NetworkManager="/etc/NetworkManager/NetworkManager.conf"
-
-if [ -f "${NetworkManager}" ]
-then
-	cat "${NetworkManager}"
-else
-	if [ -d "/etc/netplan/" ]
-	then
-		ls -lh "/etc/netplan/"
-		grep "/etc/netplan/*.yml"
-
-	else
-		cat "/etc/resolve.conf"
-	fi
-fi
-
 systemctl restart pdns-recursor.service
 
 systemctl status pdns-recursor.service | grep -iF "active (running)" >/dev/null || exit 1
