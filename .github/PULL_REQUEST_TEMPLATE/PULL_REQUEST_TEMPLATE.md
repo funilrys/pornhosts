@@ -3,8 +3,7 @@ name: default
 about: Use this template to submit directly to the list and skip adding a issue first
 title: ""
 labels: NSFW Adult Material
-assignees: Clefspeare13
-reviewers: Spirillen
+assignees: Spirillen
 projects: https://github.com/orgs/Import-External-Sources/projects/2
 --- 
 
