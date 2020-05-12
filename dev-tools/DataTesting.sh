@@ -23,7 +23,7 @@ version=$(date +%Y.%m)
 testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
 debugfile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
 testDomains=$(git log --word-diff=porcelain -1 -p  -- submit_here/hosts.txt | \
-  grep -e "^+" | tail -1 | awk -F "+" '{ printf("%s ",$2) }' )
+  grep -e "^+" | tail -1 | cut -d "+" -f2 )
 
 # These shouldnt be nessesary do to "PYFUNCEBLE_AUTO_CONFIGURATION: yes" in -travis
 #pyfuncebleConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble.yaml"
@@ -103,7 +103,7 @@ then
 	  || printf "Build succeeded, your submission is good" && exit 0
 
 else
-	if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ -z "${testDomains}" ] || [[ "$(git log -1 | tail -1 | xargs)" =~ (debug|test) ]]
+	if [[ "$(git log -1 | tail -1 | xargs)" =~ (debug|test) ]]
 	then
 		debugPyfunceble
 

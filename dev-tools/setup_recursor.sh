@@ -39,8 +39,6 @@ printf "local-address=0.0.0.0\nlocal-port=5300\n" >> "/etc/powerdns/recursor.con
 
 systemctl restart pdns-recursor.service
 
-systemctl status pdns-recursor.service #| grep -iF "active (running)" >/dev/null || exit 1
-
 # Let the recursor load the RPZ zone before testing it
 sleep 5
 
