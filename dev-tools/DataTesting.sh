@@ -80,8 +80,10 @@ SyntaxTest () {
 		--ci-distribution-branch "${TRAVIS_PULL_REQUEST_BRANCH}"  \
 		--commit-autosave-message "${version}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
 		--commit-results-message "${version}.${TRAVIS_BUILD_NUMBER}" \
-		${data}
+		"${data}"
 }
+
+printf "\n%s\n" "${data}"
 
 debugPyfunceble () {
 	cd "${TRAVIS_BUILD_DIR}/dev-tools" || exit 1
@@ -100,7 +102,7 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ] # run on pull requests
 then
 	SyntaxTest | grep -qF "INVALID" | \
 	  awk '{ printf("Failed domain:\n%s\n",$1) }' && exit 1 \
-	  || printf "Build succeeded, your submission is good" && exit 0
+	  || printf "Build succeeded, your submission is good"
 
 else
 	if [[ "$(git log -1 | tail -1 | xargs)" =~ (debug|test) ]]
@@ -111,23 +113,5 @@ else
 		RunFunceble
 	fi
 fi
-
-#if [ "$TRAVIS_PULL_REQUEST" = "false" ] # run on non pull requests
-	#then
-	#RunFunceble
-
-	#else
-	#if [[ "$(DEBUG_PYFUNCEBLE|DEBUG_PYFUNCEBLE_ON_SCREEN)" = "true" ]]
-	#then
-		#debugPyfunceble
-
-	#else
-		#if [ "$TRAVIS_PULL_REQUEST" != "false" ] # run on pull requests
-		#then
-		#SyntaxTest | grep --quiet -F "INVALID" | awk '{ printf("Failed domain:\n%s\n",tolower($1)) }' && exit 10 \
-		  #|| printf "Build succeeded, your submission is good" && exit 0
-		#fi
-	#fi
-#fi
 
 exit ${?}
