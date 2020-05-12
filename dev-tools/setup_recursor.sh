@@ -30,6 +30,16 @@ curl "https://repo.powerdns.com/CBC8B383-pub.asc" | sudo apt-key add - && \
 
 cp "${TRAVIS_BUILD_DIR}/dev-tools/recursor.lua" "/etc/powerdns/recursor.lua"
 
+# We need to stop the fucked up systemd-resolve before restarting the recursor
+
+systemctl stop systemd-resolved
+
+# And make sure it stays down for goooooooood
+systemctl disable systemd-resolved
+
+# To debug for further needs on killing the anoying ubuntu shit
+cat "/etc/NetworkManager/NetworkManager.conf"
+
 systemctl restart pdns-recursor.service
 
 systemctl status pdns-recursor.service | grep -iF "active (running)" >/dev/null || exit 1
