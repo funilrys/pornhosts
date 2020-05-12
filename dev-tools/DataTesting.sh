@@ -39,13 +39,15 @@ RunFunceble () {
 
     hash PyFunceble
 
+	printf "\n\tYou are running with default Pyfunceble\n"
+
     #if [[ -f "${pyfuncebleConfigurationFileLocation}" ]]
     #then
         #rm "${pyfuncebleConfigurationFileLocation}"
         #rm "${pyfuncebleProductionConfigurationFileLocation}"
     #fi
 
-        PyFunceble --ci -q -h -m -p $(nproc --ignore=1) \
+        PyFunceble --ci -q -h -m -p "$(nproc --ignore=1)" \
 			-ex --plain --dns 127.0.0.1 \
             --autosave-minutes 38 --share-logs --http --idna --dots \
             --hierarchical --ci-branch processing \
@@ -63,10 +65,12 @@ SyntaxTest () {
 
     hash PyFunceble
 
-	PyFunceble --ci -s -m -p $(nproc --ignore=1) \
+	printf "\n\tYou are running with Syntax test\n"
+
+	PyFunceble --ci -s -m -p "$(nproc --ignore=1)" \
 		--autosave-minutes 38 --syntax \
-		--hierarchical --ci-branch ${TRAVIS_PULL_REQUEST_BRANCH} \
-		--ci-distribution-branch ${TRAVIS_PULL_REQUEST_BRANCH}  \
+		--hierarchical --ci-branch "${TRAVIS_PULL_REQUEST_BRANCH}" \
+		--ci-distribution-branch "${TRAVIS_PULL_REQUEST_BRANCH}"  \
 		--commit-autosave-message "${version}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
 		--commit-results-message "${version}.${TRAVIS_BUILD_NUMBER}" \
 		-d "${testDomains}"
@@ -77,7 +81,9 @@ debugPyfunceble () {
 
     hash PyFunceble
 
-    PyFunceble -a -m -p $(nproc --ignore=1) --share-logs \
+	printf "\n\tYou are running with Debug Pyfunceble\n"
+
+    PyFunceble -a -m -p "$(nproc --ignore=1)" --share-logs \
 		--autosave-minutes 38 --idna --hierarchical \
 		-f "${debugfile}"
 }
@@ -87,7 +93,7 @@ if [ "$TRAVIS_PULL_REQUEST" = "false" ] # run on non pull requests
 	RunFunceble
 
 	else
-	if [ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]
+	if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
 	then
 		debugPyfunceble
 
