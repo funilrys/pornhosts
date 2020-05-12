@@ -67,6 +67,11 @@ SyntaxTest () {
 
 	printf "\n\tYou are running with Syntax test\n\n"
 
+	if [ -z "${testDomains}" ]
+	then
+		testDomains="${testfile}"
+	fi
+
 	PyFunceble --ci -s -m -p "$(nproc --ignore=1)" \
 		--autosave-minutes 38 --syntax \
 		--hierarchical --ci-branch "${TRAVIS_PULL_REQUEST_BRANCH}" \
