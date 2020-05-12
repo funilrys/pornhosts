@@ -43,6 +43,9 @@ journalctl -xeu pdns_recursor -n 20
 
 printf "port=5300\n" >> "/etc/powerdns/recursor.conf"
 
+printf "after adding port\n\n"
+grep -vE "^(#|$)" /etc/powerdns/recursor.conf
+printf "\n\nafter adding port\n"
 systemctl restart pdns-recursor.service
 
 # Why did recursor fail to load?
