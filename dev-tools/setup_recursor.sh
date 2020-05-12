@@ -16,7 +16,7 @@
 set -e
 
 printf "deb [arch=amd64] http://repo.powerdns.com/ubuntu %s-rec-master main\n" \
-  "$(lsb_release -c | cut -f2)" > "/etc/apt/sources.list.d/pdns.list"
+  "$(lsb_release -cs)" > "/etc/apt/sources.list.d/pdns.list"
 
 printf "Package: pdns-*\nPin: origin repo.powerdns.com\nPin-Priority: 600" > \
   "/etc/apt/preferences.d/pdns"
@@ -46,7 +46,7 @@ sleep 5
 if lsof -i :5300 | grep -q '^pdns_'
 then
 	printf "\n\tThe recursor is running on port 5300
-		We carry on with our test procedure"
+	We carry on with our test procedure"
 else
 	printf "\n\tRecursor not running, We stops here\n"
 	exit 1
