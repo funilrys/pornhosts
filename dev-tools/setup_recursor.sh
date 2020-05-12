@@ -41,6 +41,8 @@ journalctl -xeu pdns_recursor -n 20
 
 #printf "local-address=0.0.0.0\nport=5300\n" >> "/etc/powerdns/recursor.conf"
 
+printf "port=5300\n" >> "/etc/powerdns/recursor.conf"
+
 systemctl restart pdns-recursor.service
 
 # Why did recursor fail to load?
