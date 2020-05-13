@@ -5,7 +5,7 @@ title: ""
 labels: NSFW Adult Material
 assignees: Spirillen
 projects: https://github.com/orgs/Import-External-Sources/projects/2
---- 
+---
 
 I believe this domain is an Adult(-related) domain, that have to be blocked as..
 
@@ -34,8 +34,8 @@ Related domains such as CDNs and other third party resources
 
 ## External referrals
 <!-- if you have found your submission elsewhere, Please credit it by pasting a link here --->
-- 
-- 
+-
+-
 
 ### All Submissions:
 - [ ] Have you checked to ensure there aren't other open [Merge Requests (MR)](../merge_requests) or [Issues](../issues) for the same update/change?

@@ -77,6 +77,8 @@ PrepareLists () {
  }
 PrepareLists
 
+head "${testfile}"
+
 # ***********************************
 # Deletion of all whitelisted domains
 # ***********************************
