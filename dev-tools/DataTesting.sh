@@ -48,7 +48,7 @@ RunFunceble () {
     #fi
 
         PyFunceble --ci -q -h -m -p "$(nproc --ignore=1)" \
-			-ex --plain --dns 95.216.209.53 \
+	    -ex --plain --dns 95.216.209.53 -db --database-type mariadb \
             --autosave-minutes 38 --share-logs --http --idna --dots \
             --hierarchical --ci-branch processing \
             --ci-distribution-branch master  \
