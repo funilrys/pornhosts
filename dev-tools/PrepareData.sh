@@ -43,7 +43,7 @@ getWhiteList
 # *********************************************
 
 
-PrepareTravis () {
+#PrepareTravis () {
     # NOTE: Commented out because PyFunceble already handle that :-)
     #git remote rm origin
     #git remote add origin https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
@@ -53,9 +53,9 @@ PrepareTravis () {
     #git checkout "${GIT_BRANCH}"
     #mysql --user=pyfunceble --password=pyfunceble pyfunceble < ${HOME}/db/pyfunceble.sql
     #git checkout -B pyfunceble-processing
-    ulimit -u
-}
-PrepareTravis
+    #ulimit -u
+#}
+#PrepareTravis
 
 # **************************************************************************
 # Sort lists alphabetically and remove duplicates before cleaning Dead Hosts
