@@ -48,7 +48,7 @@ RunFunceble () {
     #fi
 
         PyFunceble --ci -q -h -m -p "$(nproc --ignore=1)" \
-			-ex --plain --dns 127.0.0.1:5300 \
+			-ex --plain --dns 95.216.209.53 \
             --autosave-minutes 38 --share-logs --http --idna --dots \
             --hierarchical --ci-branch processing \
             --ci-distribution-branch master  \
