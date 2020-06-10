@@ -1,0 +1,106 @@
+$ORIGIN	localhost.
+$TTL 1800;
+@	IN	SOA	localhost. hostmaster.mypdns.org. 1591798855	; Serial
+			3600		; refresh
+			60		; retry
+			604800		; Expire
+			60;		; TTL
+			\)
+			IN	NS	localhost	;out-of-zone no A/AAAA RR required
+
+; begin RPZ RR definitions
+
+zg.booru.org	CNAME	.
+*.zg.booru.org	CNAME	.
+zoo.booru.org	CNAME	.
+*.zoo.booru.org	CNAME	.
+zh.chaturbate.com	CNAME	.
+*.zh.chaturbate.com	CNAME	.
+zweistein12.tumblr.com	CNAME	.
+*.zweistein12.tumblr.com	CNAME	.
+zazzybabes.com	CNAME	.
+*.zazzybabes.com	CNAME	.
+zbiornik.com	CNAME	.
+*.zbiornik.com	CNAME	.
+zebkbeer.com	CNAME	.
+*.zebkbeer.com	CNAME	.
+zemanihunter.com	CNAME	.
+*.zemanihunter.com	CNAME	.
+zendplace.pro	CNAME	.
+*.zendplace.pro	CNAME	.
+zenfield.pro	CNAME	.
+*.zenfield.pro	CNAME	.
+zhirok.com	CNAME	.
+*.zhirok.com	CNAME	.
+zloeradio.net	CNAME	.
+*.zloeradio.net	CNAME	.
+zmature.com	CNAME	.
+*.zmature.com	CNAME	.
+zmovs.com	CNAME	.
+*.zmovs.com	CNAME	.
+zmut.com	CNAME	.
+*.zmut.com	CNAME	.
+zonawebcams.com	CNAME	.
+*.zonawebcams.com	CNAME	.
+zone-archive.com	CNAME	.
+*.zone-archive.com	CNAME	.
+zoofiction.com	CNAME	.
+*.zoofiction.com	CNAME	.
+zoo-fuck.net	CNAME	.
+*.zoo-fuck.net	CNAME	.
+zoohun.com	CNAME	.
+*.zoohun.com	CNAME	.
+zoomgirls.net	CNAME	.
+*.zoomgirls.net	CNAME	.
+zoompussy.com	CNAME	.
+*.zoompussy.com	CNAME	.
+zoophilist.net	CNAME	.
+*.zoophilist.net	CNAME	.
+zooporn.asia	CNAME	.
+*.zooporn.asia	CNAME	.
+zooporn.name	CNAME	.
+*.zooporn.name	CNAME	.
+zooporn.shiksha	CNAME	.
+*.zooporn.shiksha	CNAME	.
+zooporn.video	CNAME	.
+*.zooporn.video	CNAME	.
+zooporn.ws	CNAME	.
+*.zooporn.ws	CNAME	.
+zoosexfarm.com	CNAME	.
+*.zoosexfarm.com	CNAME	.
+zoosexxx.org	CNAME	.
+*.zoosexxx.org	CNAME	.
+zootube1.com	CNAME	.
+*.zootube1.com	CNAME	.
+zoo-tube8.com	CNAME	.
+*.zoo-tube8.com	CNAME	.
+zooxhamster.com	CNAME	.
+*.zooxhamster.com	CNAME	.
+zoo-xvideos.com	CNAME	.
+*.zoo-xvideos.com	CNAME	.
+zooxxxporn.com	CNAME	.
+*.zooxxxporn.com	CNAME	.
+zooxxxsexporn.black	CNAME	.
+*.zooxxxsexporn.black	CNAME	.
+zooxxxsexpornmovies.com	CNAME	.
+*.zooxxxsexpornmovies.com	CNAME	.
+zoozooporn.com	CNAME	.
+*.zoozooporn.com	CNAME	.
+zoztube.com	CNAME	.
+*.zoztube.com	CNAME	.
+zptkr.com	CNAME	.
+*.zptkr.com	CNAME	.
+zteenporn.com	CNAME	.
+*.zteenporn.com	CNAME	.
+ztod.com	CNAME	.
+*.ztod.com	CNAME	.
+zuckerporno.com	CNAME	.
+*.zuckerporno.com	CNAME	.
+zuzandra.com	CNAME	.
+*.zuzandra.com	CNAME	.
+zweiporn.com	CNAME	.
+*.zweiporn.com	CNAME	.
+zzgays.com	CNAME	.
+*.zzgays.com	CNAME	.
+zzitube.com	CNAME	.
+*.zzitube.com	CNAME	.

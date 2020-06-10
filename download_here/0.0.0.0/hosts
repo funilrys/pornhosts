@@ -1,0 +1,90 @@
+# Last Updated: 2020-06-10 14:20:53 +0000 (UTC) Build: build: 2482
+# Porn Hosts Count: 47
+#
+# Clefspeare13 pornhostss
+# This is a custom hosts file with all the porn sites I could find.
+#
+# Domains with no duplicates. Note that www.* versions of domains and
+# regular versions of the domain are resolved separately and must therefore 
+# both be present.
+#
+# Project home page:
+# https://github.com/Import-External-Sources/pornhosts
+#
+# Fetch the latest version of this file:
+# https://raw.githubusercontent.com/Import-External-Sources/pornhosts/master/download_here/0.0.0.0/hosts
+# https://raw.githubusercontent.com/Import-External-Sources/pornhosts/master/download_here/127.0.0.1/hosts
+#
+# With Safe search enabled
+# https://raw.githubusercontent.com/Import-External-Sources/pornhosts/master/download_here/safesearch/0.0.0.0/hosts
+# https://raw.githubusercontent.com/Import-External-Sources/pornhosts/master/download_here/safesearch/127.0.0.1/hosts
+#
+# License:
+# MIT (https://github.com/Import-External-Sources/pornhosts/blob/master/LICENSE)
+#
+# Contributions by:
+# @Spirillen: https://github.com/spirillen
+# Niclas (@Clefspeare13): https://github.com/Clefspeare13
+# Further changes and contributors maintained in the commit history at
+# https://github.com/Import-External-Sources/pornhosts/commits/master
+#
+# Contribute:
+# Create an issue at https://github.com/Clefspeare13/pornhosts/issues
+#
+
+# localhost
+127.0.0.1 local
+127.0.0.1 localhost
+127.0.0.1 localhost.localdomain
+255.255.255.255 broadcasthost
+::1 localhost
+fe80::1%lo0 localhost
+
+
+0.0.0.0 zg.booru.org
+0.0.0.0 zoo.booru.org
+0.0.0.0 zh.chaturbate.com
+0.0.0.0 zweistein12.tumblr.com
+0.0.0.0 zazzybabes.com
+0.0.0.0 zbiornik.com
+0.0.0.0 zebkbeer.com
+0.0.0.0 zemanihunter.com
+0.0.0.0 zendplace.pro
+0.0.0.0 zenfield.pro
+0.0.0.0 zhirok.com
+0.0.0.0 zloeradio.net
+0.0.0.0 zmature.com
+0.0.0.0 zmovs.com
+0.0.0.0 zmut.com
+0.0.0.0 zonawebcams.com
+0.0.0.0 zone-archive.com
+0.0.0.0 zoofiction.com
+0.0.0.0 zoo-fuck.net
+0.0.0.0 zoohun.com
+0.0.0.0 zoomgirls.net
+0.0.0.0 zoompussy.com
+0.0.0.0 zoophilist.net
+0.0.0.0 zooporn.asia
+0.0.0.0 zooporn.name
+0.0.0.0 zooporn.shiksha
+0.0.0.0 zooporn.video
+0.0.0.0 zooporn.ws
+0.0.0.0 zoosexfarm.com
+0.0.0.0 zoosexxx.org
+0.0.0.0 zootube1.com
+0.0.0.0 zoo-tube8.com
+0.0.0.0 zooxhamster.com
+0.0.0.0 zoo-xvideos.com
+0.0.0.0 zooxxxporn.com
+0.0.0.0 zooxxxsexporn.black
+0.0.0.0 zooxxxsexpornmovies.com
+0.0.0.0 zoozooporn.com
+0.0.0.0 zoztube.com
+0.0.0.0 zptkr.com
+0.0.0.0 zteenporn.com
+0.0.0.0 ztod.com
+0.0.0.0 zuckerporno.com
+0.0.0.0 zuzandra.com
+0.0.0.0 zweiporn.com
+0.0.0.0 zzgays.com
+0.0.0.0 zzitube.com

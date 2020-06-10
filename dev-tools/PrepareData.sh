@@ -19,9 +19,9 @@
 
 # Type the url of source here
 #SOURCE=""
-input1="${TRAVIS_BUILD_DIR}/submit_here/hosts.txt"
+hostsFile="${TRAVIS_BUILD_DIR}/submit_here/hosts.txt"
 snuff="${TRAVIS_BUILD_DIR}/submit_here/snuff.txt"
-testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
+testFile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
 
 # This following should be replaced by a local whitelist
 
@@ -65,19 +65,19 @@ PrepareLists () {
 
     mkdir -p "${TRAVIS_BUILD_DIR}/PULL_REQUESTS/"
 
-    cat "${snuff}" >> "${testfile}"
-    cat "${input1}" >> "${testfile}"
+    cat "${snuff}" >> "${testFile}"
+    cat "${hostsFile}" >> "${testFile}"
 
-    sort -u -f "${input1}" -o "${input1}"
+    sort -u -f "${hostsFile}" -o "${hostsFile}"
     sort -u -f "${snuff}" -o "${snuff}"
-    sort -u -f "${testfile}" -o "${testfile}"
+    sort -u -f "${testFile}" -o "${testFile}"
 
-    dos2unix "${testfile}"
+    dos2unix "${testFile}"
 
  }
 PrepareLists
 
-head "${testfile}"
+head "${testFile}"
 
 # ***********************************
 # Deletion of all whitelisted domains
@@ -87,8 +87,8 @@ WhiteListing () {
 if [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
 	then
 		hash uhb_whitelist
-		mv "${testfile}" "${testfile}.tmp.txt"
-		uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testfile}"
+		mv "${testFile}" "${testFile}.tmp.txt"
+		uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testFile}"
 fi
 }
 WhiteListing

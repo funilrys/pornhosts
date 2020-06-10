@@ -1,0 +1,90 @@
+# Last Updated: 2020-06-10 14:20:53 +0000 (UTC) Build: build: 2482
+# Porn Hosts Count: 47
+#
+# Clefspeare13 pornhostss
+# This is a custom hosts file with all the porn sites I could find.
+#
+# Domains with no duplicates. Note that www.* versions of domains and
+# regular versions of the domain are resolved separately and must therefore 
+# both be present.
+#
+# Project home page:
+# https://github.com/Import-External-Sources/pornhosts
+#
+# Fetch the latest version of this file:
+# https://raw.githubusercontent.com/Import-External-Sources/pornhosts/master/download_here/0.0.0.0/hosts
+# https://raw.githubusercontent.com/Import-External-Sources/pornhosts/master/download_here/127.0.0.1/hosts
+#
+# With Safe search enabled
+# https://raw.githubusercontent.com/Import-External-Sources/pornhosts/master/download_here/safesearch/0.0.0.0/hosts
+# https://raw.githubusercontent.com/Import-External-Sources/pornhosts/master/download_here/safesearch/127.0.0.1/hosts
+#
+# License:
+# MIT (https://github.com/Import-External-Sources/pornhosts/blob/master/LICENSE)
+#
+# Contributions by:
+# @Spirillen: https://github.com/spirillen
+# Niclas (@Clefspeare13): https://github.com/Clefspeare13
+# Further changes and contributors maintained in the commit history at
+# https://github.com/Import-External-Sources/pornhosts/commits/master
+#
+# Contribute:
+# Create an issue at https://github.com/Clefspeare13/pornhosts/issues
+#
+
+# localhost
+127.0.0.1 local
+127.0.0.1 localhost
+127.0.0.1 localhost.localdomain
+255.255.255.255 broadcasthost
+::1 localhost
+fe80::1%lo0 localhost
+
+
+127.0.0.1 zg.booru.org
+127.0.0.1 zoo.booru.org
+127.0.0.1 zh.chaturbate.com
+127.0.0.1 zweistein12.tumblr.com
+127.0.0.1 zazzybabes.com
+127.0.0.1 zbiornik.com
+127.0.0.1 zebkbeer.com
+127.0.0.1 zemanihunter.com
+127.0.0.1 zendplace.pro
+127.0.0.1 zenfield.pro
+127.0.0.1 zhirok.com
+127.0.0.1 zloeradio.net
+127.0.0.1 zmature.com
+127.0.0.1 zmovs.com
+127.0.0.1 zmut.com
+127.0.0.1 zonawebcams.com
+127.0.0.1 zone-archive.com
+127.0.0.1 zoofiction.com
+127.0.0.1 zoo-fuck.net
+127.0.0.1 zoohun.com
+127.0.0.1 zoomgirls.net
+127.0.0.1 zoompussy.com
+127.0.0.1 zoophilist.net
+127.0.0.1 zooporn.asia
+127.0.0.1 zooporn.name
+127.0.0.1 zooporn.shiksha
+127.0.0.1 zooporn.video
+127.0.0.1 zooporn.ws
+127.0.0.1 zoosexfarm.com
+127.0.0.1 zoosexxx.org
+127.0.0.1 zootube1.com
+127.0.0.1 zoo-tube8.com
+127.0.0.1 zooxhamster.com
+127.0.0.1 zoo-xvideos.com
+127.0.0.1 zooxxxporn.com
+127.0.0.1 zooxxxsexporn.black
+127.0.0.1 zooxxxsexpornmovies.com
+127.0.0.1 zoozooporn.com
+127.0.0.1 zoztube.com
+127.0.0.1 zptkr.com
+127.0.0.1 zteenporn.com
+127.0.0.1 ztod.com
+127.0.0.1 zuckerporno.com
+127.0.0.1 zuzandra.com
+127.0.0.1 zweiporn.com
+127.0.0.1 zzgays.com
+127.0.0.1 zzitube.com
