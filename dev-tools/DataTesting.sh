@@ -50,8 +50,8 @@ RunFunceble () {
         PyFunceble --ci -q -h -m -p "$(nproc --ignore=1)" \
 	    -ex --plain --dns 95.216.209.53 127.0.0.1:5300 8.8.8.8 8.8.4.4 -db --database-type mariadb \
             --autosave-minutes 38 --share-logs --http --idna --dots \
-            --hierarchical --ci-branch master \
-            --ci-distribution-branch master  \
+            --hierarchical --ci-branch "${TRAVIS_BRANCH}" \
+            --ci-distribution-branch "${TRAVIS_BRANCH}" \
             --commit-autosave-message "V1.${version}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
             --commit-results-message "V1.${version}.${TRAVIS_BUILD_NUMBER}" \
             --cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
