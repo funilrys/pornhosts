@@ -1,4 +1,7 @@
-dist: bionic
+#dist: bionic
+os: linux
+  - arch: ppc64le
+  - dist: bionic
 language: generic #python
 #python:
 #- '3.8'
