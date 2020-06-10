@@ -20,14 +20,10 @@ version=$(date +%Y.%m)
 # ******************
 # Set our Input File
 # ******************
-#testFile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
-testFile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
+testFile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
+#testFile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
 testDomains=$(git log --word-diff=porcelain -1 -p  -- submit_here/hosts.txt | \
   grep -e "^+" | tail -1 | cut -d "+" -f2 )
-
-# These shouldnt be nessesary do to "PYFUNCEBLE_AUTO_CONFIGURATION: yes" in -travis
-#pyfuncebleConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble.yaml"
-#pyfuncebleProductionConfigurationFileLocation="${TRAVIS_BUILD_DIR}/dev-tools/.PyFunceble_production.yaml"
 
 RunFunceble () {
 
@@ -40,12 +36,6 @@ RunFunceble () {
     hash PyFunceble
 
 	printf "\n\tYou are running with RunFunceble\n\n"
-
-    #if [[ -f "${pyfuncebleConfigurationFileLocation}" ]]
-    #then
-        #rm "${pyfuncebleConfigurationFileLocation}"
-        #rm "${pyfuncebleProductionConfigurationFileLocation}"
-    #fi
 
         PyFunceble --ci -q -h -m -p "$(nproc --ignore=1)" \
 	    -ex --plain --dns 95.216.209.53 127.0.0.1:5300 8.8.8.8 8.8.4.4 -db --database-type mariadb \
