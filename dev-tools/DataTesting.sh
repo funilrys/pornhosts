@@ -20,8 +20,8 @@ version=$(date +%Y.%m)
 # ******************
 # Set our Input File
 # ******************
-testfile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
-debugfile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
+#testFile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
+testFile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
 testDomains=$(git log --word-diff=porcelain -1 -p  -- submit_here/hosts.txt | \
   grep -e "^+" | tail -1 | cut -d "+" -f2 )
 
@@ -34,7 +34,7 @@ RunFunceble () {
     #yeartag="$(date +%Y)"
     #monthtag="$(date +%m)"
 
-    ulimit -u
+    #ulimit -u
     cd "${TRAVIS_BUILD_DIR}/dev-tools" || exit 1
 
     hash PyFunceble
@@ -55,7 +55,7 @@ RunFunceble () {
             --commit-autosave-message "V1.${version}.${TRAVIS_BUILD_NUMBER} [Auto Saved]" \
             --commit-results-message "V1.${version}.${TRAVIS_BUILD_NUMBER}" \
             --cmd-before-end "bash ${TRAVIS_BUILD_DIR}/dev-tools/FinalCommit.sh" \
-            -f "${debugfile}"
+            -f "${testFile}"
 
 }
 RunFunceble
