@@ -237,6 +237,4 @@ printf "\$ORIGIN\tlocalhost.
 
 awk '{ printf("%s\tCNAME\t.\n*.%s\tCNAME\t.\n",tolower($1),tolower($1)) }' "${rawlist}" >> "${rpz}"
 
-git add .
-
 exit ${?}
