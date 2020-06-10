@@ -1,6 +1,6 @@
 $ORIGIN	localhost.
 $TTL 1800;
-\@	IN	SOA	localhost. hostmaster.mypdns.org. 1591754086	; Serial
+\@	IN	SOA	localhost. hostmaster.mypdns.org. 1591755757	; Serial
 			3600		; refresh
 			60		; retry
 			604800		; Expire
@@ -317,10 +317,10 @@ access.hollyrandall.com	CNAME	.
 *.403.hqhost.net	CNAME	.
 404.hqhost.net	CNAME	.
 *.404.hqhost.net	CNAME	.
-access.metart.com	CNAME	.
-*.access.metart.com	CNAME	.
 access.met-art.com	CNAME	.
 *.access.met-art.com	CNAME	.
+access.metart.com	CNAME	.
+*.access.metart.com	CNAME	.
 adimages.myjizztube.com	CNAME	.
 *.adimages.myjizztube.com	CNAME	.
 2chickssametime.naughtyamerica.com	CNAME	.

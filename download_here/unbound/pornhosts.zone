@@ -153,8 +153,8 @@ local-zone: "4.goldencdn.com" always_nxdomain
 local-zone: "access.hollyrandall.com" always_nxdomain
 local-zone: "403.hqhost.net" always_nxdomain
 local-zone: "404.hqhost.net" always_nxdomain
-local-zone: "access.metart.com" always_nxdomain
 local-zone: "access.met-art.com" always_nxdomain
+local-zone: "access.metart.com" always_nxdomain
 local-zone: "adimages.myjizztube.com" always_nxdomain
 local-zone: "2chickssametime.naughtyamerica.com" always_nxdomain
 local-zone: "404.online.net" always_nxdomain
