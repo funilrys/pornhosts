@@ -22,7 +22,7 @@
 # ***********************************************************
 # echo Remove our inactive and invalid domains from PULL_REQUESTS
 # ***********************************************************
-set -e -x -v
+set -e #-x -v
 
 printf "\n\tRunning FinalCommit.sh\n"
 
