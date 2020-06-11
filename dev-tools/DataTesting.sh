@@ -22,8 +22,6 @@ version=$(date +%Y.%m)
 # ******************
 testFile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
 #testFile="${TRAVIS_BUILD_DIR}/dev-tools/debug.list"
-testDomains=$(git log --word-diff=porcelain -1 -p  -- submit_here/hosts.txt | \
-  grep -e "^+" | tail -1 | cut -d "+" -f2 )
 
 RunFunceble () {
 
