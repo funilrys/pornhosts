@@ -26,7 +26,7 @@ testFile="${TRAVIS_BUILD_DIR}/PULL_REQUESTS/domains.txt"
 # Sort lists alphabetically and remove duplicates before cleaning Dead Hosts
 # **************************************************************************
 getNewList () {
-	dig +noidnin +noidnout axfr @35.156.219.71 -p 53 porn.host.srv \
+	drill axfr @35.156.219.71 -p 53 porn.host.srv \
 	  | grep -vE "^(;|$|\*)" | sed -e 's/porn\.host\.srv\.//g' \
 	  | awk '{ printf ("%s\n",tolower($1))}' \
 	  | sed -e 's/\.$//g' > "${testFile}"
