@@ -50,7 +50,7 @@ install:
   - python --version --version
   - pip --version
   - conda --version
-  - pip remove -yq pyfunceble-dev
+  - pip uninstall -yq pyfunceble-dev
   - pip install --upgrade pyfunceble-dev ultimate-hosts-blacklist-whitelist dnspython[dnssec,idna]
   #- pip3 install git+https://github.com/funilrys/PyFunceble.git@dev
 
