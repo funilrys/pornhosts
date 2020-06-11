@@ -52,7 +52,7 @@ getWhiteList () {
 WhiteListing () {
 	hash uhb_whitelist
 	mv "${testFile}" "${testFile}.tmp.txt"
-	uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testFile}"
+	uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testFile}.tmp.txt" -o "${testFile}"
 }
 
 if ! [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
