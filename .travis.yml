@@ -3,7 +3,7 @@ dist: bionic
 language: generic #python
 
 cache:
-  pip: false
+  pip: true
   directories:
   - "$HOME/db/"
 
