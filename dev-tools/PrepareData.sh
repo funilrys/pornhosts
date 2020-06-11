@@ -55,7 +55,7 @@ WhiteListing () {
 	uhb_whitelist -wc -m -p $(nproc --ignore=1) -w "${WhiteList}" -f "${testfile}.tmp.txt" -o "${testFile}"
 }
 
-if [[ "$(git log -1 | tail -1 | xargs)" ! =~ "auto" ]]
+if ! [[ "$(git log -1 | tail -1 | xargs)" =~ "ci skip" ]]
 	then
 	getNewList && \
 	  getWhiteList && \
