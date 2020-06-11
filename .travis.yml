@@ -46,9 +46,9 @@ install:
   - python --version --version
   - pip --version
   - conda --version
-  #- conda install -c conda-forge -c pyfunceble pyfunceble-dev
-  - pip install --upgrade ultimate-hosts-blacklist-whitelist dnspython[dnssec,idna]
-  - pip install git+https://github.com/funilrys/PyFunceble.git@dev
+  - pip uninstall -y pyfunceble pyfunceble-dev 
+  - pip install --no-cache-dir --upgrade pyfunceble-dev ultimate-hosts-blacklist-whitelist dnspython[dnssec,idna]
+  #- pip install git+https://github.com/funilrys/PyFunceble.git@dev
   - rm miniconda.sh
 
 git:
