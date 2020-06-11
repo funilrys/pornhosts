@@ -34,12 +34,8 @@ addons:
 
 install:
   - sudo bash "${TRAVIS_BUILD_DIR}/dev-tools/setup_recursor.sh"
-  # Test of pdns-recursor
-  #- sleep 5 # Let the recursor load the RPZ zone before testing it
-  #- sudo lsof -i :5300 # Who is actually listening on port 53
-  #- drill @127.0.0.1 21x.org -p 5300
   - export PATH="${HOME}/miniconda/bin:${PATH}"
-  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda.sh; else wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh; fi
+  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda.sh; else wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh; fi
   - bash miniconda.sh -b -p ${HOME}/miniconda
   - hash -r
   - conda config --set always_yes yes --set changeps1 no
