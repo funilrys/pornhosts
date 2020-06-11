@@ -3,7 +3,7 @@ dist: bionic
 language: generic #python
 
 cache:
-  pip: true
+  pip: false
   directories:
   - "$HOME/db/"
 
@@ -50,9 +50,8 @@ install:
   - python --version --version
   - pip --version
   - conda --version
-  - pip uninstall -yq pyfunceble-dev
-  - pip install --upgrade pyfunceble-dev ultimate-hosts-blacklist-whitelist dnspython[dnssec,idna]
-  #- pip3 install git+https://github.com/funilrys/PyFunceble.git@dev
+  #- pip install --upgrade pyfunceble-dev ultimate-hosts-blacklist-whitelist dnspython[dnssec,idna]
+  - pip install git+https://github.com/funilrys/PyFunceble.git@dev
 
 git:
   depth: 2
