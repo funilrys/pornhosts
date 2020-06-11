@@ -13,6 +13,8 @@
 # Please forward any additions, corrections or comments by logging an issue at
 # https://gitlab.com/my-privacy-dns/support/issues
 
+set -e -x
+
 # **********************************
 # Setup input bots and referer lists
 # **********************************
