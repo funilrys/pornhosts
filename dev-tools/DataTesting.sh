@@ -34,6 +34,8 @@ RunFunceble () {
     hash PyFunceble
 
 	printf "\n\tYou are running with RunFunceble\n\n"
+	
+	PyFunceble --version
 
         PyFunceble --ci -q -h -m -p "$(nproc --ignore=1)" \
 	    -ex --plain --dns 95.216.209.53 127.0.0.1:5300 8.8.8.8 8.8.4.4 -db --database-type mariadb \
